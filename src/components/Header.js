@@ -26,9 +26,9 @@ const Header = () => {
   ];
 
   const worksDropdownItems = [
-    { name: 'Completed Projects', path: '/completed-projects', icon: '✅' },
-    { name: 'Ongoing Projects', path: '/ongoing-projects', icon: '🚧' },
-    { name: 'Upcoming Projects', path: '/upcoming-projects', icon: '🏗️' }
+    { name: 'Completed Projects', path: '/completed-projects'},
+    { name: 'Ongoing Projects', path: '/ongoing-projects' },
+    { name: 'Upcoming Projects', path: '/upcoming-projects' }
   ];
 
   // Helper function to determine if nav item should be active

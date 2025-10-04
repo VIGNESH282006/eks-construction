@@ -101,12 +101,9 @@
 
 .dropdown-link:hover {
   background-color: rgba(40, 167, 69, 0.1); /* Light green hover */
-  color: #28a745;
+  color: #065bf9;
 }
 
-.dropdown-icon {
-  font-size: 1rem;
-}
 
 /* Hamburger Menu */
 .hamburger {
