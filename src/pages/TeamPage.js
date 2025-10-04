@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import TeamSection from '../components/TeamSection';
-import ContactForm from '../components/ContactForm';
 import '../styles/TeamPage.css';
 
 const TeamPage = () => {
@@ -39,8 +38,6 @@ const TeamPage = () => {
       {/* Team Section */}
       <TeamSection />
 
-      {/* Contact Form */}
-      <ContactForm />
     </motion.div>
   );
 };

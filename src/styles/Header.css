@@ -164,12 +164,31 @@
 
 /* Show hamburger and hide desktop nav on tablet and smaller */
 @media (max-width: 1024px) {
+  .close-mobile-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2.2rem;
+    color: #333;
+    cursor: pointer;
+    z-index: 1001;
+    transition: color 0.2s;
+  }
+
+  .close-mobile-menu:hover {
+    color: #28a745;
+  }
+
   .hamburger {
     display: flex !important;
   }
+
   .nav-desktop {
     display: none !important;
   }
+
   .header-logo img {
     border-radius: 10px;
     margin-right: 0;
@@ -180,6 +199,7 @@
 
 /* Hide mobile nav and overlay on screens wider than 1024px */
 @media (min-width: 1025px) {
+
   .nav-mobile,
   .mobile-overlay {
     display: none !important;
@@ -194,6 +214,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.599) 0%, rgba(0,0,0,0.1) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.599) 0%, rgba(0, 0, 0, 0.1) 100%);
   z-index: -1;
 }

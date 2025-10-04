@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import HeroSection from '../components/HeroSection';
 import HomeSection from '../components/HomeSection';
 import ContactSection from '../components/ContactSection';
-import ContactForm from '../components/ContactForm';
 
 const HomePage = () => {
   return (
@@ -16,7 +15,6 @@ const HomePage = () => {
       <HeroSection />
       <HomeSection />
       <ContactSection />
-      <ContactForm />
     </motion.div>
   );
 };

@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import PackageCards from '../components/PackageCards';
 import CostCalculator from '../components/CostCalculator';
-import ContactForm from '../components/ContactForm';
 import '../styles/PackagesPage.css';
 
 const PackagesPage = () => {
@@ -42,7 +41,6 @@ const PackagesPage = () => {
       <CostCalculator />
 
       {/* Contact Form */}
-      <ContactForm />
     </motion.div>
   );
 };

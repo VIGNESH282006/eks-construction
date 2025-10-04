@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import ProjectsSection from '../components/ProjectsSection';
-import ContactForm from '../components/ContactForm';
 import '../styles/ProjectsPage.css';
 
 const CompletedProjectsPage = () => {
@@ -126,8 +125,6 @@ const CompletedProjectsPage = () => {
       {/* Projects Section */}
       <ProjectsSection projects={completedProjects} type="completed" />
 
-      {/* Contact Form */}
-      <ContactForm />
     </motion.div>
   );
 };

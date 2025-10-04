@@ -3,21 +3,11 @@
   position: relative;
 }
 
-.about-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 4px;
-  background: linear-gradient(90deg, #4169E1, #FF4444);
-  border-radius: 2px;
-}
+
 
 .about-container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 4rem auto;
   padding: 0 2rem;
 }
 
@@ -38,6 +28,8 @@
 }
 
 .about-text p {
+  text-align: justify;
+  text-justify: inter-word;
   color: #666;
   font-size: 1.1rem;
   line-height: 1.7;
@@ -158,6 +150,8 @@
 }
 
 .Our-Vision p, .Our-Mission p {
+  text-align: justify;
+  text-justify: inter-word;
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 0;

@@ -10,13 +10,11 @@ const Header = () => {
 
   const navItems = [
     { name: 'HOME', path: '/' },
-    { name: 'ABOUT', path: '/about' },
     { name: 'SERVICES', path: '/services' },
     { name: 'INTERIOR', path: '/interior' },
     { name: 'PACKAGES', path: '/packages' },
     { name: 'OUR WORKS', path: '/our-works' }, // Changed from dropdown to direct navigation
     { name: 'OUR TEAM', path: '/our-team' },
-    { name: 'WHY CHOOSE US', path: '/why-choose-us' },
     { name: 'CAREERS', path: '/careers' },
     { name: 'CONTACT', path: '/contact' }
   ];
@@ -25,10 +23,10 @@ const Header = () => {
   const isActive = (item) => {
     // Check if current path matches the item path or is a sub-route of projects
     if (item.path === '/our-works') {
-      return currentPath === '/our-works' || 
-             currentPath === '/completed-projects' ||
-             currentPath === '/ongoing-projects' ||
-             currentPath === '/upcoming-projects';
+      return currentPath === '/our-works' ||
+        currentPath === '/completed-projects' ||
+        currentPath === '/ongoing-projects' ||
+        currentPath === '/upcoming-projects';
     }
     return item.path === currentPath;
   };
@@ -59,6 +57,14 @@ const Header = () => {
 
         {/* Mobile navigation */}
         <nav className={`nav-mobile ${mobileMenuOpen ? 'open' : ''}`}>
+          {/* Close button */}
+          <button
+            className="close-mobile-menu"
+            aria-label="Close menu"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            &times;
+          </button>
           <ul className="mobile-nav-list">
             {navItems.map(item => (
               <li key={item.name} className="mobile-nav-item">
@@ -73,6 +79,7 @@ const Header = () => {
             ))}
           </ul>
         </nav>
+
 
         {/* Desktop navigation */}
         <nav className="nav-desktop">

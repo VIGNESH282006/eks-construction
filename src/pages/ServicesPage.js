@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import ServicesSection from '../components/ServicesSection';
-import ContactForm from '../components/ContactForm';
 import '../styles/ServicesPage.css';
 
 const ServicesPage = () => {
@@ -38,7 +37,6 @@ const ServicesPage = () => {
       <ServicesSection />
 
       {/* Contact Form */}
-      <ContactForm />
     </motion.div>
   );
 };

@@ -5,7 +5,6 @@ import InteriorSection from '../components/InteriorSection';
 import InteriorServices from '../components/InteriorServices';
 import InteriorProcess from '../components/InteriorProcess';
 import InteriorGallery from '../components/InteriorGallery';
-import ContactForm from '../components/ContactForm';
 import '../styles/InteriorPage.css';
 
 const InteriorPage = () => {
@@ -66,8 +65,6 @@ const InteriorPage = () => {
       {/* Interior Gallery */}
       <InteriorGallery />
 
-      {/* Contact Form */}
-      <ContactForm />
     </motion.div>
   );
 };

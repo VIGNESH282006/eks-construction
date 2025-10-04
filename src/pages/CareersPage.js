@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import CareersSection from '../components/CareersSection';
-import ContactForm from '../components/ContactForm';
 import '../styles/CareersPage.css';
 
 const CareersPage = () => {
@@ -39,8 +38,6 @@ const CareersPage = () => {
       {/* Careers Section */}
       <CareersSection />
 
-      {/* Contact Form */}
-      <ContactForm />
     </motion.div>
   );
 };

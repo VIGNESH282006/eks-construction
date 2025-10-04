@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import WhyChooseUsSection from '../components/WhyChooseUsSection';
-import ContactForm from '../components/ContactForm';
 import '../styles/WhyChooseUsPage.css';
 
 const WhyChooseUsPage = () => {
@@ -39,8 +38,6 @@ const WhyChooseUsPage = () => {
       {/* Why Choose Us Section */}
       <WhyChooseUsSection />
 
-      {/* Contact Form */}
-      <ContactForm />
     </motion.div>
   );
 };

@@ -4,6 +4,9 @@ import eksGroupImage from '../assets/images/eks-group.jpg';
 import civil from '../assets/images/civil.png';
 import electrical from '../assets/images/electrical.png';
 import mech from '../assets/images/mech.png';
+import { motion } from 'framer-motion';
+import AboutSection from '../components/AboutSection';
+import WhyChooseUs from '../components/WhyChooseUs';
 
 const HomePage = () => {
   const [activeService, setActiveService] = useState(0);
@@ -39,7 +42,7 @@ const HomePage = () => {
     },
     {
       id: 'mechanical-works',
-      title: 'Mechanical Works',
+      title: 'Interior',
       subtitle: 'HVAC & Infrastructure', 
       description: 'Advanced mechanical systems installation and maintenance for optimal building performance. Complete HVAC solutions and mechanical infrastructure.',
       buttonText: 'Explore mechanical works',
@@ -114,6 +117,8 @@ const HomePage = () => {
         </div>
       </section>
 
+
+
       {/* Values Section */}
       <section className="values-section">
         <h3>Our Core Values</h3>
@@ -141,6 +146,17 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+      <motion.div
+       initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}>
+
+        <AboutSection />
+        <WhyChooseUs />
+      </motion.div>
+
+
 
       {/* What We Offer Hero Section */}
       <section className="what-we-offer-hero" id="services">
