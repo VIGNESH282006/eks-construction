@@ -28,7 +28,7 @@ const WhyChooseUsPage = () => {
           <h1>Why Choose Us?</h1>
           <p>Looking To Construct A Home? Find Out What It Costs</p>
           <div className="hero-description">
-            <p>At EKS Construction, we don't just build structures—we build trust, quality, 
+            <p>At eks Construction, we don't just build structures—we build trust, quality, 
             and long-term relationships. Discover why we are the preferred choice for clients 
             across the construction industry.</p>
           </div>

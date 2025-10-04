@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-section company-info">
-          <h3>EKS Construction</h3>
+          <h3 className="hero-title">e<span style={{ color: 'red' }}>k</span>s Construction</h3>
           <p className="footer-tagline">Feel the happiness in your Home</p>
           <p className="footer-description">
             Home Construction Experts | Best Building Contractors

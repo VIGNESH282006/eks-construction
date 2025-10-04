@@ -55,6 +55,7 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   line-height: 1.2;
   animation: fadeInUp 1s ease-out;
+  color: rgba(0, 0, 255, 0.584);
 }
 
 .hero-subtitle {

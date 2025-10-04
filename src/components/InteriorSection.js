@@ -68,9 +68,9 @@ const InteriorSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2>Why Choose EKS Construction for Interior Design?</h2>
+          <h2>Why Choose eks Construction for Interior Design?</h2>
           <p className="intro-text">
-            Your home is more than just a space—it's a reflection of who you are. At EKS Construction, 
+            Your home is more than just a space—it's a reflection of who you are. At eks Construction, 
             we understand that great interior design goes beyond beautiful aesthetics. It's about creating 
             spaces that enhance your daily life, boost your mood, and tell your unique story.
           </p>
@@ -133,7 +133,7 @@ const InteriorSection = () => {
             <div className="philosophy-text">
               <h3>Our Design Philosophy</h3>
               <p>
-                At EKS Construction, we believe that exceptional interior design is born from the perfect 
+                At eks Construction, we believe that exceptional interior design is born from the perfect 
                 balance of beauty and functionality. We don't just follow trends—we create timeless spaces 
                 that evolve with you and your lifestyle.
               </p>

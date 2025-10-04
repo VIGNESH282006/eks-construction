@@ -121,7 +121,7 @@ const WhyChooseUs = () => {
     <section className="why-choose-section">
       <div className="why-choose-container">
         <div className="section-header">
-          <h2>Why Choose EKS Construction?</h2>
+          <h2>Why Choose eks Construction?</h2>
           <p>Feel the happiness in your Home with our expert services</p>
         </div>
         

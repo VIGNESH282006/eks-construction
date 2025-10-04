@@ -81,9 +81,9 @@ const WhyChooseUsSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2>Why Choose EKS Construction?</h2>
+          <h2>Why Choose eks Construction?</h2>
           <p className="section-description">
-            At <strong>EKS Construction</strong>, we don't just build structures—we build trust, quality, 
+            At <strong>eks Construction</strong>, we don't just build structures—we build trust, quality, 
             and long-term relationships. Here's why we are the preferred choice for clients across the industry:
           </p>
         </motion.div>
@@ -126,7 +126,7 @@ const WhyChooseUsSection = () => {
           transition={{ delay: 0.6, duration: 0.6 }}
         >
           <div className="cta-content">
-            <h3>Let EKS Construction be your trusted partner in building a strong and lasting future.</h3>
+            <h3>Let eks Construction be your trusted partner in building a strong and lasting future.</h3>
             <p>📞 Contact us today to discuss your next project!</p>
             <motion.button 
               className="cta-button"

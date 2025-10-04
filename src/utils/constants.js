@@ -1,5 +1,5 @@
 export const COMPANY_INFO = {
-  name: 'EKS Construction',
+  name: 'eks Construction',
   tagline: 'Feel the happiness in your Home',
   description: 'Home Construction Experts | Best Building Contractors',
   phone: '+91 98765 43210',

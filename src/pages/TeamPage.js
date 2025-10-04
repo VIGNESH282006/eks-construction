@@ -28,7 +28,7 @@ const TeamPage = () => {
           <h1>Meet Our Expert Team</h1>
           <p>The talented professionals who make your construction dreams come true</p>
           <div className="hero-description">
-            <p>At EKS Construction, our success is built on the expertise, dedication, and passion of our team members. 
+            <p>At eks Construction, our success is built on the expertise, dedication, and passion of our team members. 
             Each professional brings unique skills and experience to ensure that every project meets our high standards 
             of quality and client satisfaction.</p>
           </div>

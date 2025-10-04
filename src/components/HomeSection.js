@@ -82,7 +82,7 @@ const HomePage = () => {
             <div className="about-visual">
               <img
                 src={eksGroupImage}
-                alt="EKS Construction Group"
+                alt="eks Construction Group"
                 className="about-image"
                 onError={(e) => {
                   console.log('Image failed to load:', e.target.src);

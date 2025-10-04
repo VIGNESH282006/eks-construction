@@ -17,7 +17,7 @@ const AboutSection = () => {
             <h2>📖 <span className="highlight">Our Story</span></h2>
 
             <p>
-              <strong>EKS Construction</strong> was founded to help people build spaces to live, work and make memories in. EKS Construction offers services tailored to every minute aspect of a construction project. If flexible and innovative designs paired with premium quality and durability happen to be your perquisites, then you need not look beyond EKS Construction.
+              <strong>eks Construction</strong> was founded to help people build spaces to live, work and make memories in. eks Construction offers services tailored to every minute aspect of a construction project. If flexible and innovative designs paired with premium quality and durability happen to be your perquisites, then you need not look beyond eks Construction.
             </p>
 
             <h2> <span className="highlight">Our Success 🏆</span></h2>
@@ -44,7 +44,7 @@ const AboutSection = () => {
           <div className="about-visual">
             <img
               src={about}
-              alt="About EKS Construction"
+              alt="About eks Construction"
               className="about-image"
             />
           </div>
@@ -54,13 +54,13 @@ const AboutSection = () => {
               <div className="Our-Vision vm-box-1">
                 <h2>Our Vision</h2>
                 <p>
-                  👉 Eks Construction have designed a holistic system that addresses each of these issues and transform the overall customer experience. We aim to promote a culture of building right and living smart.
+                  👉 eks Construction have designed a holistic system that addresses each of these issues and transform the overall customer experience. We aim to promote a culture of building right and living smart.
                 </p>
               </div>
               <div className="Our-Mission vm-box-2">
                 <h2>Our Mission</h2>
                 <p>
-                 👉 Eks Construction recognizes that the construction industry is ridden with numerous gaps owing to lack of fair pricing, smart technology, inadequate labour management system.
+                 👉 eks Construction recognizes that the construction industry is ridden with numerous gaps owing to lack of fair pricing, smart technology, inadequate labour management system.
                 </p>
               </div>
             </div>

@@ -36,7 +36,7 @@ const InteriorPage = () => {
             <div className="floating-icon">✨</div>
           </div>
           <h1>Interior Design Excellence</h1>
-          <p>Transform your space into a masterpiece with EKS Construction</p>
+          <p>Transform your space into a masterpiece with eks Construction</p>
           <div className="hero-description">
             <p>We don't just design interiors; we create experiences. Every space tells a story, 
             and we're here to help you tell yours with elegance, functionality, and innovation. 

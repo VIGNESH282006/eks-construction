@@ -14,6 +14,50 @@
   height: 4px;
   background: linear-gradient(90deg, #4169E1, #FF4444, #4169E1);
 }
+/* Name & Phone Inputs Styling */
+.calculator-form .control-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.calculator-form .control-group label {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.calculator-form .control-group input[type="text"],
+.calculator-form .control-group input[type="tel"] {
+  padding: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: white;
+  color: #333;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.calculator-form .control-group input[type="text"]:focus,
+.calculator-form .control-group input[type="tel"]:focus {
+  outline: none;
+  border-color: #4169E1;
+  box-shadow: 0 0 0 3px rgba(65, 105, 225, 0.1);
+}
+
+/* Align two columns on desktop, full-width on mobile */
+@media (min-width: 968px) {
+  .form-controls {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 967px) {
+  .form-controls {
+    grid-template-columns: 1fr;
+  }
+}
 
 .calculator-container {
   max-width: 1200px;

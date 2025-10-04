@@ -14,15 +14,15 @@ const HeroSection = () => {
         </video>
         <div className="video-overlay"></div>
       </div>
-      
+
       <div className="hero-content">
-        <h1 className="hero-title">EKS Construction</h1>
+       <h1 className="hero-title">e<span style={{ color: 'red' }}>k</span>s Construction</h1>
         <p className="hero-subtitle">Feel the happiness in your Home</p>
         <p className="hero-description">
           We are expert home construction contractors dedicated to building your dream home with
           quality, precision, and care. Your happiness is our success.
         </p>
-        
+
         <div className="hero-buttons">
           <button
             className="btn-primary"
@@ -31,8 +31,8 @@ const HeroSection = () => {
             OUR SERVICES
           </button>
           <button className="btn-secondary" onClick={() => navigate('/contact')}>
-      GET QUOTE
-    </button>
+            GET QUOTE
+          </button>
         </div>
       </div>
     </section>

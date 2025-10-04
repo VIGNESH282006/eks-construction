@@ -37,7 +37,7 @@ const CareersSection = () => {
       department: 'Marketing',
       location: 'Chennai',
       type: 'Full-time',
-      description: 'The Graphic Designer cum Video Editor will be responsible for creating visually appealing graphics and editing engaging video content for EKS Construction. This role involves designing marketing materials and social media content.',
+      description: 'The Graphic Designer cum Video Editor will be responsible for creating visually appealing graphics and editing engaging video content for eks Construction. This role involves designing marketing materials and social media content.',
       requirements: [
         'Create visually appealing graphics',
         'Edit engaging video content',
@@ -51,7 +51,7 @@ const CareersSection = () => {
       department: 'Sales',
       location: 'Chennai',
       type: 'Full-time',
-      description: 'The Telecaller will be responsible for attending to enquiry calls, engaging with potential customers who have enquired through the website, and persuading them to visit the EKS Construction office.',
+      description: 'The Telecaller will be responsible for attending to enquiry calls, engaging with potential customers who have enquired through the website, and persuading them to visit the eks Construction office.',
       requirements: [
         'Attend enquiry calls',
         'Engage potential customers',
@@ -65,7 +65,7 @@ const CareersSection = () => {
       department: 'Marketing',
       location: 'Chennai',
       type: 'Full-time',
-      description: 'The Field Marketing Executive will be responsible for executing field marketing activities, including visiting plot layouts, meeting with layout promoters, and identifying prime locations for EKS Construction advertisement boards.',
+      description: 'The Field Marketing Executive will be responsible for executing field marketing activities, including visiting plot layouts, meeting with layout promoters, and identifying prime locations for eks Construction advertisement boards.',
       requirements: [
         'Execute field marketing activities',
         'Visit plot layouts',
@@ -104,7 +104,7 @@ const CareersSection = () => {
     {
       category: 'Administration',
       positions: [
-        { title: 'Front Office', locations: ['Chennai'], description: 'Our front office team is the face of EKS Construction. If you are organized, friendly, and efficient, consider applying for our front office positions.' }
+        { title: 'Front Office', locations: ['Chennai'], description: 'Our front office team is the face of eks Construction. If you are organized, friendly, and efficient, consider applying for our front office positions.' }
       ],
       color: 'red'
     }
@@ -148,8 +148,8 @@ const CareersSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h2>Why Choose EKS Construction?</h2>
-            <p>Are you passionate about architecture and construction? EKS Construction, a leading Turnkey Home construction service provider, is expanding its team and looking for talented individuals to join us in Chennai, Bangalore, Hyderabad, Coimbatore, and Pondicherry.</p>
+            <h2>Why Choose eks Construction?</h2>
+            <p>Are you passionate about architecture and construction? eks Construction, a leading Turnkey Home construction service provider, is expanding its team and looking for talented individuals to join us in Chennai, Bangalore, Hyderabad, Coimbatore, and Pondicherry.</p>
             <div className="values-grid">
               <div className="value-item">
                 <div className="value-icon">🌟</div>
@@ -293,7 +293,7 @@ const CareersSection = () => {
             transition={{ duration: 0.6 }}
           >
             <h2>Ready to Start Your Career with Us?</h2>
-            <p>At EKS Construction, we believe in nurturing talent and providing a platform for growth and success. If you are looking for a rewarding career in architecture and construction, join us and be part of a team that shapes the future of home construction.</p>
+            <p>At eks Construction, we believe in nurturing talent and providing a platform for growth and success. If you are looking for a rewarding career in architecture and construction, join us and be part of a team that shapes the future of home construction.</p>
             <div className="cta-buttons">
               <motion.button 
                 className="cta-btn primary"
