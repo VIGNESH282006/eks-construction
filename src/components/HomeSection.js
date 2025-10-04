@@ -1,11 +1,62 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/HomePage.css';
 import eksGroupImage from '../assets/images/eks-group.jpg';
 import civil from '../assets/images/civil.png';
 import electrical from '../assets/images/electrical.png';
-import mech from '../assets/images/mech.png'
+import mech from '../assets/images/mech.png';
 
 const HomePage = () => {
+  const [activeService, setActiveService] = useState(0);
+
+  const services = [
+    {
+      id: 'civil-construction',
+      title: 'Civil Construction',
+      subtitle: 'Foundation & Structure',
+      description: 'Delivering integrated, technology-driven construction services to meet evolving project requirements. We specialize in foundation engineering, structural development, and comprehensive building solutions.',
+      buttonText: 'Explore civil construction',
+      backgroundImage: civil, // Using your existing image
+      features: [
+        'Foundation Engineering',
+        'Structural Development', 
+        'Site Preparation',
+        'Quality Assurance'
+      ]
+    },
+    {
+      id: 'electrical-installation',
+      title: 'Electrical Installation',
+      subtitle: 'Power & Systems',
+      description: 'Comprehensive electrical solutions with modern technology and safety standards for all building types. From basic wiring to complex power distribution systems.',
+      buttonText: 'Explore electrical services',
+      backgroundImage: electrical, // Using your existing image
+      features: [
+        'Wiring & Circuits',
+        'Power Distribution',
+        'Safety Systems',
+        'Smart Controls'
+      ]
+    },
+    {
+      id: 'mechanical-works',
+      title: 'Mechanical Works',
+      subtitle: 'HVAC & Infrastructure', 
+      description: 'Advanced mechanical systems installation and maintenance for optimal building performance. Complete HVAC solutions and mechanical infrastructure.',
+      buttonText: 'Explore mechanical works',
+      backgroundImage: mech, // Using your existing image
+      features: [
+        'HVAC Systems',
+        'Plumbing Works',
+        'Ventilation',
+        'Equipment Installation'
+      ]
+    }
+  ];
+
+  const handleServiceChange = (index) => {
+    setActiveService(index);
+  };
+
   return (
     <main>
       {/* About Section */}
@@ -39,7 +90,6 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
 
       {/* Stats Section */}
       <section className="stats-section">
@@ -92,32 +142,56 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* What We Offer Section */}
-      <section className="what-we-offer-container" id="services">
-        <div className="offer-header-section">
-          <h2>What We Offer</h2>
-          <p className="offer-intro-text">
-            <span className="highlight">eks construction</span> provides comprehensive services tailored to your requirements, using the latest technology and skilled professionals to build your dream projects.
-          </p>
+      {/* What We Offer Hero Section */}
+      <section className="what-we-offer-hero" id="services">
+        <div className="hero-background">
+          <div 
+            className="background-image" 
+            style={{
+              backgroundImage: `url(${services[activeService].backgroundImage})`
+            }}
+          >
+            <div className="background-overlay"></div>
+          </div>
         </div>
-        <div className="offer-grid">
-          <div className="offer-item">
-            <div className="offer-img-wrapper">
-              <img src={civil} alt="Civil Construction" className="offer-img" />
+
+        <div className="hero-content">
+          {/* Navigation Tabs */}
+          <nav className="services-nav">
+            {services.map((service, index) => (
+              <button
+                key={service.id}
+                className={`nav-tab ${index === activeService ? 'active' : ''}`}
+                onClick={() => handleServiceChange(index)}
+              >
+                <div className="tab-icon">
+                  {index === 0 && '🏗️'}
+                  {index === 1 && '⚡'}
+                  {index === 2 && '🔧'}
+                </div>
+                <span className="tab-text">{service.title}</span>
+              </button>
+            ))}
+          </nav>
+
+          {/* Content Area */}
+          <div className="content-area">
+            <div className="content-wrapper">
+              <div className="content-text">
+                <h1 className="main-title">
+                  {services[activeService].title}
+                </h1>
+                <div className="subtitle">
+                  {services[activeService].subtitle}
+                </div>
+                <p className="description">
+                  {services[activeService].description}
+                </p>
+                <button className="explore-btn">
+                  {services[activeService].buttonText}
+                </button>
+              </div>
             </div>
-            <div className="offer-item-title">Civil Construction</div>
-          </div>
-          <div className="offer-item">
-            <div className="offer-img-wrapper">
-              <img src={electrical} alt="Electrical Installation" className="offer-img" />
-            </div>
-            <div className="offer-item-title">Electrical Installation</div>
-          </div>
-          <div className="offer-item">
-            <div className="offer-img-wrapper">
-              <img src={mech} alt="Mechanical Works" className="offer-img" />
-            </div>
-            <div className="offer-item-title">Mechanical Works</div>
           </div>
         </div>
       </section>
