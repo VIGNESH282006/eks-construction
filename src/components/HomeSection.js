@@ -67,17 +67,13 @@ const HomePage = () => {
         <div className="about-container">
           <div className="about-content">
             <div className="about-text">
-              <h2>About Us</h2>
+              <h2>Who We Are</h2>
               <p>
-                <span className="highlight">Where We Build Your Vision</span>
-              </p>
-              <p>
-                eks construction is one of the best Building Contractor in Chennai. We have a rich experience in executing civil, electrical, mechanical, and waterworks for multiple industries like steel, power, metals, etc. We have wealthy involvement in executing respectful, electrical, mechanical, and waterworks for different businesses like steel, control, metals, etc.
+                <span style={{ color: 'blue' }}>e</span><span style={{ color: 'red' }}>k</span><span style={{ color: 'blue' }}>s</span> <span style={{ color: 'blue' }}>construction</span>  is one of the best Building Contractor in Chennai. We have a rich experience in executing civil, electrical, mechanical, and waterworks for multiple industries like steel, power, metals, etc. We have wealthy involvement in executing respectful, electrical, mechanical, and waterworks for different businesses like steel, control, metals, etc.
               </p>
               <p>
                 We have an in-house plans and building teams that utilize advanced construction techniques to execute complex ventures in diverse areas. Our highly efficient approach to projects, combined with our commitment to quality and timely completion, has made us the best construction company and electrical construction company in Chennai.
               </p>
-              <a href="#services" className="learn-more-btn">Learn More</a>
             </div>
             <div className="about-visual">
               <img

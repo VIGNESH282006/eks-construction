@@ -145,9 +145,6 @@ const WhyChooseUs = () => {
               <p className="carousel-description cascade-item" style={{'--delay': '3'}}>
                 {features[currentSlide].description}
               </p>
-              <button className="learn-more-btn cascade-item" style={{'--delay': '4'}}>
-                Learn more
-              </button>
             </div>
 
             {/* Right Image Box */}
