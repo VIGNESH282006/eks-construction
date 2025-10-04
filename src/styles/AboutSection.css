@@ -170,6 +170,8 @@
   justify-content: center;
   margin-bottom: 3rem;
   color: #4169E1;
+  font-weight: bold;
+  font-size: 30px;
 }
 
 .stats-grid {

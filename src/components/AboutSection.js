@@ -54,13 +54,13 @@ const AboutSection = () => {
               <div className="Our-Vision vm-box-1">
                 <h2>Our Vision</h2>
                 <p>
-                  👉 eks Construction have designed a holistic system that addresses each of these issues and transform the overall customer experience. We aim to promote a culture of building right and living smart.
+                   eks Construction have designed a holistic system that addresses each of these issues and transform the overall customer experience. We aim to promote a culture of building right and living smart.
                 </p>
               </div>
               <div className="Our-Mission vm-box-2">
                 <h2>Our Mission</h2>
                 <p>
-                 👉 eks Construction recognizes that the construction industry is ridden with numerous gaps owing to lack of fair pricing, smart technology, inadequate labour management system.
+                  eks Construction recognizes that the construction industry is ridden with numerous gaps owing to lack of fair pricing, smart technology, inadequate labour management system.
                 </p>
               </div>
             </div>

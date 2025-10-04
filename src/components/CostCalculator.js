@@ -15,53 +15,79 @@ const CostCalculator = () => {
     phone: ''
   });
 
+  const [errors, setErrors] = useState({ name: '', phone: '' });
   const [totalCost, setTotalCost] = useState(0);
   const [submitted, setSubmitted] = useState(false);
+
+  // Derived validity
+  const isFormValid =
+    formData.name.trim() !== '' && /^\d{10}$/.test(formData.phone);
 
   const calculateCost = (data) => {
     let cost = 0;
 
     if (data.builtUpArea) {
-      const ratePerSqft = data.package.includes('1999') ? 1999 :
-                          data.package.includes('2199') ? 2199 : 2499;
-      cost += parseInt(data.builtUpArea) * ratePerSqft;
+      const ratePerSqft = data.package.includes('1999')
+        ? 1999
+        : data.package.includes('2199')
+        ? 2199
+        : 2499;
+      cost += parseInt(data.builtUpArea, 10) * ratePerSqft;
     }
 
     if (data.waterSump) {
-      cost += parseInt(data.waterSump) * 24;
+      cost += parseInt(data.waterSump, 10) * 24;
     }
 
     if (data.septicTank) {
-      cost += parseInt(data.septicTank) * 24;
+      cost += parseInt(data.septicTank, 10) * 24;
     }
 
     if (data.wallLength && data.wallHeight) {
-      cost += parseInt(data.wallLength) * parseInt(data.wallHeight) * 425;
+      cost +=
+        parseInt(data.wallLength, 10) *
+        parseInt(data.wallHeight, 10) *
+        425;
     }
 
     return cost;
   };
 
   const handleChange = (field, value) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
+
+    // Inline validation
+    if (field === 'name') {
+      setErrors((prev) => ({
+        ...prev,
+        name: value.trim() ? '' : 'Name is required'
+      }));
+    }
+    if (field === 'phone') {
+      setErrors((prev) => ({
+        ...prev,
+        phone: /^\d{10}$/.test(value)
+          ? ''
+          : 'Enter a valid 10-digit phone number'
+      }));
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validate name and phone
     if (!formData.name || !formData.phone) {
       alert('Please enter your name and phone number.');
       return;
     }
 
+    if (!isFormValid) {
+      alert('Please correct the errors before submitting.');
+      return;
+    }
+
     const cost = calculateCost(formData);
     setTotalCost(cost);
-
-    // Here you would implement actual sending email logic using backend or a service like EmailJS
-    // For demonstration, we'll just show an alert
-    alert(`Thank you, ${formData.name}! Your estimate request has been submitted.`);
-
     setSubmitted(true);
   };
 
@@ -95,7 +121,9 @@ const CostCalculator = () => {
                 onChange={(e) => handleChange('name', e.target.value)}
                 required
               />
+              {errors.name && <span className="error">{errors.name}</span>}
             </div>
+
             <div className="control-group">
               <label>Phone Number</label>
               <input
@@ -104,8 +132,14 @@ const CostCalculator = () => {
                 value={formData.phone}
                 onChange={(e) => handleChange('phone', e.target.value)}
                 required
+                pattern="\d{10}"
+                title="Please enter a 10-digit phone number"
               />
+              {errors.phone && (
+                <span className="error">{errors.phone}</span>
+              )}
             </div>
+
             <div className="control-group">
               <label>No. of Floors</label>
               <select
@@ -146,6 +180,7 @@ const CostCalculator = () => {
               <div>Cost</div>
             </div>
 
+            {/* Built-Up Area */}
             <div className="table-row">
               <div>Enter required Built up Area for Ground Floor</div>
               <div>
@@ -153,7 +188,9 @@ const CostCalculator = () => {
                   type="number"
                   placeholder="Area in sqft"
                   value={formData.builtUpArea}
-                  onChange={(e) => handleChange('builtUpArea', e.target.value)}
+                  onChange={(e) =>
+                    handleChange('builtUpArea', e.target.value)
+                  }
                 />
               </div>
               <div>sqft</div>
@@ -169,7 +206,7 @@ const CostCalculator = () => {
                 Rs.{' '}
                 {formData.builtUpArea
                   ? (
-                      parseInt(formData.builtUpArea) *
+                      parseInt(formData.builtUpArea, 10) *
                       (formData.package.includes('1999')
                         ? 1999
                         : formData.package.includes('2199')
@@ -180,6 +217,7 @@ const CostCalculator = () => {
               </div>
             </div>
 
+            {/* Water Sump */}
             <div className="table-row">
               <div>
                 Size of RCC Water Sump (A 4 member family will require 9000
@@ -190,7 +228,9 @@ const CostCalculator = () => {
                   type="number"
                   placeholder="No. of Liters"
                   value={formData.waterSump}
-                  onChange={(e) => handleChange('waterSump', e.target.value)}
+                  onChange={(e) =>
+                    handleChange('waterSump', e.target.value)
+                  }
                 />
               </div>
               <div>ltr</div>
@@ -198,11 +238,12 @@ const CostCalculator = () => {
               <div>
                 Rs.{' '}
                 {formData.waterSump
-                  ? (parseInt(formData.waterSump) * 24).toLocaleString()
+                  ? (parseInt(formData.waterSump, 10) * 24).toLocaleString()
                   : 0}
               </div>
             </div>
 
+            {/* Septic Tank */}
             <div className="table-row">
               <div>Size of Septic Tank</div>
               <div>
@@ -210,7 +251,9 @@ const CostCalculator = () => {
                   type="number"
                   placeholder="No. of Liters"
                   value={formData.septicTank}
-                  onChange={(e) => handleChange('septicTank', e.target.value)}
+                  onChange={(e) =>
+                    handleChange('septicTank', e.target.value)
+                  }
                 />
               </div>
               <div>ltr</div>
@@ -218,11 +261,12 @@ const CostCalculator = () => {
               <div>
                 Rs.{' '}
                 {formData.septicTank
-                  ? (parseInt(formData.septicTank) * 24).toLocaleString()
+                  ? (parseInt(formData.septicTank, 10) * 24).toLocaleString()
                   : 0}
               </div>
             </div>
 
+            {/* Compound Wall */}
             <div className="table-row">
               <div>Plain Compound Wall</div>
               <div className="wall-inputs">
@@ -230,13 +274,17 @@ const CostCalculator = () => {
                   type="number"
                   placeholder="Length"
                   value={formData.wallLength}
-                  onChange={(e) => handleChange('wallLength', e.target.value)}
+                  onChange={(e) =>
+                    handleChange('wallLength', e.target.value)
+                  }
                 />
                 <input
                   type="number"
                   placeholder="Height"
                   value={formData.wallHeight}
-                  onChange={(e) => handleChange('wallHeight', e.target.value)}
+                  onChange={(e) =>
+                    handleChange('wallHeight', e.target.value)
+                  }
                 />
               </div>
               <div>sqft</div>
@@ -245,14 +293,15 @@ const CostCalculator = () => {
                 Rs.{' '}
                 {formData.wallLength && formData.wallHeight
                   ? (
-                      parseInt(formData.wallLength) *
-                      parseInt(formData.wallHeight) *
+                      parseInt(formData.wallLength, 10) *
+                      parseInt(formData.wallHeight, 10) *
                       425
                     ).toLocaleString()
                   : 0}
               </div>
             </div>
 
+            {/* Total */}
             {submitted && (
               <div className="table-total">
                 <div></div>
@@ -273,6 +322,7 @@ const CostCalculator = () => {
             className="estimate-btn"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
+            disabled={!isFormValid}
           >
             GET FREE ESTIMATE NOW
           </motion.button>

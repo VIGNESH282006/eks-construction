@@ -26,7 +26,7 @@
 
 .header-logo img {
   border-radius: 10px;
-  margin-right: 325px;
+  margin-right: 200px;
   height: 100px;
   width: 300px;
 }
@@ -41,8 +41,9 @@
   align-items: center;
   gap: 2.5rem;
   list-style: none;
-  margin: 0;
-  padding: 0;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-right: -300px;
 }
 
 .nav-item {

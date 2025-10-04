@@ -84,7 +84,7 @@ const InteriorSection = () => {
               <span className="stat-label">Years Experience</span>
             </div>
             <div className="stat-item">
-              <span className="stat-number">98%</span>
+              <span className="stat-number">100%</span>
               <span className="stat-label">Client Satisfaction</span>
             </div>
             <div className="stat-item">

@@ -68,8 +68,8 @@
 
 /* Button styling with icon inside */
 .chat-button {
-  width: 56px;
-  height: 56px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   background: linear-gradient(135deg, #4169e1 70%, #2E4BC6 100%);
   border: none;
@@ -79,6 +79,8 @@
   align-items: center;
   justify-content: center;
   transition: background 0.4s, transform 0.22s;
+  margin-left: 50px;
+  margin-bottom: 50px;
 }
 .chat-button.active,
 .chat-button:hover {
@@ -88,9 +90,10 @@
 }
 
 .chat-icon {
-  width: 32px;
-  height: 32px;
+  width: 180px;
+  height: 180px;
   filter: drop-shadow(0 2px 6px #4169e1) brightness(1.05) grayscale(0.07);
+  border-radius: 100px;
 }
 
 /* Responsive */
