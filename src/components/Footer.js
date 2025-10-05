@@ -9,121 +9,70 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 import "../styles/Footer.css";
-import footerImage from "../assets/images/footer.png";
+import footerImage from "../assets/images/logo.png";
 
 const socialLinks = [
-  {
-    icon: FaFacebookF,
-    url: "https://www.facebook.com/eksconstruction.in/",
-    color: "#1877F2",
-  },
-  {
-    icon: FaInstagram,
-    url: "https://www.instagram.com/eks_construction/?hl=en",
-    color: "#C13584",
-  },
-  {
-    icon: FaYoutube,
-    url: "https://www.youtube.com/@eksconstructions",
-    color: "#FF0000",
-  },
+  { icon: FaFacebookF, url: "https://www.facebook.com/eksconstruction.in/", color: "#1877F2" },
+  { icon: FaInstagram, url: "https://www.instagram.com/eks_construction/?hl=en", color: "#E4405F" },
+  { icon: FaYoutube, url: "https://www.youtube.com/@eksconstructions", color: "#FF0000" },
 ];
 
 const Footer = () => (
   <footer className="footer">
     <div className="footer-container">
+      {/* Address Section */}
+      <div className="footer-col left">
+        <h4 className="footer-title">Find Us</h4>
+        <div className="footer-label">Office Address :</div>
+        <div className="footer-address-link">
+          No.2, 1st Floor, N.M.Road, Avadi, Chennai - 54
+        </div>
+        <div className="footer-label">Working Hours :</div>
+        <div className="footer-address-link">
+          Mon-Sat: 10AM-6PM <br></br>
+          Sun: 11AM-6PM
+        </div>
+      </div>
+
       {/* Quick Links */}
-      <div className="footer-section quick-links">
-        <h4 className="footer-header">QUICK LINKS</h4>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About Us</Link>
-          </li>
-          <li>
-            <Link to="/interior">Interior</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact Us</Link>
-          </li>
+      <div className="footer-col center">
+        <h4 className="footer-title-QuickLinks">Quick Links</h4>
+        <ul className="footer-quick-links-list">
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/interior">Interior</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
         </ul>
-      </div>
-
-      {/* Company Branding Center */}
-      <div className="footer-section company-branding">
-        <div className="company-logo-container">
-          <div className="company-logo">
-            <img
-              src={footerImage}
-              alt="EKS Construction"
-              className="footer-image"
-            />
-          </div>
-          <div className="company-details">
-            <h2 className="company-name"><span style={{ color: 'blue' }}>e</span><span style={{ color: 'red' }}></span><span style={{ color: 'blue' }}>s</span> <span style={{ color: 'blue' }}>construction</span></h2>
-            <p className="company-tagline">Feel The Happiness In Your Home</p>
-          </div>
-          <div className="social-icons">
-            {socialLinks.map(({ icon: Icon, url, color }, idx) => (
-              <a
-                key={idx}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-icon"
-                style={{ color }}
-                aria-label={`social-link-${idx}`}
-              >
-                <Icon />
-              </a>
-            ))}
-          </div>
+        <div className="footer-middle-logo">
+          <img src={footerImage} alt="logo" className="footer-logo-img" />
         </div>
       </div>
 
-      {/* Contact Info */}
-      <div className="footer-section contact-info">
-        <h4 className="footer-header">CONTACT INFO</h4>
-        <div className="contact-detail">
-          <FaMapMarkerAlt className="contact-icon" />
-          <div className="contact-text">
-            <a
-              href="https://maps.app.goo.gl/gcrojqt8vTHFFFJU6"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              No.2, 1st Floor, N.M.Road,
-              <br />
-              Avadi, Chennai - 54
-            </a>
-          </div>
-        </div>
-        <div className="contact-detail">
-          <FaPhoneAlt className="contact-icon" />
-          <div className="contact-text">
-            <a href="tel:+918148353564">+91 814 835 3564</a>
-          </div>
-        </div>
-        <div className="contact-detail">
-          <FaEnvelope className="contact-icon" />
-          <div className="contact-text">
-            <a href="mailto:eksconstruction30@gmail.com" rel="noopener noreferrer">
-              eksconstruction30@gmail.com
-            </a>
-          </div>
-        </div>
+      {/* Email & Call Section */}
+      <div className="footer-col right">
+        <h4 className="footer-title-Email">Email Us</h4>
+        <div className="footer-contact"><FaEnvelope /> eksconstruction30@gmail.com</div>
+        <h4 className="footer-title">Call Us</h4>
+        <div className="footer-contact"><FaPhoneAlt /> +91 8148353564</div>
       </div>
     </div>
-
-    {/* Bottom Bar */}
-    <div className="footer-divider" />
-    <div className="footer-bottom">
-      Copyright © {new Date().getFullYear()} EKS Construction. All rights reserved.
-      <br />
-      Made by Caarapace.Inc
+    <div className="footer-social-row">
+      <div className="social-icons">
+        {socialLinks.map(({ icon: Icon, url, color }, idx) => (
+          <a key={idx} href={url} target="_blank" rel="noopener noreferrer" className="social-icon" style={{ color }}>
+            <Icon style={{ fontSize: "2.2rem" }} />
+          </a>
+        ))}
+      </div>
     </div>
+    <hr className="footer-divider" />
+    <div className="footer-middle-desc" style={{ textAlign: "center", width: "100%", margin: "0 auto 1em auto" }}>
+      Home Construction Experts | Best Building Contractors
+    </div>
+    <div className="footer-bottom" style={{ textAlign: "center" }}>
+      © 2025 EKS Construction | Designed by Caarapace.Inc
+    </div>
+
   </footer>
 );
 

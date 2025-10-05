@@ -265,7 +265,7 @@
 }
 
 .values-section h3 {
-  color:#4169E1;
+  color: #4169E1;
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
@@ -309,10 +309,16 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-.value-icon {
-  font-size: 3rem;
+/* Replace the .value-icon styles with this new image style */
+.value-icon-img {
+  width: 8rem;
+  height: 8rem;
   margin-bottom: 1rem;
   display: block;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: contain; 
+  border-radius: 50%;/* This ensures the full image is visible */
 }
 
 .value-card h4 {

@@ -7,6 +7,9 @@ import mech from '../assets/images/mech.png';
 import { motion } from 'framer-motion';
 import AboutSection from '../components/AboutSection';
 import WhyChooseUs from '../components/WhyChooseUs';
+import expertiseIcon from '../assets/images/expertise-icon.png';
+import integrityIcon from '../assets/images/integrity-icon.png';
+import deliveryIcon from '../assets/images/delivery-icon.png';
 
 const HomePage = () => {
   const [activeService, setActiveService] = useState(0);
@@ -21,7 +24,7 @@ const HomePage = () => {
       backgroundImage: civil, // Using your existing image
       features: [
         'Foundation Engineering',
-        'Structural Development', 
+        'Structural Development',
         'Site Preparation',
         'Quality Assurance'
       ]
@@ -43,7 +46,7 @@ const HomePage = () => {
     {
       id: 'mechanical-works',
       title: 'Interior',
-      subtitle: 'HVAC & Infrastructure', 
+      subtitle: 'HVAC & Infrastructure',
       description: 'Advanced mechanical systems installation and maintenance for optimal building performance. Complete HVAC solutions and mechanical infrastructure.',
       buttonText: 'Explore mechanical works',
       backgroundImage: mech, // Using your existing image
@@ -120,21 +123,21 @@ const HomePage = () => {
         <h3>Our Core Values</h3>
         <div className="values-grid">
           <div className="value-card">
-            <span className="value-icon">🛠️</span>
+            <img src={expertiseIcon} alt="Expertise" className="value-icon-img" />
             <h4>Expertise</h4>
             <p>
               Our experienced team applies industry-leading knowledge and skills to deliver top-quality results.
             </p>
           </div>
           <div className="value-card">
-            <span className="value-icon">🤝</span>
+            <img src={integrityIcon} alt="Integrity" className="value-icon-img" />
             <h4>Integrity</h4>
             <p>
               Honesty and transparency in every project, building trust and long-term relationships with clients.
             </p>
           </div>
           <div className="value-card">
-            <span className="value-icon">⏱️</span>
+            <img src={deliveryIcon} alt="Timely Delivery" className="value-icon-img" />
             <h4>Timely Delivery</h4>
             <p>
               Reliable timelines and commitment—your project is always on schedule without compromising quality.
@@ -144,9 +147,9 @@ const HomePage = () => {
       </section>
 
       <motion.div
-       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}>
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}>
 
         <AboutSection />
         <WhyChooseUs />
@@ -157,8 +160,8 @@ const HomePage = () => {
       {/* What We Offer Hero Section */}
       <section className="what-we-offer-hero" id="services">
         <div className="hero-background">
-          <div 
-            className="background-image" 
+          <div
+            className="background-image"
             style={{
               backgroundImage: `url(${services[activeService].backgroundImage})`
             }}

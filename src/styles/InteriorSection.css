@@ -138,17 +138,25 @@
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
 }
 
-.why-choose-icon {
-  font-size: 3rem;
+.why-choose-icon-img {
+  width: 8rem;
+  height: 8rem;
   margin-bottom: 1.5rem;
   display: block;
+  object-fit: contain; /* Ensures full image is visible */
+  margin-right: auto;
+  border-radius: 50%;
+  margin-left: auto;
 }
+
+
 
 .why-choose-card h4 {
   color: #333;
   font-size: 1.3rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 .why-choose-card p {
@@ -210,48 +218,28 @@
   justify-content: center;
   align-items: center;
 }
-
-.design-circle {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #4169E1, #6495ED);
+.philosophy-visual {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  color: white;
-  font-weight: bold;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(65, 105, 225, 0.3);
-  position: relative;
-  overflow: hidden;
+  align-items: center;
 }
 
-.design-circle::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  animation: rotate 4s linear infinite;
+.philosophy-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px; /* optional, match card style */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* optional */
 }
 
-@keyframes rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.design-circle span:first-child {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-}
-
-.design-circle span:last-child {
-  font-size: 1rem;
-  opacity: 0.9;
+/* Responsive adjustments */
+@media (max-width: 968px) {
+  .philosophy-content {
+    grid-template-columns: 1fr; /* stack text and image */
+  }
+  .philosophy-visual {
+    margin-top: 2rem;
+  }
 }
 
 /* Responsive Design */

@@ -9,7 +9,7 @@ const HeroSection = () => {
     <section className="hero-section">
       <div className="video-background">
         <video autoPlay loop muted playsInline>
-          <source src="/videos/background-video.mp4" type="video/mp4" />
+          <source src="/videos/Construction.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="video-overlay"></div>

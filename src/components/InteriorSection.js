@@ -2,32 +2,43 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import '../styles/InteriorSection.css';
 
+// Import your images from assets
+import targetIcon from '../assets/images/target-icon.png'; // for Personalized Approach
+import trophyIcon from '../assets/images/trophy-icon.png'; // for Premium Quality
+import lightningIcon from '../assets/images/lightning-icon.png'; // for Smart Solutions
+import handshakeIcon from '../assets/images/handshake-icon.png'; // for End-to-End Service
+import designVisual from '../assets/images/Philosophy.png';
+
 
 const InteriorSection = () => {
   const whyChooseUs = [
     {
-      icon: '🎯',
+      icon: targetIcon,
       title: 'Personalized Approach',
       description: 'Every design is tailored to your unique style, needs, and lifestyle. No cookie-cutter solutions here.',
-      color: 'blue'
+      color: 'blue',
+      alt: 'Target icon representing personalized approach'
     },
     {
-      icon: '🏆',
+      icon: trophyIcon,
       title: 'Premium Quality',
       description: 'We use only the finest materials and work with skilled craftsmen to ensure exceptional results.',
-      color: 'red'
+      color: 'red',
+      alt: 'Trophy icon representing premium quality'
     },
     {
-      icon: '⚡',
+      icon: lightningIcon,
       title: 'Smart Solutions',
       description: 'Innovative design solutions that maximize space utility while maintaining aesthetic appeal.',
-      color: 'blue'
+      color: 'blue',
+      alt: 'Lightning icon representing smart solutions'
     },
     {
-      icon: '🤝',
+      icon: handshakeIcon,
       title: 'End-to-End Service',
       description: 'From concept design to final installation, we handle everything so you can relax and enjoy the process.',
-      color: 'red'
+      color: 'red',
+      alt: 'Handshake icon representing end-to-end service'
     }
   ];
 
@@ -42,13 +53,13 @@ const InteriorSection = () => {
   };
 
   const cardVariants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       y: 30,
       scale: 0.9
     },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       scale: 1,
       transition: {
@@ -62,7 +73,7 @@ const InteriorSection = () => {
     <section className="interior-about-section">
       <div className="interior-container">
         {/* About Interior Design */}
-        <motion.div 
+        <motion.div
           className="interior-intro"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -70,8 +81,8 @@ const InteriorSection = () => {
         >
           <h2>Why Choose eks Construction for Interior Design?</h2>
           <p className="intro-text">
-            Your home is more than just a space—it's a reflection of who you are. At eks Construction, 
-            we understand that great interior design goes beyond beautiful aesthetics. It's about creating 
+            Your home is more than just a space—it's a reflection of who you are. At eks Construction,
+            we understand that great interior design goes beyond beautiful aesthetics. It's about creating
             spaces that enhance your daily life, boost your mood, and tell your unique story.
           </p>
           <div className="interior-stats">
@@ -95,7 +106,7 @@ const InteriorSection = () => {
         </motion.div>
 
         {/* Why Choose Us */}
-        <motion.div 
+        <motion.div
           className="why-choose-interior"
           variants={containerVariants}
           initial="hidden"
@@ -108,13 +119,17 @@ const InteriorSection = () => {
                 key={index}
                 className={`why-choose-card ${item.color}`}
                 variants={cardVariants}
-                whileHover={{ 
-                  y: -5, 
+                whileHover={{
+                  y: -5,
                   scale: 1.02,
                   transition: { duration: 0.3 }
                 }}
               >
-                <div className="why-choose-icon">{item.icon}</div>
+                <img
+                  src={item.icon}
+                  alt={item.alt}
+                  className="why-choose-icon-img"
+                />
                 <h4>{item.title}</h4>
                 <p>{item.description}</p>
               </motion.div>
@@ -123,7 +138,7 @@ const InteriorSection = () => {
         </motion.div>
 
         {/* Design Philosophy */}
-        <motion.div 
+        <motion.div
           className="design-philosophy"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -133,8 +148,8 @@ const InteriorSection = () => {
             <div className="philosophy-text">
               <h3>Our Design Philosophy</h3>
               <p>
-                At eks Construction, we believe that exceptional interior design is born from the perfect 
-                balance of beauty and functionality. We don't just follow trends—we create timeless spaces 
+                At eks Construction, we believe that exceptional interior design is born from the perfect
+                balance of beauty and functionality. We don't just follow trends—we create timeless spaces
                 that evolve with you and your lifestyle.
               </p>
               <ul className="philosophy-points">
@@ -144,11 +159,14 @@ const InteriorSection = () => {
                 <li>💫 <strong>Timeless Appeal:</strong> Designs that remain relevant and beautiful for years to come</li>
               </ul>
             </div>
+
+            {/* Replace the circle with your full image */}
             <div className="philosophy-visual">
-              <div className="design-circle">
-                <span>Design</span>
-                <span>Excellence</span>
-              </div>
+              <img
+                src={designVisual}
+                alt="Design Philosophy Visual"
+                className="philosophy-image"
+              />
             </div>
           </div>
         </motion.div>
