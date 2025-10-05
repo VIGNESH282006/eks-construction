@@ -69,8 +69,9 @@
   height: 160px;
   overflow: hidden;
   background-color: #f0f0f0;
-  margin-bottom: -192px;
+  margin-bottom: 1rem;         /* properly space below header */
   border-radius: 0px;
+  position: relative;
 }
 .service-header img {
   width: 100%;
@@ -83,6 +84,7 @@
   inset: 0;
   background-color: rgba(0, 0, 0, 0.3);
   pointer-events: none;
+  border-radius: 0;
 }
 .service-header h3,
 .service-header .subtext {
@@ -91,6 +93,7 @@
   bottom: 1rem;
   color: #fff;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  margin: 0;
 }
 .service-header h3 {
   font-size: 1.25rem;
@@ -109,13 +112,14 @@
   flex-direction: column;
   justify-content: space-between;
   min-height: 300px;
+  margin-top: 0;               /* no forced offset */
 }
 .service-description {
   color: #666;
   font-size: 0.9rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
-  margin-top: 150px;
+  margin-top: 0;               /* no forced offset */
 }
 
 /* Features */

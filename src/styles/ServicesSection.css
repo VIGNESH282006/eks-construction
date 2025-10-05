@@ -1,11 +1,11 @@
 /* Services Content Section */
-.services-content-section {
+.services-content-section1 {
   padding: 8rem 0;
   background: #f8f9fa;
   position: relative;
 }
 /* Consistent height for all service cards and image headers */
-.service-card {
+.service-card1 {
   position: relative; /* for absolutely positioned header overlay */
   background: white;
   border-radius: 20px;
@@ -17,7 +17,7 @@
   display: flex;
   flex-direction: column;
 }
-.service-card-image {
+.service-card-image1 {
   width: 100%;
   height: 180px;
   object-fit: cover;
@@ -26,11 +26,11 @@
   z-index: 1;
 }
 /* Remove emojis */
-.service-icon {
+.service-icon1 {
   display: none;
 }
 /* Service Header */
-.service-header {
+.service-header1 {
   position: absolute;
   bottom: 585px;
   left: 0;
@@ -46,16 +46,17 @@
 }
 
 /* Service Header with bg image */
-.service-header h3 {
+.service-header1 h3 {
   font-size: 1.4rem;
   font-weight: bold;
-  margin: 0;
   padding: 0;
   border-radius: 0;
   color: white;
+  text-align: center;
+  margin-top: 10px;
 }
 /* Fill the rest of the card with content */
-.service-content {
+.service-content1 {
   flex: 1 1 auto;
   padding: 2rem;
   display: flex;
@@ -65,7 +66,7 @@
 
 /* All other CSS remains as is */
 
-.services-content-section::before {
+.services-content-section1::before {
   content: '';
   position: absolute;
   top: 0;
@@ -77,26 +78,26 @@
   border-radius: 2px;
 }
 
-.services-content-container {
+.services-content-container1 {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
 /* Services Intro */
-.services-intro {
+.services-intro1 {
   text-align: center;
   margin-bottom: 4rem;
 }
 
-.services-intro h2 {
+.services-intro1 h2 {
   color: #333;
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
 }
 
-.services-intro p {
+.services-intro1 p {
   color: #666;
   font-size: 1.2rem;
   font-style: italic;
@@ -104,7 +105,7 @@
 
 /* Services Grid */
 /* Services Grid - Enhanced for exactly 3 items per row */
-.services-grid {
+.services-grid1 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
@@ -114,7 +115,7 @@
 }
 
 /* Service Card - Ensure consistent sizing */
-.service-card {
+.service-card1 {
   position: relative;
   background: white;
   border-radius: 20px;
@@ -128,7 +129,7 @@
 }
 
 
-.service-card::before {
+.service-card1::before {
   content: '';
   position: absolute;
   top: 0;
@@ -139,16 +140,16 @@
   z-index: 1;
 }
 
-.service-card.red::before {
+.service-card1.red::before {
   background: linear-gradient(90deg, #FF4444, #FF6666);
 }
 
-.service-card:hover {
+.service-card1:hover {
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
 
-.service-icon {
+.service-icon1 {
   font-size: 3rem;
   margin-bottom: 1rem;
   display: block;
@@ -157,11 +158,11 @@
 
 
 /* Service Content */
-.service-content {
+.service-content1 {
   padding: 2rem;
 }
 
-.service-description {
+.service-description1 {
   color: #666;
   line-height: 1.6;
   margin-bottom: 1.5rem;
@@ -169,7 +170,7 @@
 }
 
 /* Service Features */
-.service-features {
+.service-features1 {
   list-style: none;
   padding: 0;
   margin: 0 0 2rem 0;
@@ -179,7 +180,7 @@
   justify-content: center;
 }
 
-.service-features li {
+.service-features1 li {
   display: flex;
   align-items: center;
   justify-content: left;
@@ -190,7 +191,7 @@
 }
 
 
-.feature-check {
+.feature-check1 {
   color: white;
   background: #4CAF50;
   border-radius: 50%;
@@ -206,12 +207,12 @@
 }
 
 /* Service Pricing */
-.service-pricing {
+.service-pricing1 {
   text-align: center;
   margin-bottom: 2rem;
 }
 
-.pricing-label {
+.pricing-label1 {
   background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
   color: #4169E1;
   padding: 0.75rem 1.5rem;
@@ -222,14 +223,14 @@
   border: 2px solid #4169E1;
 }
 
-.service-card.red .pricing-label {
+.service-card1.red .pricing-label1 {
   background: linear-gradient(135deg, #FFEBEE, #FFCDD2);
   color: #FF4444;
   border-color: #FF4444;
 }
 
 /* Get Quote Button */
-.get-quote-btn {
+.get-quote-btn1 {
   width: 100%;
   background: linear-gradient(135deg, #4169E1, #6495ED);
   color: white;
@@ -246,11 +247,11 @@
   overflow: hidden;
 }
 
-.get-quote-btn.red {
+.get-quote-btn1.red {
   background: linear-gradient(135deg, #FF4444, #FF6666);
 }
 
-.get-quote-btn::before {
+.get-quote-btn1::before {
   content: '';
   position: absolute;
   top: 0;
@@ -261,16 +262,16 @@
   transition: left 0.5s ease;
 }
 
-.get-quote-btn:hover::before {
+.get-quote-btn1:hover::before {
   left: 100%;
 }
 
-.get-quote-btn:hover {
+.get-quote-btn1:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(65, 105, 225, 0.3);
 }
 
-.get-quote-btn.red:hover {
+.get-quote-btn1.red:hover {
   box-shadow: 0 8px 25px rgba(255, 68, 68, 0.3);
 }
 
@@ -322,12 +323,12 @@
   }
 }
 
-.service-features li {
+.service-features1 li {
   animation: slideInLeft 0.4s ease-out forwards;
 }
 
 /* Hover animations */
-.service-card:hover .service-icon {
+.service-card1:hover .service-icon1 {
   animation: bounce 0.6s ease-in-out;
 }
 
@@ -338,7 +339,7 @@
 
 
 /* Force exactly 3 columns on desktop, no overrides */
-.services-content-section .services-grid {
+.services-content-section1 .services-grid1 {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;
   gap: 2rem !important;
@@ -348,7 +349,7 @@
   justify-items: stretch !important;
 }
 
-.services-content-section .service-card {
+.services-content-section1 .service-card1 {
   width: 100% !important;
   min-height: 0 !important;
 }

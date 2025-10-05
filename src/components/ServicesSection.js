@@ -101,10 +101,10 @@ const cardVariants = {
 };
 
 const ServicesSection = () => (
-  <section className="services-content-section">
-    <div className="services-content-container">
+  <section className="services-content-section1">
+    <div className="services-content-container1">
       <motion.div
-        className="services-intro"
+        className="services-intro1"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -114,7 +114,7 @@ const ServicesSection = () => (
       </motion.div>
 
       <motion.div
-        className="services-grid"
+        className="services-grid1"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -122,7 +122,7 @@ const ServicesSection = () => (
         {services.map((service, idx) => (
           <motion.div
             key={idx}
-            className={`service-card ${service.color}`}
+            className={`service-card1 ${service.color}`}
             variants={cardVariants}
             whileHover={{ y: -10, scale: 1.02, transition: { duration: 0.3 } }}
             whileTap={{ scale: 0.98 }}
@@ -131,18 +131,18 @@ const ServicesSection = () => (
             <img
               src={service.image}
               alt={service.title}
-              className="service-card-image"
+              className="service-card-image1"
             />
 
             {/* White header bar */}
-            <div className="service-header">
+            <div className="service-header1">
               <h3>{service.title}</h3>
             </div>
 
-            <div className="service-content">
-              <p className="service-description">{service.description}</p>
+            <div className="service-content1">
+              <p className="service-description1">{service.description}</p>
 
-              <ul className="service-features">
+              <ul className="service-features1">
                 {service.features.map((feature, i) => (
                   <motion.li
                     key={i}
@@ -150,14 +150,14 @@ const ServicesSection = () => (
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1 * i, duration: 0.4 }}
                   >
-                    <span className="feature-check">✓</span>
+                    <span className="feature-check1">✓</span>
                     {feature}
                   </motion.li>
                 ))}
               </ul>
 
-              <div className="service-pricing">
-                <span className="pricing-label">
+              <div className="service-pricing1">
+                <span className="pricing-label1">
                   {service.startingPrice
                     ? `Starting from ${service.startingPrice}`
                     : service.pricing}
@@ -165,7 +165,7 @@ const ServicesSection = () => (
               </div>
 
               <motion.button
-                className={`get-quote-btn ${service.color}`}
+                className={`get-quote-btn1 ${service.color}`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
