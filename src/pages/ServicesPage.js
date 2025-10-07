@@ -18,18 +18,8 @@ const ServicesPage = () => {
         transition={{ delay: 0.2, duration: 0.8 }}
       >
         <div className="services-hero-container">
-          <div className="hero-graphics">
-            <div className="floating-icon">🏗️</div>
-            <div className="floating-icon">🔨</div>
-            <div className="floating-icon">🏠</div>
-            <div className="floating-icon">⚡</div>
-          </div>
           <h1>Our Construction Services</h1>
           <p>Comprehensive construction solutions to make your dreams reality</p>
-          <div className="hero-description">
-            <p>From residential homes to commercial buildings, we provide end-to-end construction services 
-            with quality craftsmanship, innovative designs, and timely delivery. Your vision is our mission.</p>
-          </div>
         </div>
       </motion.section>
 

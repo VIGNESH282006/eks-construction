@@ -83,11 +83,11 @@
 }
 
 .interior-hero > .interior-hero-container > p {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   opacity: 0.9;
-  font-style: italic;
+  font-style: bold;
   margin-bottom: 2.5rem;
-  color: #FFB6C1;
+  color: #ff0000;
 }
 
 .hero-description {

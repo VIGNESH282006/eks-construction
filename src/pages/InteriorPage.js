@@ -37,11 +37,6 @@ const InteriorPage = () => {
           </div>
           <h1>Interior Design Excellence</h1>
           <p>Transform your space into a masterpiece with eks Construction</p>
-          <div className="hero-description">
-            <p>We don't just design interiors; we create experiences. Every space tells a story, 
-            and we're here to help you tell yours with elegance, functionality, and innovation. 
-            From concept to completion, we bring your vision to life.</p>
-          </div>
           <motion.button 
             className="hero-cta-btn"
             whileHover={{ scale: 1.05 }}
