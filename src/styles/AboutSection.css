@@ -41,28 +41,35 @@
   font-weight: bold;
 }
 
-.succes-container td{
+.succes-container td {
   padding-left: 5px;
 }
 
 .success-container {
   display: flex;
-  justify-content: center; /* center horizontally */
-  gap: 40px; /* space between columns */
+  justify-content: center;
+  /* center horizontally */
+  gap: 40px;
+  /* space between columns */
   padding: 20px;
+  margin-right: 30px;
+
 }
 
 .success-container .column {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* space between items inside column */
+  gap: 10px;
+  /* space between items inside column */
   text-align: left;
 }
 
-.success-container p {
+.success-container ul {
   margin: 0;
   font-size: 16px;
   line-height: 1.4;
+  text-align: left;
+  text-justify: left;
 }
 
 
@@ -111,22 +118,22 @@
   flex-wrap: wrap;
 }
 
-.vm-box-1{
+.vm-box-1 {
   background: #fff;
   border-top: 4px solid #4169E1;
   padding: 32px 24px;
-  box-shadow: 0 8px 32px rgba(65, 105, 225, 0.08), 0 2px 8px rgba(0,0,0,0.06);
+  box-shadow: 0 8px 32px rgba(65, 105, 225, 0.08), 0 2px 8px rgba(0, 0, 0, 0.06);
   border-radius: 10px;
   width: 450px;
   min-width: 280px;
   box-sizing: border-box;
 }
 
-.vm-box-2{
+.vm-box-2 {
   background: #fff;
   border-top: 4px solid #FF4444;
   padding: 32px 24px;
-  box-shadow: 0 8px 32px rgba(65, 105, 225, 0.08), 0 2px 8px rgba(0,0,0,0.06);
+  box-shadow: 0 8px 32px rgba(65, 105, 225, 0.08), 0 2px 8px rgba(0, 0, 0, 0.06);
   border-radius: 10px;
   width: 450px;
   min-width: 280px;
@@ -141,7 +148,7 @@
   font-weight: 700;
 }
 
-.Our-Mission h2{
+.Our-Mission h2 {
   color: #FF4444;
   margin-top: 0;
   margin-bottom: 16px;
@@ -149,7 +156,8 @@
   font-weight: 700;
 }
 
-.Our-Vision p, .Our-Mission p {
+.Our-Vision p,
+.Our-Mission p {
   text-align: justify;
   text-justify: inter-word;
   font-size: 1.1rem;
@@ -165,8 +173,8 @@
   border-radius: 20px;
 }
 
-.stats-heading{
-  display: flex; 
+.stats-heading {
+  display: flex;
   justify-content: center;
   margin-bottom: 3rem;
   color: #4169E1;
@@ -218,7 +226,8 @@
 .stat-number {
   font-size: 3.5rem;
   font-weight: bold;
-  color: #4169E1 !important; /* Force blue color */
+  color: #4169E1 !important;
+  /* Force blue color */
   margin-bottom: 1rem;
   display: block;
   line-height: 1;
@@ -227,13 +236,15 @@
 
 /* FIXED: Stat Label Styling */
 .stat-label {
-  color: #333 !important; /* Force dark color for visibility */
+  color: #333 !important;
+  /* Force dark color for visibility */
   font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
   line-height: 1.3;
-  opacity: 1 !important; /* Force full opacity */
+  opacity: 1 !important;
+  /* Force full opacity */
   margin: 0;
 }
 
@@ -317,8 +328,9 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  object-fit: contain; 
-  border-radius: 50%;/* This ensures the full image is visible */
+  object-fit: contain;
+  border-radius: 50%;
+  /* This ensures the full image is visible */
 }
 
 .value-card h4 {
@@ -338,7 +350,7 @@
 .what-we-offer-container {
   margin: 4rem 4rem 4rem 4rem;
   padding: 4rem 0;
-  background: #f8f9fa ;
+  background: #f8f9fa;
   border-radius: 20px;
   border-top: 4px solid #4169E1;
 }
@@ -438,12 +450,12 @@
     gap: 3rem;
     text-align: center;
   }
-  
+
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
-  
+
   .values-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -453,7 +465,7 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .offer-header-section h2 {
     font-size: 2rem;
   }
@@ -463,32 +475,32 @@
   .about-section {
     padding: 3rem 0;
   }
-  
+
   .about-text h2 {
     font-size: 2rem;
   }
-  
+
   .stats-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .stat-card {
     padding: 2rem 1.5rem;
   }
-  
+
   .stat-number {
     font-size: 3rem;
   }
-  
+
   .stat-label {
     font-size: 0.9rem;
   }
-  
+
   .mission-section h3 {
     font-size: 1.75rem;
   }
-  
+
   .values-section h3 {
     font-size: 1.75rem;
   }
@@ -496,15 +508,15 @@
   .what-we-offer-container {
     padding: 3rem 0;
   }
-  
+
   .offer-header-section h2 {
     font-size: 1.75rem;
   }
-  
+
   .offer-intro-text {
     font-size: 1rem;
   }
-  
+
   .offer-img-wrapper {
     height: 220px;
   }
@@ -514,31 +526,31 @@
   .about-container {
     padding: 0 1rem;
   }
-  
+
   .about-content {
     gap: 2rem;
   }
-  
+
   .about-text h2 {
     font-size: 1.75rem;
   }
-  
+
   .about-text p {
     font-size: 1rem;
   }
-  
+
   .stat-card {
     padding: 1.5rem 1rem;
   }
-  
+
   .stat-number {
     font-size: 2.5rem;
   }
-  
+
   .stat-label {
     font-size: 0.8rem;
   }
-  
+
   .value-card {
     padding: 1.5rem;
   }
@@ -547,11 +559,11 @@
   .offer-grid {
     padding: 0 1rem;
   }
-  
+
   .offer-header-section h2 {
     font-size: 1.5rem;
   }
-  
+
   .offer-item-title {
     font-size: 1.1rem;
     padding: 1.5rem;
@@ -564,6 +576,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -592,8 +605,15 @@
 }
 
 @keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 /* Print Styles */
@@ -603,11 +623,11 @@
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
-  
+
   .learn-more-btn {
     display: none;
   }
-  
+
   .stat-card,
   .value-card,
   .offer-item {
@@ -629,16 +649,17 @@
 
 /* High Contrast Mode */
 @media (prefers-contrast: high) {
+
   .stat-card,
   .value-card,
   .offer-item {
     border: 2px solid #000;
   }
-  
+
   .stat-number {
     color: #000 !important;
   }
-  
+
   .stat-label {
     color: #000 !important;
   }
@@ -646,6 +667,7 @@
 
 /* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
+
   .stat-card,
   .value-card,
   .learn-more-btn,
@@ -654,7 +676,7 @@
     transition: none;
     animation: none;
   }
-  
+
   .stat-card:hover .stat-number {
     transform: none;
   }
@@ -662,7 +684,7 @@
   .offer-item:hover {
     transform: none;
   }
-  
+
   .offer-item:hover .offer-img {
     transform: none;
   }
