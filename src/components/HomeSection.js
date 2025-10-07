@@ -129,7 +129,7 @@ const HomePage = () => {
               Our experienced team applies industry-leading knowledge and skills to deliver top-quality results.
             </p>
           </div>
-          <div className="value-card">
+          <div className="value-card1">
             <img src={integrityIcon} alt="Integrity" className="value-icon-img" />
             <h4>Integrity</h4>
             <p>
@@ -171,6 +171,7 @@ const HomePage = () => {
         </div>
 
         <div className="hero-content">
+          <h1 className='what-header'>What We Offer</h1>
           {/* Navigation Tabs */}
           <nav className="services-nav">
             {services.map((service, index) => (
@@ -180,9 +181,9 @@ const HomePage = () => {
                 onClick={() => handleServiceChange(index)}
               >
                 <div className="tab-icon">
-                  {index === 0 && '🏗️'}
-                  {index === 1 && '⚡'}
-                  {index === 2 && '🔧'}
+                  {index === 0 }
+                  {index === 1 }
+                  {index === 2 }
                 </div>
                 <span className="tab-text">{service.title}</span>
               </button>

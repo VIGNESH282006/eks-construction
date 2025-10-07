@@ -19,19 +19,8 @@ const TeamPage = () => {
         transition={{ delay: 0.2, duration: 0.8 }}
       >
         <div className="team-hero-container">
-          <div className="hero-graphics">
-            <div className="floating-icon">👥</div>
-            <div className="floating-icon">🏆</div>
-            <div className="floating-icon">⭐</div>
-            <div className="floating-icon">🎯</div>
-          </div>
           <h1>Meet Our Expert Team</h1>
           <p>The talented professionals who make your construction dreams come true</p>
-          <div className="hero-description">
-            <p>At eks Construction, our success is built on the expertise, dedication, and passion of our team members. 
-            Each professional brings unique skills and experience to ensure that every project meets our high standards 
-            of quality and client satisfaction.</p>
-          </div>
         </div>
       </motion.section>
 

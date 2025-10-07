@@ -19,18 +19,8 @@ const PackagesPage = () => {
         transition={{ delay: 0.2, duration: 0.8 }}
       >
         <div className="packages-hero-container">
-          <div className="hero-graphics">
-            <div className="floating-icon">🏠</div>
-            <div className="floating-icon">🔧</div>
-            <div className="floating-icon">📐</div>
-          </div>
           <h1>Our Home Construction Packages</h1>
           <p>Choose the perfect package that suits your dream home requirements</p>
-          <div className="hero-description">
-            <p>We offer comprehensive construction packages designed to meet every budget and requirement. 
-            Each package includes professional design, quality materials, and expert craftsmanship 
-            to ensure your dream home becomes a reality.</p>
-          </div>
         </div>
       </motion.section>
 

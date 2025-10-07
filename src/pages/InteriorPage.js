@@ -29,12 +29,6 @@ const InteriorPage = () => {
         transition={{ delay: 0.2, duration: 0.8 }}
       >
         <div className="interior-hero-container">
-          <div className="hero-graphics">
-            <div className="floating-icon">🎨</div>
-            <div className="floating-icon">🏠</div>
-            <div className="floating-icon">💡</div>
-            <div className="floating-icon">✨</div>
-          </div>
           <h1>Interior Design Excellence</h1>
           <p>Transform your space into a masterpiece with eks Construction</p>
           <motion.button 

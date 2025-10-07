@@ -51,7 +51,7 @@
   text-align: center;
 }
 
-.values-content > p {
+.values-content>p {
   color: #666;
   font-size: 1.1rem;
   line-height: 1.7;
@@ -359,6 +359,7 @@
   gap: 1.5rem;
   justify-content: center;
   flex-wrap: wrap;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .cta-btn {
@@ -387,14 +388,16 @@
 }
 
 .cta-btn.secondary {
-  background: transparent;
-  color: white;
+  background: white;
+  color: #4169E1;
   border: 2px solid white;
+   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
 }
 
 .cta-btn.secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgb(255, 255, 255);
   transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(255, 255, 255, 0.4);
 }
 
 /* Responsive Design */
@@ -403,15 +406,15 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .jobs-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .categories-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .cta-buttons {
     flex-direction: column;
     align-items: center;
@@ -422,15 +425,15 @@
   .section-header h2 {
     font-size: 2rem;
   }
-  
+
   .values-content h2 {
     font-size: 2rem;
   }
-  
+
   .job-card {
     padding: 1.5rem;
   }
-  
+
   .category-card {
     padding: 1.5rem;
   }
@@ -441,12 +444,197 @@
     flex-direction: column;
     gap: 0.5rem;
   }
-  
+
   .job-meta span {
     text-align: center;
   }
-  
+
   .locations {
     justify-content: center;
+  }
+}
+
+/* Application Form Section */
+.application-form-section {
+  padding: 5rem 0;
+  background-image: url('../assets/images/career.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  /* Optional: creates parallax effect */
+  color: white;
+  text-align: center;
+  margin-top: 100px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Create overlay for background opacity without affecting content */
+.application-form-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  /* Dark overlay for better text readability */
+  z-index: -1;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.form-header h2 {
+  color: #000dff;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+
+}
+
+.form-header p {
+  color: #ff0000;
+  font-size: 1.2rem;
+  font-style: bold;
+  font-weight: bold;
+}
+
+.application-form {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 1rem;
+  border: 2px solid #e1e5e9;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4169E1;
+  box-shadow: 0 0 0 3px rgba(65, 105, 225, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-status {
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.form-status.success {
+  background: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.form-status.error {
+  background: rgba(244, 67, 54, 0.1);
+  color: #f44336;
+  border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 1.2rem 2rem;
+  background: linear-gradient(135deg, #4169E1, #6495ED);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #2E4BC6, #4169E1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(65, 105, 225, 0.3);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Responsive Design for Form */
+@media (max-width: 768px) {
+  .application-form {
+    padding: 2rem;
+    margin: 0 1rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-header h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .application-form {
+    padding: 1.5rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.8rem;
+  }
+
+  .submit-btn {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
   }
 }

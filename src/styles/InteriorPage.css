@@ -87,7 +87,8 @@
   opacity: 0.9;
   font-style: bold;
   margin-bottom: 2.5rem;
-  color: #ff0000;
+  color: white;
+  font-weight: bold;
 }
 
 .hero-description {

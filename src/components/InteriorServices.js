@@ -119,7 +119,6 @@ const InteriorServices = () => {
                 <img src={svc.headerImage} alt={svc.title} />
                 <div className="header-overlay" />
                 <h3>{svc.title}</h3>
-                <span className="subtext">EKS Construction</span>
               </div>
 
               <div className="service-body">

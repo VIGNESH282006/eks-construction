@@ -249,7 +249,7 @@
 /* Team Stats Section */
 .team-stats-section {
   padding: 5rem 0;
-  background: linear-gradient(135deg, #4169E1, #6495ED);
+  background: linear-gradient(135deg, #093ddab1, #9008087a);
   color: white;
   text-align: center;
 }
@@ -285,7 +285,7 @@
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .stat-card .stat-label {

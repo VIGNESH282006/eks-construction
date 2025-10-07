@@ -300,6 +300,33 @@
   overflow: hidden;
 }
 
+.value-card1 {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.value-card1::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #4169E1, #6495ED);
+  border-radius: 15px 15px 0 0;
+}
+.value-card1:nth-child(2)::before{
+  background: linear-gradient(90deg, #ff0000, #ff0202);
+}
+.value-card1:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
 .value-card::before {
   content: '';
   position: absolute;
