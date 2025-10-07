@@ -163,6 +163,8 @@
   color: #666;
   line-height: 1.6;
   font-size: 0.95rem;
+  text-align: center;
+  text-justify: inter-word;
 }
 
 /* Design Philosophy */
@@ -198,6 +200,7 @@
 .philosophy-points {
   list-style: none;
   padding: 0;
+  margin-left: -31px;
 }
 
 .philosophy-points li {
@@ -217,11 +220,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: -40px;
 }
 .philosophy-visual {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 70px;
 }
 
 .philosophy-image {

@@ -94,12 +94,7 @@
   backdrop-filter: blur(10px);
 }
 
-.hero-description p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  opacity: 0.9;
-  margin: 0;
-}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {

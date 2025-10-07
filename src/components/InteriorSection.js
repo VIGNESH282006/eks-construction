@@ -153,10 +153,10 @@ const InteriorSection = () => {
                 that evolve with you and your lifestyle.
               </p>
               <ul className="philosophy-points">
-                <li>✨ <strong>Form Follows Function:</strong> Beautiful designs that actually work for your daily life</li>
-                <li>🌱 <strong>Sustainable Choices:</strong> Eco-friendly materials and energy-efficient solutions</li>
-                <li>🎨 <strong>Personal Expression:</strong> Your personality reflected in every design element</li>
-                <li>💫 <strong>Timeless Appeal:</strong> Designs that remain relevant and beautiful for years to come</li>
+                <li><strong>→  </strong><strong>Form Follows Function:</strong> Beautiful designs for your daily life</li>
+                <li><strong>→  </strong><strong>Sustainable Choices:</strong> Eco-friendly energy-efficient solutions</li>
+                <li><strong>→  </strong><strong>Personal Expression:</strong> Your personality reflected in every design </li>
+                <li><strong>→  </strong><strong>Timeless Appeal:</strong> Designs that remain beautiful for years to come</li>
               </ul>
             </div>
 
