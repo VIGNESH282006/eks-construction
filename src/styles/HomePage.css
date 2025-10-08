@@ -45,7 +45,18 @@
   );
   backdrop-filter: blur(1px);
 }
-
+.what-header{
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgb(248, 248, 248);
+  font-size: 3rem;
+  font-weight: bold;
+  z-index: 10;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  margin:-25px 0px 0px 0px;
+}
 /* Content System */
 .hero-content {
   position: relative;
@@ -70,7 +81,7 @@
 }
 
 .nav-tab {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.453);
   border: 2px solid rgba(255, 255, 255, 0.2);
   color: white;
   padding: 1rem 2rem;

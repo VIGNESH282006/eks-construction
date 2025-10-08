@@ -1,80 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import '../styles/CareersSection.css';
 
 const CareersSection = () => {
-  const jobOpenings = [
-    {
-      title: 'HR Training and Development Manager',
-      department: 'Human Resources',
-      location: 'Chennai',
-      type: 'Full-time',
-      description: 'The HR Training and Development Manager is responsible for improving the productivity of the organization\'s employees. This position assesses company-wide developmental needs to drive training initiatives and identifies and arranges suitable training solutions for employees.',
-      requirements: [
-        'Assess company-wide developmental needs',
-        'Drive training initiatives',
-        'Design effective education methods',
-        'Enhance performance recognition'
-      ],
-      color: 'blue'
-    },
-    {
-      title: 'HR Executive',
-      department: 'Human Resources',
-      location: 'Chennai',
-      type: 'Full-time',
-      description: 'The HR Executive will be responsible for managing various human resource functions, including recruitment, onboarding, employee relations, performance management, and compliance.',
-      requirements: [
-        'Manage recruitment processes',
-        'Handle employee onboarding',
-        'Maintain employee relations',
-        'Ensure HR policy compliance'
-      ],
-      color: 'red'
-    },
-    {
-      title: 'Graphic Designer cum Video Editor',
-      department: 'Marketing',
-      location: 'Chennai',
-      type: 'Full-time',
-      description: 'The Graphic Designer cum Video Editor will be responsible for creating visually appealing graphics and editing engaging video content for eks Construction. This role involves designing marketing materials and social media content.',
-      requirements: [
-        'Create visually appealing graphics',
-        'Edit engaging video content',
-        'Design marketing materials',
-        'Support marketing initiatives'
-      ],
-      color: 'blue'
-    },
-    {
-      title: 'Telecaller',
-      department: 'Sales',
-      location: 'Chennai',
-      type: 'Full-time',
-      description: 'The Telecaller will be responsible for attending to enquiry calls, engaging with potential customers who have enquired through the website, and persuading them to visit the eks Construction office.',
-      requirements: [
-        'Attend enquiry calls',
-        'Engage potential customers',
-        'Make follow-up calls',
-        'Explain construction packages'
-      ],
-      color: 'red'
-    },
-    {
-      title: 'Field Marketing Executive',
-      department: 'Marketing',
-      location: 'Chennai',
-      type: 'Full-time',
-      description: 'The Field Marketing Executive will be responsible for executing field marketing activities, including visiting plot layouts, meeting with layout promoters, and identifying prime locations for eks Construction advertisement boards.',
-      requirements: [
-        'Execute field marketing activities',
-        'Visit plot layouts',
-        'Meet layout promoters',
-        'Manage marketing zones'
-      ],
-      color: 'blue'
-    }
-  ];
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    qualification: '',
+    institution: '',
+    message: ''
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState('');
 
   const jobCategories = [
     {
@@ -88,7 +28,9 @@ const CareersSection = () => {
     {
       category: 'Engineering',
       positions: [
-        { title: 'Civil Engineer', locations: ['Chennai'], description: 'Excellent opportunities for civil engineers. Whether you are a seasoned professional or a fresher looking to start your career in civil engineering.' }
+        { title: 'Civil Engineer', locations: ['Chennai'], description: 'Excellent opportunities for civil engineers. Whether you are a seasoned professional or a fresher looking to start your career in civil engineering.' },
+        {title:'SITE ENGINEER', locations:['Chennai'], description:'Hiring a Site Engineer in Chennai to manage construction, ensure safety, and coordinate for project success.'},
+        {title:' PROJECT MANAGER',locations:['Chennai'], description:'Hiring an experienced Project Manager in Chennai to lead construction projects, manage teams, and ensure timely, high-quality delivery.'}
       ],
       color: 'red'
     },
@@ -104,7 +46,8 @@ const CareersSection = () => {
     {
       category: 'Administration',
       positions: [
-        { title: 'Front Office', locations: ['Chennai'], description: 'Our front office team is the face of eks Construction. If you are organized, friendly, and efficient, consider applying for our front office positions.' }
+        { title: 'Front Office', locations: ['Chennai'], description: 'Our front office team is the face of eks Construction. If you are organized, friendly, and efficient, consider applying for our front office positions.' },
+        {title:'Accountant', locations:['Chennai'], description:'Hiring an Accountant in Chennai to manage financial records, ensure compliance, and support business growth.'}
       ],
       color: 'red'
     }
@@ -134,6 +77,64 @@ const CareersSection = () => {
         duration: 0.6,
         ease: "easeOut"
       }
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const validateForm = () => {
+    const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'qualification', 'institution', 'message'];
+    return requiredFields.every(field => formData[field].trim() !== '');
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!validateForm()) {
+      setSubmitStatus('Please fill in all required fields.');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus('');
+
+    try {
+      const emailBody = `
+        New Job Application Received:
+        
+        Name: ${formData.firstName} ${formData.lastName}
+        Email: ${formData.email}
+        Phone: ${formData.phone}
+        Educational Qualification: ${formData.qualification}
+        Educational Institution: ${formData.institution}
+        
+        Message to Hiring Team:
+        ${formData.message}
+      `;
+
+      const mailtoLink = `mailto:vickyvicky2k6@gmail.com?subject=New Job Application - ${formData.firstName} ${formData.lastName}&body=${encodeURIComponent(emailBody)}`;
+      window.location.href = mailtoLink;
+
+      setSubmitStatus('Application submitted successfully! Your email client should open shortly.');
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        qualification: '',
+        institution: '',
+        message: ''
+      });
+    } catch (error) {
+      setSubmitStatus('Error submitting application. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -167,69 +168,6 @@ const CareersSection = () => {
                 <p>Our commitment to excellence drives us to seek dedicated and skilled individuals.</p>
               </div>
             </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Current Job Openings */}
-      <section className="job-openings">
-        <div className="careers-container">
-          <motion.div 
-            className="section-header"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2>Current Job Openings</h2>
-            <p>Join our dynamic team and help shape the future of construction</p>
-          </motion.div>
-
-          <motion.div
-            className="jobs-grid"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            {jobOpenings.map((job, index) => (
-              <motion.div
-                key={index}
-                className={`job-card ${job.color}`}
-                variants={cardVariants}
-                whileHover={{ 
-                  y: -5, 
-                  scale: 1.02,
-                  transition: { duration: 0.3 }
-                }}
-              >
-                <div className="job-header">
-                  <h3>{job.title}</h3>
-                  <div className="job-meta">
-                    <span className="department">{job.department}</span>
-                    <span className="location">📍 {job.location}</span>
-                    <span className="type">⏰ {job.type}</span>
-                  </div>
-                </div>
-
-                <p className="job-description">{job.description}</p>
-
-                <div className="job-requirements">
-                  <h4>Key Responsibilities:</h4>
-                  <ul>
-                    {job.requirements.map((req, idx) => (
-                      <li key={idx}>{req}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                <motion.button 
-                  className={`apply-btn ${job.color}`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Apply Now
-                </motion.button>
-              </motion.div>
-            ))}
           </motion.div>
         </div>
       </section>
@@ -283,6 +221,133 @@ const CareersSection = () => {
         </div>
       </section>
 
+      {/* Application Form */}
+      <section className="application-form-section">
+        <div className="careers-container">
+          <motion.div
+            className="form-header"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2>Apply Now</h2>
+            <p>Ready to join our team? Fill out the application form below and we'll get back to you soon.</p>
+          </motion.div>
+
+          <motion.form
+            className="application-form"
+            onSubmit={handleSubmit}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="firstName">First Name *</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="lastName">Last Name *</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="email">Email Address *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="phone">Phone Number *</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="qualification">Educational Qualification *</label>
+                <input
+                  type="text"
+                  id="qualification"
+                  name="qualification"
+                  value={formData.qualification}
+                  onChange={handleInputChange}
+                  placeholder="e.g., Bachelor's in Civil Engineering"
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="institution">Educational Institution *</label>
+                <input
+                  type="text"
+                  id="institution"
+                  name="institution"
+                  value={formData.institution}
+                  onChange={handleInputChange}
+                  placeholder="e.g., Anna University"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="form-group full-width">
+              <label htmlFor="message">Message to Hiring Team *</label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                rows="5"
+                placeholder="Tell us why you'd like to work with eks Construction and what position interests you..."
+                required
+              ></textarea>
+            </div>
+
+            {submitStatus && (
+              <div className={`form-status ${submitStatus.includes('Error') ? 'error' : 'success'}`}>
+                {submitStatus}
+              </div>
+            )}
+
+            <button 
+              type="submit" 
+              className="submit-btn"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Submitting...' : 'Submit Application'}
+            </button>
+          </motion.form>
+        </div>
+      </section>
+
       {/* Call to Action */}
       <section className="careers-cta">
         <div className="careers-container">
@@ -294,22 +359,6 @@ const CareersSection = () => {
           >
             <h2>Ready to Start Your Career with Us?</h2>
             <p>At eks Construction, we believe in nurturing talent and providing a platform for growth and success. If you are looking for a rewarding career in architecture and construction, join us and be part of a team that shapes the future of home construction.</p>
-            <div className="cta-buttons">
-              <motion.button 
-                className="cta-btn primary"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                View All Openings
-              </motion.button>
-              <motion.button 
-                className="cta-btn secondary"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Submit Resume
-              </motion.button>
-            </div>
           </motion.div>
         </div>
       </section>

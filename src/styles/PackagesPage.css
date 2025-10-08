@@ -71,11 +71,12 @@
 }
 
 .packages-hero > .packages-hero-container > p {
-  font-size: 1.4rem;
-  opacity: 0.9;
-  font-style: italic;
+  font-size: 1.5rem;
+  opacity: 1;
+  font-style: bold;
   margin-bottom: 2.5rem;
-  color: #FFB6C1;
+  color: white;
+  font-weight: bold;
 }
 
 .hero-description {

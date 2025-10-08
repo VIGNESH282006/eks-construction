@@ -3,6 +3,7 @@
   padding: 8rem 0;
   background: #f8f9fa;
   position: relative;
+  margin-bottom: -100px;
 }
 /* Consistent height for all service cards and image headers */
 .service-card1 {
@@ -32,11 +33,11 @@
 /* Service Header */
 .service-header1 {
   position: absolute;
-  bottom: 585px;
+  bottom: 480px;
   left: 0;
   width: 100%;/* semi-transparent blue overlay */
   padding: 1rem 0;
-  text-align: center;
+  text-align: left;
   border-radius: 0 0 20px 20px;
   color: white;
   font-weight: bold;
@@ -342,7 +343,7 @@
 .services-content-section1 .services-grid1 {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;
-  gap: 2rem !important;
+  gap: 4rem !important;
   width: 100% !important;
   max-width: 1200px !important;
   margin: 0 auto !important;

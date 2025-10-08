@@ -70,7 +70,7 @@ const HomePage = () => {
         <div className="about-container">
           <div className="about-content">
             <div className="about-text">
-              <h2>Who We Are</h2>
+              <h2 className='who-header'>Who We Are</h2>
               <p>
                 <span style={{ color: 'blue' }}>e</span><span style={{ color: 'red' }}>k</span><span style={{ color: 'blue' }}>s</span> <span style={{ color: 'blue' }}>construction</span>  is one of the best Building Contractor in Chennai. We have a rich experience in executing civil, electrical, mechanical, and waterworks for multiple industries like steel, power, metals, etc. We have wealthy involvement in executing respectful, electrical, mechanical, and waterworks for different businesses like steel, control, metals, etc.
               </p>
@@ -117,7 +117,7 @@ const HomePage = () => {
       </section>
 
 
-
+      <div className="section-divider"></div>
       {/* Values Section */}
       <section className="values-section">
         <h3>Our Core Values</h3>
@@ -129,11 +129,11 @@ const HomePage = () => {
               Our experienced team applies industry-leading knowledge and skills to deliver top-quality results.
             </p>
           </div>
-          <div className="value-card">
+          <div className="value-card1">
             <img src={integrityIcon} alt="Integrity" className="value-icon-img" />
-            <h4>Integrity</h4>
+            <h4 className='integrity-header'>Integrity</h4>
             <p>
-              Honesty and transparency in every project, building trust and long-term relationships with clients.
+              Honesty and transparency in every project, building trust and long-term client relationships.
             </p>
           </div>
           <div className="value-card">
@@ -152,7 +152,6 @@ const HomePage = () => {
         transition={{ duration: 0.5 }}>
 
         <AboutSection />
-        <WhyChooseUs />
       </motion.div>
 
 
@@ -171,6 +170,7 @@ const HomePage = () => {
         </div>
 
         <div className="hero-content">
+          <h1 className='what-header'>What We Offer</h1>
           {/* Navigation Tabs */}
           <nav className="services-nav">
             {services.map((service, index) => (
@@ -180,9 +180,9 @@ const HomePage = () => {
                 onClick={() => handleServiceChange(index)}
               >
                 <div className="tab-icon">
-                  {index === 0 && '🏗️'}
-                  {index === 1 && '⚡'}
-                  {index === 2 && '🔧'}
+                  {index === 0}
+                  {index === 1}
+                  {index === 2}
                 </div>
                 <span className="tab-text">{service.title}</span>
               </button>
