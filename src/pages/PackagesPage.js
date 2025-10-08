@@ -19,7 +19,7 @@ const PackagesPage = () => {
         transition={{ delay: 0.2, duration: 0.8 }}
       >
         <div className="packages-hero-container">
-          <h1>Our Home Construction Packages</h1>
+          <h1>Residential Construction Packages</h1>
           <p>Choose the perfect package that suits your dream home requirements</p>
         </div>
       </motion.section>

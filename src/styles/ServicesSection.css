@@ -3,6 +3,7 @@
   padding: 8rem 0;
   background: #f8f9fa;
   position: relative;
+  margin-bottom: -100px;
 }
 /* Consistent height for all service cards and image headers */
 .service-card1 {

@@ -20,7 +20,7 @@
 }
 
 .about-text h2 {
-  color: #333;
+  color: #0f02ffb3;
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 2rem;
@@ -116,6 +116,7 @@
   gap: 100px;
   margin: 40px 0;
   flex-wrap: wrap;
+  margin-bottom: 4rem;
 }
 
 .vm-box-1 {
@@ -268,10 +269,136 @@
   max-width: 800px;
   margin: 0 auto;
 }
+/* Divider Line between Stats and Core Values */
+.section-divider {
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #4169E1, #FF4444, #4169E1);
+  margin: 4rem auto;
+  border-radius: 2px;
+  position: relative;
+}
+
+/* Optional: Add a subtle glow effect */
+.section-divider::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -10px;
+  right: -10px;
+  bottom: -2px;
+  background: linear-gradient(90deg, rgba(65, 105, 225, 0.2), rgba(255, 68, 68, 0.2), rgba(65, 105, 225, 0.2));
+  border-radius: 4px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.section-divider:hover::after {
+  opacity: 1;
+}
+/* Our Success Grid - positioned in left column */
+.our-success-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: 4rem 0 1rem 0;
+}
+
+
+.highlight1 {
+  color: #4169E1;
+  font-weight: bold;
+  font-size: 2.5rem;
+  margin-left: 450px;
+}
+
+.success-box {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(65,105,225,0.08), 0 1px 4px rgba(0,0,0,0.04);
+  padding: 1.5rem 1.2rem;
+  position: relative;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  border-top: 3px solid #4169E1;
+  transition: all 0.3s ease;
+}
+
+.success-box.red-top {
+  border-top: 3px solid #FF4444;
+}
+
+.success-box.blue-top {
+  border-top: 3px solid #4169E1;
+}
+
+.success-box h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #333;
+  font-size: 1rem;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  text-align: center;
+  font-weight: bold;
+}
+
+.success-box p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  justify-content: center;
+  text-justify: inter-word;
+}
+
+.success-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(65,105,225,0.12), 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* Responsive adjustments */
+@media (max-width: 968px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .our-success-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    max-width: 500px;
+    margin: 2rem auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .our-success-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 400px;
+  }
+  
+  .success-box {
+    min-height: 100px;
+    padding: 1.2rem 1rem;
+  }
+  
+  .success-box h4 {
+    font-size: 0.95rem;
+  }
+  
+  .success-box p {
+    font-size: 0.85rem;
+  }
+}
 
 /* Values Grid */
 .values-section {
-  margin-top: 4rem;
+  margin-top: 8rem;
   margin: 0 4rem 0 4rem;
 }
 
@@ -281,6 +408,7 @@
   font-weight: bold;
   text-align: center;
   margin-bottom: 3rem;
+  margin-top: 4rem;
 }
 
 .values-grid {
@@ -366,13 +494,22 @@
   font-weight: bold;
   margin-bottom: 1rem;
 }
-
+.value-card1 h4 {
+  color: #333;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
 .value-card p {
   color: #666;
   font-size: 0.95rem;
   line-height: 1.6;
 }
-
+.value-card1 p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
 /* What We Offer Section */
 .what-we-offer-container {
   margin: 4rem 4rem 4rem 4rem;

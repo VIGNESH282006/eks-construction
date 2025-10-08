@@ -1,5 +1,7 @@
-import React from 'react';
+// src/pages/ServicesPage.jsx
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import WhyChooseUs from '../components/WhyChooseUs';
 import '../styles/ServicesSection.css';
 
 import residentialBG from '../assets/images/residential-bg.png';
@@ -14,12 +16,7 @@ const services = [
     image: residentialBG,
     title: 'Residential Construction',
     description: 'Custom home construction with modern designs and quality materials that bring happiness to your family.',
-    features: [
-      'Custom Home Design',
-      'Quality Materials',
-      'Modern Architecture',
-      'Timely Delivery'
-    ],
+    features: ['Custom Home Design','Quality Materials','Modern Architecture','Timely Delivery'],
     startingPrice: '₹25 Lakh',
     color: 'blue'
   },
@@ -27,12 +24,7 @@ const services = [
     image: commercialBG,
     title: 'Commercial Buildings',
     description: 'Professional commercial construction for offices and retail spaces with cutting-edge functionality.',
-    features: [
-      'Office Buildings',
-      'Retail Spaces',
-      'Industrial Projects',
-      'Modern Facilities'
-    ],
+    features: ['Office Buildings','Retail Spaces','Industrial Projects','Modern Facilities'],
     startingPrice: '₹50 Lakh',
     color: 'red'
   },
@@ -40,12 +32,7 @@ const services = [
     image: interiorBG,
     title: 'Interior Design',
     description: 'Complete interior design solutions that reflect your style and personality perfectly.',
-    features: [
-      'Space Planning',
-      'Color Coordination',
-      'Furniture Selection',
-      'Lighting Design'
-    ],
+    features: ['Space Planning','Color Coordination','Furniture Selection','Lighting Design'],
     startingPrice: '₹2 Lakh',
     color: 'blue'
   },
@@ -53,12 +40,7 @@ const services = [
     image: architecturalBG,
     title: 'Architectural Planning',
     description: 'Comprehensive architectural planning and design services for all building types.',
-    features: [
-      '3D Modeling',
-      'Structural Design',
-      'Planning Permission',
-      'Technical Drawings'
-    ],
+    features: ['3D Modeling','Structural Design','Planning Permission','Technical Drawings'],
     startingPrice: '₹1 Lakh',
     color: 'red'
   },
@@ -66,12 +48,7 @@ const services = [
     image: projectBG,
     title: 'Project Management',
     description: 'End-to-end project management ensuring timely completion and quality assurance.',
-    features: [
-      'Timeline Management',
-      'Budget Control',
-      'Quality Assurance',
-      'Progress Monitoring'
-    ],
+    features: ['Timeline Management','Budget Control','Quality Assurance','Progress Monitoring'],
     pricing: 'Customized Packages',
     color: 'blue'
   },
@@ -79,12 +56,7 @@ const services = [
     image: renovationBG,
     title: 'Renovation & Remodeling',
     description: 'Transform existing spaces into modern, functional areas that enhance your lifestyle.',
-    features: [
-      'Kitchen Remodeling',
-      'Bathroom Renovation',
-      'Home Extensions',
-      'Space Optimization'
-    ],
+    features: ['Kitchen Remodeling','Bathroom Renovation','Home Extensions','Space Optimization'],
     startingPrice: '₹5 Lakh',
     color: 'red'
   }
@@ -100,83 +72,86 @@ const cardVariants = {
   visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: 'easeOut' }}
 };
 
-const ServicesSection = () => (
-  <section className="services-content-section1">
-    <div className="services-content-container1">
-      <motion.div
-        className="services-intro1"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <h2>What We Offer</h2>
-        <p>Professional construction services tailored to your needs</p>
-      </motion.div>
+const ServicesPage = () => {
+  const [activeService, setActiveService] = useState(0);
 
-      <motion.div
-        className="services-grid1"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        {services.map((service, idx) => (
+  return (
+    <main>
+      <section className="services-content-section1">
+        <div className="services-content-container1">
           <motion.div
-            key={idx}
-            className={`service-card1 ${service.color}`}
-            variants={cardVariants}
-            whileHover={{ y: -10, scale: 1.02, transition: { duration: 0.3 } }}
-            whileTap={{ scale: 0.98 }}
+            className="services-intro1"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            {/* Image at top */}
-            <img
-              src={service.image}
-              alt={service.title}
-              className="service-card-image1"
-            />
-
-            {/* White header bar */}
-            <div className="service-header1">
-              <h3>{service.title}</h3>
-            </div>
-
-            <div className="service-content1">
-              <p className="service-description1">{service.description}</p>
-
-              <ul className="service-features1">
-                {service.features.map((feature, i) => (
-                  <motion.li
-                    key={i}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1 * i, duration: 0.4 }}
-                  >
-                    <span className="feature-check1">✓</span>
-                    {feature}
-                  </motion.li>
-                ))}
-              </ul>
-
-              <div className="service-pricing1">
-                <span className="pricing-label1">
-                  {service.startingPrice
-                    ? `Starting from ${service.startingPrice}`
-                    : service.pricing}
-                </span>
-              </div>
-
-              <motion.button
-                className={`get-quote-btn1 ${service.color}`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                GET QUOTE
-              </motion.button>
-            </div>
+            <h2>What We Offer</h2>
+            <p>Professional construction services tailored to your needs</p>
           </motion.div>
-        ))}
-      </motion.div>
-    </div>
-  </section>
-);
 
-export default ServicesSection;
+          <motion.div
+            className="services-grid1"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            {services.map((service, idx) => (
+              <motion.div
+                key={idx}
+                className={`service-card1 ${service.color}`}
+                variants={cardVariants}
+                whileHover={{ y: -10, scale: 1.02, transition: { duration: 0.3 } }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="service-card-image1"
+                />
+                <div className="service-header1">
+                  <h3>{service.title}</h3>
+                </div>
+                <div className="service-content1">
+                  <p className="service-description1">{service.description}</p>
+                  <ul className="service-features1">
+                    {service.features.map((feature, i) => (
+                      <motion.li
+                        key={i}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.1 * i, duration: 0.4 }}
+                      >
+                        <span className="feature-check1">✓</span>
+                        {feature}
+                      </motion.li>
+                    ))}
+                  </ul>
+                  <div className="service-pricing1">
+                    <span className="pricing-label1">
+                      {service.startingPrice
+                        ? `Starting from ${service.startingPrice}`
+                        : service.pricing}
+                    </span>
+                  </div>
+
+                  <motion.button
+                    className={`get-quote-btn1 ${service.color}`}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    GET QUOTE
+                  </motion.button>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Moved here */}
+      <WhyChooseUs />
+    </main>
+  );
+};
+
+export default ServicesPage;
