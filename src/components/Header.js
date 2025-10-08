@@ -11,8 +11,8 @@ const Header = () => {
   const navItems = [
     { name: 'HOME', path: '/' },
     { name: 'SERVICES', path: '/services' },
-    { name: 'INTERIOR', path: '/interior' },
     { name: 'PACKAGES', path: '/packages' },
+    { name: 'INTERIOR', path: '/interior' },
     { name: 'OUR WORKS', path: '/our-works' }, // Changed from dropdown to direct navigation
     { name: 'OUR TEAM', path: '/our-team' },
     { name: 'CAREERS', path: '/careers' },

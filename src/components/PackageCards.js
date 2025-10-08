@@ -9,21 +9,21 @@ const PackageCards = () => {
     {
       id: 'basic',
       title: 'BASIC PACKAGE',
-      price: '1999',
+      price: '2099',
       color: 'blue',
       popular: false
     },
     {
       id: 'standard',
       title: 'STANDARD PACKAGE',
-      price: '2199',
+      price: '2399',
       color: 'red',
       popular: true
     },
     {
       id: 'premium',
       title: 'PREMIUM PACKAGE',
-      price: '2499',
+      price: '2599',
       color: 'blue',
       popular: false
     }

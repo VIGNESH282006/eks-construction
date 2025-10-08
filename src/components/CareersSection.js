@@ -28,7 +28,9 @@ const CareersSection = () => {
     {
       category: 'Engineering',
       positions: [
-        { title: 'Civil Engineer', locations: ['Chennai'], description: 'Excellent opportunities for civil engineers. Whether you are a seasoned professional or a fresher looking to start your career in civil engineering.' }
+        { title: 'Civil Engineer', locations: ['Chennai'], description: 'Excellent opportunities for civil engineers. Whether you are a seasoned professional or a fresher looking to start your career in civil engineering.' },
+        {title:'SITE ENGINEER', locations:['Chennai'], description:'Hiring a Site Engineer in Chennai to manage construction, ensure safety, and coordinate for project success.'},
+        {title:' PROJECT MANAGER',locations:['Chennai'], description:'Hiring an experienced Project Manager in Chennai to lead construction projects, manage teams, and ensure timely, high-quality delivery.'}
       ],
       color: 'red'
     },
@@ -44,7 +46,8 @@ const CareersSection = () => {
     {
       category: 'Administration',
       positions: [
-        { title: 'Front Office', locations: ['Chennai'], description: 'Our front office team is the face of eks Construction. If you are organized, friendly, and efficient, consider applying for our front office positions.' }
+        { title: 'Front Office', locations: ['Chennai'], description: 'Our front office team is the face of eks Construction. If you are organized, friendly, and efficient, consider applying for our front office positions.' },
+        {title:'Accountant', locations:['Chennai'], description:'Hiring an Accountant in Chennai to manage financial records, ensure compliance, and support business growth.'}
       ],
       color: 'red'
     }

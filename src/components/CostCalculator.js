@@ -6,7 +6,11 @@ const CostCalculator = () => {
   const [formData, setFormData] = useState({
     floors: 'Ground',
     package: 'Basic Package @ 1999/sqft',
-    builtUpArea: '',
+    groundFloorArea: '',
+    firstFloorArea: '',
+    secondFloorArea: '',
+    thirdFloorArea: '',
+    fourthFloorArea: '',
     waterSump: '',
     septicTank: '',
     wallLength: '',
@@ -20,20 +24,39 @@ const CostCalculator = () => {
   const [submitted, setSubmitted] = useState(false);
 
   // Derived validity
-  const isFormValid =
-    formData.name.trim() !== '' && /^\d{10}$/.test(formData.phone);
+  const isFormValid = formData.name.trim() !== '' && /^\d{10}$/.test(formData.phone);
+
+  // Get number of floors to show
+  const getFloorsToShow = () => {
+    switch (formData.floors) {
+      case 'Ground': return ['ground'];
+      case 'Ground + 1': return ['ground', 'first'];
+      case 'Ground + 2': return ['ground', 'first', 'second'];
+      case 'Ground + 3': return ['ground', 'first', 'second', 'third'];
+      case 'Ground + 4': return ['ground', 'first', 'second', 'third', 'fourth'];
+      default: return ['ground'];
+    }
+  };
 
   const calculateCost = (data) => {
     let cost = 0;
+    const ratePerSqft = data.package.includes('1999') ? 1999 
+      : data.package.includes('2199') ? 2199 : 2499;
 
-    if (data.builtUpArea) {
-      const ratePerSqft = data.package.includes('1999')
-        ? 1999
-        : data.package.includes('2199')
-        ? 2199
-        : 2499;
-      cost += parseInt(data.builtUpArea, 10) * ratePerSqft;
-    }
+    // Calculate cost for all floor areas
+    const floorAreas = [
+      data.groundFloorArea,
+      data.firstFloorArea,
+      data.secondFloorArea,
+      data.thirdFloorArea,
+      data.fourthFloorArea
+    ];
+
+    floorAreas.forEach(area => {
+      if (area) {
+        cost += parseInt(area, 10) * ratePerSqft;
+      }
+    });
 
     if (data.waterSump) {
       cost += parseInt(data.waterSump, 10) * 24;
@@ -44,10 +67,7 @@ const CostCalculator = () => {
     }
 
     if (data.wallLength && data.wallHeight) {
-      cost +=
-        parseInt(data.wallLength, 10) *
-        parseInt(data.wallHeight, 10) *
-        425;
+      cost += parseInt(data.wallLength, 10) * parseInt(data.wallHeight, 10) * 425;
     }
 
     return cost;
@@ -66,9 +86,7 @@ const CostCalculator = () => {
     if (field === 'phone') {
       setErrors((prev) => ({
         ...prev,
-        phone: /^\d{10}$/.test(value)
-          ? ''
-          : 'Enter a valid 10-digit phone number'
+        phone: /^\d{10}$/.test(value) ? '' : 'Enter a valid 10-digit phone number'
       }));
     }
   };
@@ -89,6 +107,28 @@ const CostCalculator = () => {
     const cost = calculateCost(formData);
     setTotalCost(cost);
     setSubmitted(true);
+  };
+
+  const getFloorLabel = (floor) => {
+    const labels = {
+      ground: 'Ground Floor',
+      first: 'First Floor',
+      second: 'Second Floor',
+      third: 'Third Floor',
+      fourth: 'Fourth Floor'
+    };
+    return labels[floor];
+  };
+
+  const getFloorFieldName = (floor) => {
+    const fieldNames = {
+      ground: 'groundFloorArea',
+      first: 'firstFloorArea',
+      second: 'secondFloorArea',
+      third: 'thirdFloorArea',
+      fourth: 'fourthFloorArea'
+    };
+    return fieldNames[floor];
   };
 
   return (
@@ -135,9 +175,7 @@ const CostCalculator = () => {
                 pattern="\d{10}"
                 title="Please enter a 10-digit phone number"
               />
-              {errors.phone && (
-                <span className="error">{errors.phone}</span>
-              )}
+              {errors.phone && <span className="error">{errors.phone}</span>}
             </div>
 
             <div className="control-group">
@@ -149,6 +187,8 @@ const CostCalculator = () => {
                 <option value="Ground">Ground</option>
                 <option value="Ground + 1">Ground + 1</option>
                 <option value="Ground + 2">Ground + 2</option>
+                <option value="Ground + 3">Ground + 3</option>
+                <option value="Ground + 4">Ground + 4</option>
               </select>
             </div>
 
@@ -180,57 +220,48 @@ const CostCalculator = () => {
               <div>Cost</div>
             </div>
 
-            {/* Built-Up Area */}
-            <div className="table-row">
-              <div>Enter required Built up Area for Ground Floor</div>
-              <div>
-                <input
-                  type="number"
-                  placeholder="Area in sqft"
-                  value={formData.builtUpArea}
-                  onChange={(e) =>
-                    handleChange('builtUpArea', e.target.value)
-                  }
-                />
+            {/* Dynamic Floor Area Inputs */}
+            {getFloorsToShow().map((floor) => (
+              <div key={floor} className="table-row">
+                <div>Enter required Built up Area for {getFloorLabel(floor)}</div>
+                <div>
+                  <input
+                    type="number"
+                    placeholder="Area in sqft"
+                    value={formData[getFloorFieldName(floor)]}
+                    onChange={(e) => handleChange(getFloorFieldName(floor), e.target.value)}
+                  />
+                </div>
+                <div>sqft</div>
+                <div>
+                  Rs.
+                  {formData.package.includes('1999') ? '1999'
+                    : formData.package.includes('2199') ? '2199' : '2499'}
+                </div>
+                <div>
+                  Rs.{' '}
+                  {formData[getFloorFieldName(floor)]
+                    ? (
+                        parseInt(formData[getFloorFieldName(floor)], 10) *
+                        (formData.package.includes('1999') ? 1999
+                          : formData.package.includes('2199') ? 2199 : 2499)
+                      ).toLocaleString()
+                    : 0}
+                </div>
               </div>
-              <div>sqft</div>
-              <div>
-                Rs.
-                {formData.package.includes('1999')
-                  ? '1999'
-                  : formData.package.includes('2199')
-                  ? '2199'
-                  : '2499'}
-              </div>
-              <div>
-                Rs.{' '}
-                {formData.builtUpArea
-                  ? (
-                      parseInt(formData.builtUpArea, 10) *
-                      (formData.package.includes('1999')
-                        ? 1999
-                        : formData.package.includes('2199')
-                        ? 2199
-                        : 2499)
-                    ).toLocaleString()
-                  : 0}
-              </div>
-            </div>
+            ))}
 
             {/* Water Sump */}
             <div className="table-row">
               <div>
-                Size of RCC Water Sump (A 4 member family will require 9000
-                liter capacity)
+                Size of RCC Water Sump (A 4 member family will require 9000 liter capacity)
               </div>
               <div>
                 <input
                   type="number"
                   placeholder="No. of Liters"
                   value={formData.waterSump}
-                  onChange={(e) =>
-                    handleChange('waterSump', e.target.value)
-                  }
+                  onChange={(e) => handleChange('waterSump', e.target.value)}
                 />
               </div>
               <div>ltr</div>
@@ -251,9 +282,7 @@ const CostCalculator = () => {
                   type="number"
                   placeholder="No. of Liters"
                   value={formData.septicTank}
-                  onChange={(e) =>
-                    handleChange('septicTank', e.target.value)
-                  }
+                  onChange={(e) => handleChange('septicTank', e.target.value)}
                 />
               </div>
               <div>ltr</div>
@@ -274,17 +303,13 @@ const CostCalculator = () => {
                   type="number"
                   placeholder="Length"
                   value={formData.wallLength}
-                  onChange={(e) =>
-                    handleChange('wallLength', e.target.value)
-                  }
+                  onChange={(e) => handleChange('wallLength', e.target.value)}
                 />
                 <input
                   type="number"
                   placeholder="Height"
                   value={formData.wallHeight}
-                  onChange={(e) =>
-                    handleChange('wallHeight', e.target.value)
-                  }
+                  onChange={(e) => handleChange('wallHeight', e.target.value)}
                 />
               </div>
               <div>sqft</div>

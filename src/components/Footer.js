@@ -25,7 +25,7 @@ const Footer = () => (
         <h4 className="footer-title">Find Us</h4>
         <div className="footer-label">Office Address :</div>
         <div className="footer-address-link">
-          No.2, 1st Floor, N.M.Road, Avadi, Chennai - 54
+          No.4, 1st Floor, N.M.Road, Avadi, Chennai - 54
         </div>
         <div className="footer-label">Working Hours :</div>
         <div className="footer-address-link">
