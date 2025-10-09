@@ -1,47 +1,44 @@
 .chat-widget {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
+  bottom: 20px;
+  right: 20px;
   z-index: 9999;
   font-family: 'Segoe UI', Arial, sans-serif;
 }
 
+/* Popup - smaller and more compact */
 .chat-popup {
   position: absolute;
-  bottom: 110px;  /* Position above button */
-  right: 0;      /* Align with button */
-  width: 240px;
+  bottom: 200px;  /* Reduced from 110px */
+  right: 0;
+  width: 240px;  /* Reduced from 240px */
   background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.23);
-  font-size: 15px;
+  border-radius: 12px;  /* Slightly smaller radius */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  font-size: 14px;  /* Reduced from 15px */
   opacity: 0;
-  transform: scale(0.97) translateY(18px);
-  animation: slideUp 0.3s ease-out forwards;
+  transform: scale(0.95) translateY(10px);
+  animation: slideUp 0.25s ease-out forwards;
   text-align: center;
 }
 
 @keyframes slideUp {
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
+  to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 .chat-popup.show {
   opacity: 1;
   transform: scale(1) translateY(0);
-  margin-bottom: 70px;
 }
 
 .chat-popup-header {
-  padding: 18px 16px 14px 16px;
+  padding: 12px 14px 10px 14px;  /* Reduced padding */
   background: linear-gradient(90deg, #4169e1 85%, #2E4BC6 100%);
   color: #fff;
-  font-weight: 700;
-  font-size: 16px;
-  border-radius: 14px 14px 0 0;
-  letter-spacing: 0.02em;
+  font-weight: 600;
+  font-size: 16px;  /* Reduced from 16px */
+  border-radius: 12px 12px 0 0;
+  letter-spacing: 0.01em;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -51,95 +48,150 @@
   background: none;
   border: none;
   color: #fff;
-  font-size: 20px;
+  font-size: 20px;  /* Reduced from 20px */
   cursor: pointer;
   padding: 0;
-  width: 24px;
-  height: 24px;
+  width: 24px;  /* Reduced from 24px */
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 4px;
+  border-radius: 3px;
   transition: background 0.2s ease;
 }
 
-.close-popup-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
+.close-popup-btn:hover { background: rgba(255, 255, 255, 0.2); }
 
 .chat-options {
   list-style: none;
-  padding: 14px 20px 18px 20px;
+  padding: 10px 16px 12px 16px;  /* Reduced padding */
   margin: 0;
 }
 
-.chat-options li + li {
-  margin-top: 12px;
-}
+.chat-options li + li { margin-top: 8px; }  /* Reduced spacing */
 
 .chat-options a {
   color: #4169e1;
   text-decoration: none;
-  font-weight: 600;
-  padding: 8px 0;
+  font-weight: 500;  /* Reduced from 600 */
+  padding: 6px 0;    /* Reduced padding */
   display: block;
-  border-radius: 8px;
-  font-size: 15px;
-  transition: background 0.18s;
+  border-radius: 6px;
+  font-size: 13px;   /* Reduced from 15px */
+  transition: background 0.15s;
 }
 
-.chat-options a:hover {
-  background: rgba(65, 105, 225, 0.13);
-}
+.chat-options a:hover { background: rgba(65, 105, 225, 0.1); }
 
-/* Button styling - fixed position */
+/* Button - much smaller */
 .chat-button {
-  width: 70px;
-  height: 70px;
+  width: 250px;       /* Reduced from 70px */
+  height: 250px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #4169e1 70%, #2E4BC6 100%);
-  border: none;
-  box-shadow: 0 6px 24px rgba(65, 105, 225, 0.19);
+  background: linear-gradient(135deg, #0f0f0f00 70%, #13131300 100%);
+  border: none;  /* Softer shadow */
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.4s;
-  /* Fixed position to prevent movement */
+  transition: all 0.3s ease;
   position: relative;
-  margin-bottom: 40px;
-  margin-right: 40px;
+  overflow: hidden;
+  padding: 0;
+  margin: 0px 0px 0px 100px;
 }
 
+/* Active state */
 .chat-button.active,
 .chat-button:hover {
-  background: linear-gradient(135deg, #2E4BC6 85%, #4169e1 100%);
-  box-shadow: 0 10px 24px rgba(65, 105, 225, 0.28);
+  transform: translateY(-2px);  /* Subtle lift effect */
+
+}
+
+/* Crossfade stack - smaller icons */
+.chat-icon-stack {
+  position: relative;
+  width: 200px;       /* Reduced from 56px */
+  height: 200px;
+  display: block;
 }
 
 .chat-icon {
-  width: 300px;
-  height: 300px;
-  filter: drop-shadow(0 2px 6px rgba(65, 105, 225, 0.3)) brightness(1.05);
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   border-radius: 50%;
+  filter: drop-shadow(0 1px 3px rgba(65, 105, 225, 0.2)) brightness(1.05);
+  transition: opacity 300ms ease, transform 300ms ease;
 }
 
-/* Responsive */
+/* Closed image visible by default */
+.chat-icon--closed { opacity: 1; transform: scale(1); }
+/* Open image hidden by default */
+.chat-icon--open   { opacity: 0; transform: scale(0.95); }
+
+/* When popup opens, reveal the open image */
+.chat-button.active .chat-icon--closed { opacity: 0; transform: scale(1.05); }
+.chat-button.active .chat-icon--open   { opacity: 1; transform: scale(1); }
+
+/* Optional: desktop hover preview */
+.chat-widget.hovering .chat-icon--closed { opacity: 0; transform: scale(1.05); }
+.chat-widget.hovering .chat-icon--open   { opacity: 1; transform: scale(1); }
+
+/* Mobile responsive */
 @media (max-width: 768px) {
-  .chat-widget {
-    bottom: 15px;
-    right: 15px;
+  .chat-widget { 
+    bottom: 16px; 
+    right: 16px; 
   }
-  .chat-button {
-    width: 56px;
-    height: 56px;
+  
+  .chat-button { 
+    width: 50px; 
+    height: 50px; 
   }
-  .chat-icon {
-    width: 28px;
-    height: 28px;
+  
+  .chat-icon-stack { 
+    width: 28px; 
+    height: 28px; 
   }
-  .chat-popup {
-    width: 220px;
-    bottom: 70px;  /* Adjust for smaller button */
+  
+  .chat-popup { 
+    width: 180px; 
+    bottom: 65px; 
+    font-size: 13px;
+  }
+  
+  .chat-popup-header {
+    font-size: 13px;
+    padding: 10px 12px 8px 12px;
+  }
+  
+  .chat-options {
+    padding: 8px 12px 10px 12px;
+  }
+  
+  .chat-options a {
+    font-size: 12px;
+    padding: 5px 0;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .chat-button { 
+    width: 48px; 
+    height: 48px; 
+  }
+  
+  .chat-icon-stack { 
+    width: 26px; 
+    height: 26px; 
+  }
+  
+  .chat-popup { 
+    width: 170px; 
+    bottom: 60px; 
   }
 }
