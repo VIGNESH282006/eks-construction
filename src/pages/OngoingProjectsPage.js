@@ -16,7 +16,7 @@ const OngoingProjectsPage = () => {
       expectedCompletion: 'December 2025',
       progress: 35,
       budget: '₹15 Crores',
-      image: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?w=600&h=400&fit=crop',
+      image: 'https://eksconstruction.in/wp-content/uploads/2024/12/MUTHUKUMAR-crown-city-Phase-1-300x284.jpg',
       features: ['High-rise Tower', 'Premium Amenities', 'Concierge Service', 'Rooftop Garden'],
       description: 'A luxurious residential tower with premium amenities and modern architecture.',
       color: 'blue'
