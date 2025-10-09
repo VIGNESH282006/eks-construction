@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import '../styles/CareersSection.css';
+import ValueItem from '../components/ValueItem';
+
+import img1 from '../assets/images/why1.jpg';
+import img2 from '../assets/images/why1-alt.jpg';
+import img3 from '../assets/images/why2.jpg';
+import img4 from '../assets/images/why2-alt.jpg';
+import img5 from '../assets/images/why3.jpg';
+import img6 from '../assets/images/why3-alt.jpg';
 
 const CareersSection = () => {
   const [formData, setFormData] = useState({
@@ -12,7 +20,6 @@ const CareersSection = () => {
     institution: '',
     message: ''
   });
-
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
 
@@ -29,8 +36,8 @@ const CareersSection = () => {
       category: 'Engineering',
       positions: [
         { title: 'Civil Engineer', locations: ['Chennai'], description: 'Excellent opportunities for civil engineers. Whether you are a seasoned professional or a fresher looking to start your career in civil engineering.' },
-        {title:'SITE ENGINEER', locations:['Chennai'], description:'Hiring a Site Engineer in Chennai to manage construction, ensure safety, and coordinate for project success.'},
-        {title:' PROJECT MANAGER',locations:['Chennai'], description:'Hiring an experienced Project Manager in Chennai to lead construction projects, manage teams, and ensure timely, high-quality delivery.'}
+        { title: 'SITE ENGINEER', locations: ['Chennai'], description: 'Hiring a Site Engineer in Chennai to manage construction, ensure safety, and coordinate for project success.' },
+        { title: ' PROJECT MANAGER', locations: ['Chennai'], description: 'Hiring an experienced Project Manager in Chennai to lead construction projects, manage teams, and ensure timely, high-quality delivery.' }
       ],
       color: 'red'
     },
@@ -47,7 +54,7 @@ const CareersSection = () => {
       category: 'Administration',
       positions: [
         { title: 'Front Office', locations: ['Chennai'], description: 'Our front office team is the face of eks Construction. If you are organized, friendly, and efficient, consider applying for our front office positions.' },
-        {title:'Accountant', locations:['Chennai'], description:'Hiring an Accountant in Chennai to manage financial records, ensure compliance, and support business growth.'}
+        { title: 'Accountant', locations: ['Chennai'], description: 'Hiring an Accountant in Chennai to manage financial records, ensure compliance, and support business growth.' }
       ],
       color: 'red'
     }
@@ -64,13 +71,13 @@ const CareersSection = () => {
   };
 
   const cardVariants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       y: 50,
       scale: 0.9
     },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       scale: 1,
       transition: {
@@ -95,7 +102,7 @@ const CareersSection = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       setSubmitStatus('Please fill in all required fields.');
       return;
@@ -138,44 +145,48 @@ const CareersSection = () => {
     }
   };
 
+
   return (
     <>
-      {/* Company Values */}
       <section className="company-values">
         <div className="careers-container">
-          <motion.div 
+          <motion.div
             className="values-content"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h2>Why Choose eks Construction?</h2>
-            <p>Are you passionate about architecture and construction? eks Construction, a leading Turnkey Home construction service provider, is expanding its team and looking for talented individuals to join us in Chennai, Bangalore, Hyderabad, Coimbatore, and Pondicherry.</p>
+            <h2>Why Choose <span style={{ color: 'blue' }}>e</span><span style={{ color: 'red' }}>k</span><span style={{ color: 'blue' }}>s</span> <span style={{ color: 'blue' }}>construction?</span></h2>
+            <p>
+              Are you passionate about architecture and construction? eks Construction, a leading Turnkey Home construction service provider, is expanding its team...
+            </p>
             <div className="values-grid">
-              <div className="value-item">
-                <div className="value-icon">🌟</div>
-                <h3>Innovation</h3>
-                <p>We offer a range of exciting opportunities for professionals at all stages of their careers.</p>
-              </div>
-              <div className="value-item">
-                <div className="value-icon">🤝</div>
-                <h3>Support</h3>
-                <p>We pride ourselves on creating an innovative and supportive work environment.</p>
-              </div>
-              <div className="value-item">
-                <div className="value-icon">🚀</div>
-                <h3>Excellence</h3>
-                <p>Our commitment to excellence drives us to seek dedicated and skilled individuals.</p>
-              </div>
+              <ValueItem
+                img1={img1}
+                img2={img2}
+                title="Innovation"
+                description="We offer a range of exciting opportunities for professionals at all stages of their careers."
+              />
+              <ValueItem
+                img1={img3}
+                img2={img4}
+                title="Support"
+                description="We pride ourselves on creating an innovative and supportive work environment."
+              />
+              <ValueItem
+                img1={img5}
+                img2={img6}
+                title="Excellence"
+                description="Our commitment to excellence drives us to seek dedicated and skilled individuals."
+              />
             </div>
           </motion.div>
         </div>
       </section>
-
       {/* Job Categories */}
       <section className="job-categories">
         <div className="careers-container">
-          <motion.div 
+          <motion.div
             className="section-header"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -196,8 +207,8 @@ const CareersSection = () => {
                 key={index}
                 className={`category-card ${category.color}`}
                 variants={cardVariants}
-                whileHover={{ 
-                  y: -5, 
+                whileHover={{
+                  y: -5,
                   transition: { duration: 0.3 }
                 }}
               >
@@ -337,8 +348,8 @@ const CareersSection = () => {
               </div>
             )}
 
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="submit-btn"
               disabled={isSubmitting}
             >
@@ -364,6 +375,7 @@ const CareersSection = () => {
       </section>
     </>
   );
+
 };
 
 export default CareersSection;

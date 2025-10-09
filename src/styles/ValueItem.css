@@ -1,0 +1,31 @@
+/* src/styles/ValueItem.css */
+.value-item {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.value-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+.why-choose-img {
+  width: 7rem;
+  height: 7rem;
+  margin-bottom: 1rem;
+  object-fit: contain;
+  transition: opacity 0.4s;
+  border-radius: 50%;
+}
+.value-item h3 {
+  color: #4169E1;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.value-item p {
+  color: #666;
+  line-height: 1.6;
+}
