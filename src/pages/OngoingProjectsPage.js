@@ -3,68 +3,69 @@ import { motion } from 'framer-motion';
 import ProjectsSection from '../components/ProjectsSection';
 import '../styles/ProjectsPage.css';
 
+import on1 from '../assets/images/projects/on1.jpg';
+import on2 from '../assets/images/projects/on2.jpg';
+import on3 from '../assets/images/projects/on3.jpg';
+import on4 from '../assets/images/projects/on4.jpg';
+
 const OngoingProjectsPage = () => {
   const ongoingProjects = [
     {
       id: 1,
-      title: 'Premium Residential Tower',
-      location: 'Electronic City, Bangalore',
+      title: 'Premium Residential House',
+      location: 'Crowncity Phase-1',
       type: 'Residential',
-      area: '45,000 sqft',
-      units: '36 Units',
+      area: '1500 sqft',
+      floors: '2 Floors',
       startDate: 'June 2024',
       expectedCompletion: 'December 2025',
       progress: 35,
-      budget: '₹15 Crores',
-      image: 'https://eksconstruction.in/wp-content/uploads/2024/12/MUTHUKUMAR-crown-city-Phase-1-300x284.jpg',
+      image: on1,
       features: ['High-rise Tower', 'Premium Amenities', 'Concierge Service', 'Rooftop Garden'],
       description: 'A luxurious residential tower with premium amenities and modern architecture.',
       color: 'blue'
     },
     {
       id: 2,
-      title: 'Tech Park Development',
-      location: 'OMR, Chennai',
-      type: 'Commercial',
-      area: '75,000 sqft',
-      floors: '8 Floors',
+      title: 'Modern Residential Villa',
+      location: 'Ambattur ,Chennai',
+      type: 'Residentiall',
+      area: '2100 sqft',
+      floors: '2 Floors',
       startDate: 'August 2024',
       expectedCompletion: 'March 2026',
       progress: 25,
-      budget: '₹25 Crores',
-      image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&h=400&fit=crop',
+      image: on2,
       features: ['IT Infrastructure', 'Conference Rooms', 'Cafeteria', 'Recreation Area'],
       description: 'A modern tech park designed for IT companies with world-class infrastructure.',
       color: 'red'
     },
     {
       id: 3,
-      title: 'Sustainable Housing Project',
-      location: 'Whitefield, Bangalore',
+      title: 'Blissful Living Villa',
+      location: 'VGN Crofton',
       type: 'Residential',
-      area: '28,000 sqft',
-      units: '24 Villas',
+      area: '1810 sqft',
+      floors: '2',
       startDate: 'September 2024',
       expectedCompletion: 'June 2026',
       progress: 15,
-      budget: '₹12 Crores',
-      image: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&h=400&fit=crop',
+      image: on3,
       features: ['Solar Energy', 'Rainwater Harvesting', 'Green Building', 'Community Garden'],
       description: 'An eco-friendly housing project focused on sustainable living and green technology.',
       color: 'blue'
     },
     {
       id: 4,
-      title: 'Luxury Resort Construction',
-      location: 'Kodaikanal, Tamil Nadu',
-      type: 'Hospitality',
-      area: '35,000 sqft',
-      rooms: '50 Rooms',
+      title: 'Dreamline Villa',
+      location: 'Govarthanagiri, Tamil Nadu',
+      type: 'Residential',
+      area: '1100 sqft',
+      floors: '2 Floors',
       startDate: 'July 2024',
       expectedCompletion: 'April 2026',
       progress: 40,
-      budget: '₹18 Crores',
-      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop',
+      image: on4,
       features: ['Spa & Wellness', 'Multi-cuisine Restaurant', 'Conference Hall', 'Adventure Sports'],
       description: 'A premium resort with luxury accommodations and world-class hospitality facilities.',
       color: 'red'
