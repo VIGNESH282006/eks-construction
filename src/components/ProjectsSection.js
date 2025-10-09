@@ -179,15 +179,7 @@ const ProjectsSection = ({ projects, type }) => {
                   )}
                 </div>
 
-                <div className="project-budget">
-                  <span className="budget-label">
-                    {type === 'completed' ? 'Project Cost:' : 
-                     type === 'ongoing' ? 'Budget:' : 'Estimated Budget:'}
-                  </span>
-                  <span className={`budget-value ${project.color}`}>
-                    {project.budget || project.estimatedBudget}
-                  </span>
-                </div>
+
 
                 <div className="project-features">
                   <h4>Key Features:</h4>
@@ -200,14 +192,7 @@ const ProjectsSection = ({ projects, type }) => {
                   </div>
                 </div>
 
-                <motion.button 
-                  className={`project-btn ${project.color}`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {type === 'completed' ? 'View Details' : 
-                   type === 'ongoing' ? 'View Progress' : 'Get Updates'}
-                </motion.button>
+
               </div>
             </motion.div>
           ))}
