@@ -5,6 +5,7 @@
   padding: 0 2rem;
 }
 
+
 /* Section Headers */
 .section-header {
   text-align: center;
@@ -515,7 +516,7 @@
 
 .form-row {
   display: flex;
-  gap: 2rem;
+  justify-content: space-evenly;
   margin-bottom: 1.5rem;
 }
 

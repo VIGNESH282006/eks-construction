@@ -259,10 +259,13 @@ const CareersSection = () => {
                   type="text"
                   id="firstName"
                   name="firstName"
+                  placeholder="Enter your first name"
                   value={formData.firstName}
                   onChange={handleInputChange}
                   required
+                  style={{ width: "300px", height: "60px", fontSize: "16px" }}
                 />
+
               </div>
               <div className="form-group">
                 <label htmlFor="lastName">Last Name *</label>
@@ -270,9 +273,11 @@ const CareersSection = () => {
                   type="text"
                   id="lastName"
                   name="lastName"
+                  placeholder="Enter your last name"
                   value={formData.lastName}
                   onChange={handleInputChange}
                   required
+                  style={{ width: "300px", height: "60px", fontSize: "16px" }}
                 />
               </div>
             </div>
@@ -284,9 +289,11 @@ const CareersSection = () => {
                   type="email"
                   id="email"
                   name="email"
+                  placeholder="Enter Email"
                   value={formData.email}
                   onChange={handleInputChange}
                   required
+                  style={{ width: "300px", height: "60px", fontSize: "16px" }}
                 />
               </div>
               <div className="form-group">
@@ -295,36 +302,40 @@ const CareersSection = () => {
                   type="tel"
                   id="phone"
                   name="phone"
+                  placeholder="Enter phone number"
                   value={formData.phone}
                   onChange={handleInputChange}
                   required
+                  style={{ width: "300px", height: "60px", fontSize: "16px" }}
                 />
               </div>
             </div>
 
             <div className="form-row">
               <div className="form-group">
-                <label htmlFor="qualification">Educational Qualification *</label>
+                <label htmlFor="qualification">Experience *</label>
                 <input
                   type="text"
                   id="qualification"
                   name="qualification"
                   value={formData.qualification}
                   onChange={handleInputChange}
-                  placeholder="e.g., Bachelor's in Civil Engineering"
+                  placeholder="e.g., +5 years experience in Civil"
                   required
+                  style={{ width: "300px", height: "60px", fontSize: "16px" }}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="institution">Educational Institution *</label>
+                <label htmlFor="institution">Your Resume *</label>
                 <input
-                  type="text"
+                  type="file"
                   id="institution"
                   name="institution"
                   value={formData.institution}
                   onChange={handleInputChange}
-                  placeholder="e.g., Anna University"
+                  placeholder="e.g., Upload your Resume"
                   required
+                  style={{ width: "300px", height: "60px", fontSize: "16px" }}
                 />
               </div>
             </div>
@@ -339,6 +350,7 @@ const CareersSection = () => {
                 rows="5"
                 placeholder="Tell us why you'd like to work with eks Construction and what position interests you..."
                 required
+                style={{ width: "100%", height: "60px", fontSize: "16px" }}
               ></textarea>
             </div>
 

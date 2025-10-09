@@ -9,9 +9,10 @@
 /* Popup - smaller and more compact */
 .chat-popup {
   position: absolute;
-  bottom: 200px;  /* Reduced from 110px */
+  bottom: 160px;  /* Reduced from 110px */
   right: 0;
-  width: 240px;  /* Reduced from 240px */
+  width: 200px;
+  height: 210px;  /* Reduced from 240px */
   background: #fff;
   border-radius: 12px;  /* Slightly smaller radius */
   box-shadow: 0 8px 25px rgba(0,0,0,0.15);
@@ -20,6 +21,7 @@
   transform: scale(0.95) translateY(10px);
   animation: slideUp 0.25s ease-out forwards;
   text-align: center;
+  
 }
 
 @keyframes slideUp {
@@ -98,7 +100,7 @@
   position: relative;
   overflow: hidden;
   padding: 0;
-  margin: 0px 0px 0px 100px;
+  margin: 0px -50px -40px 0px;
 }
 
 /* Active state */
