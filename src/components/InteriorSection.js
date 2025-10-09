@@ -77,7 +77,7 @@ const InteriorSection = () => (
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <h2>Why Choose eks Construction for Interior Design?</h2>
+        <h2>Why Choose <span style={{ color: 'blue' }}>e</span><span style={{ color: 'red' }}>k</span><span style={{ color: 'blue' }}>s</span> <span style={{ color: 'blue' }}>construction</span> for Interior Design?</h2>
         <p className="intro-text">
           Your home is more than just a space—it's a reflection of who you are. At eks Construction,
           we understand that great interior design goes beyond beautiful aesthetics. It's about creating

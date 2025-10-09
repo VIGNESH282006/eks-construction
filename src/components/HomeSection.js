@@ -8,8 +8,35 @@ import { motion } from 'framer-motion';
 import AboutSection from '../components/AboutSection';
 import WhyChooseUs from '../components/WhyChooseUs';
 import expertiseIcon from '../assets/images/expertise-icon.png';
+import expertiseAnim from '../assets/images/expertise-anim.jpg';
 import integrityIcon from '../assets/images/integrity-icon.png';
+import integrityAnim from '../assets/images/integrity-anim.jpg';
 import deliveryIcon from '../assets/images/delivery-icon.png';
+import deliveryAnim from '../assets/images/delivery-anim.jpg';
+
+import StatsSection from '../components/StatsSection';
+
+function ValueCard({ staticSrc, animatedSrc, title, children, borderColor }) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <div
+      className="value-card"
+      style={{ borderTop: `4px solid ${borderColor}` }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onTouchStart={() => setHovered(true)}
+      onTouchEnd={() => setHovered(false)}
+    >
+      <img
+        src={hovered ? animatedSrc : staticSrc}
+        alt={title}
+        className="value-icon-img"
+      />
+      <h4>{title}</h4>
+      <p>{children}</p>
+    </div>
+  );
+}
 
 const HomePage = () => {
   const [activeService, setActiveService] = useState(0);
@@ -94,55 +121,42 @@ const HomePage = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="stats-section">
-        <h1 className='stats-heading'>Our Expertise</h1>
-        <div className="stats-grid">
-          <div className="stat-card">
-            <span className="stat-number">18+</span>
-            <span className="stat-label">Years Experience</span>
-          </div>
-          <div className="stat-card">
-            <span className="stat-number">200+</span>
-            <span className="stat-label">Happy Clients</span>
-          </div>
-          <div className="stat-card">
-            <span className="stat-number">350+</span>
-            <span className="stat-label">Projects Completed</span>
-          </div>
-          <div className="stat-card">
-            <span className="stat-number">15+</span>
-            <span className="stat-label">Awards & Recognition</span>
-          </div>
-        </div>
-      </section>
 
-
+      <StatsSection />
       <div className="section-divider"></div>
       {/* Values Section */}
+      
+
+      
       <section className="values-section">
         <h3>Our Core Values</h3>
         <div className="values-grid">
-          <div className="value-card">
-            <img src={expertiseIcon} alt="Expertise" className="value-icon-img" />
-            <h4>Expertise</h4>
-            <p>
-              Our experienced team applies industry-leading knowledge and skills to deliver top-quality results.
-            </p>
-          </div>
-          <div className="value-card1">
-            <img src={integrityIcon} alt="Integrity" className="value-icon-img" />
-            <h4 className='integrity-header'>Integrity</h4>
-            <p>
-              Honesty and transparency in every project, building trust and long-term client relationships.
-            </p>
-          </div>
-          <div className="value-card">
-            <img src={deliveryIcon} alt="Timely Delivery" className="value-icon-img" />
-            <h4>Timely Delivery</h4>
-            <p>
-              Reliable timelines and commitment—your project is always on schedule without compromising quality.
-            </p>
-          </div>
+          <ValueCard
+            staticSrc={expertiseIcon}
+            animatedSrc={expertiseAnim}
+            title="Expertise"
+            borderColor="#4169E1"
+          >
+            Our experienced team applies industry-leading knowledge and skills to deliver top-quality results.
+          </ValueCard>
+
+          <ValueCard
+            staticSrc={integrityIcon}
+            animatedSrc={integrityAnim}
+            title="Integrity"
+            borderColor="#FF4444"
+          >
+            Honesty and transparency in every project, building trust and long-term client relationships.
+          </ValueCard>
+
+          <ValueCard
+            staticSrc={deliveryIcon}
+            animatedSrc={deliveryAnim}
+            title="Timely Delivery"
+            borderColor="#4169E1"
+          >
+            Reliable timelines and commitment—your project is always on schedule without compromising quality.
+          </ValueCard>
         </div>
       </section>
 
@@ -153,63 +167,7 @@ const HomePage = () => {
 
         <AboutSection />
       </motion.div>
-
-
-
-      {/* What We Offer Hero Section */}
-      <section className="what-we-offer-hero" id="services">
-        <div className="hero-background">
-          <div
-            className="background-image"
-            style={{
-              backgroundImage: `url(${services[activeService].backgroundImage})`
-            }}
-          >
-            <div className="background-overlay"></div>
-          </div>
-        </div>
-
-        <div className="hero-content">
-          <h1 className='what-header'>What We Offer</h1>
-          {/* Navigation Tabs */}
-          <nav className="services-nav">
-            {services.map((service, index) => (
-              <button
-                key={service.id}
-                className={`nav-tab ${index === activeService ? 'active' : ''}`}
-                onClick={() => handleServiceChange(index)}
-              >
-                <div className="tab-icon">
-                  {index === 0}
-                  {index === 1}
-                  {index === 2}
-                </div>
-                <span className="tab-text">{service.title}</span>
-              </button>
-            ))}
-          </nav>
-
-          {/* Content Area */}
-          <div className="content-area">
-            <div className="content-wrapper">
-              <div className="content-text">
-                <h1 className="main-title">
-                  {services[activeService].title}
-                </h1>
-                <div className="subtitle">
-                  {services[activeService].subtitle}
-                </div>
-                <p className="description">
-                  {services[activeService].description}
-                </p>
-                <button className="explore-btn">
-                  {services[activeService].buttonText}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <WhyChooseUs />
     </main>
   );
 };

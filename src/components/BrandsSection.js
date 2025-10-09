@@ -106,7 +106,7 @@ const BrandsSection = () => {
     <section className="brands-section">
       <div className="brands-container">
         <div className="brands-header">
-          <h2>OUR RETAILERS</h2>
+          <h2>OUR RETAIL PARTNERS</h2>
           <p>We build your dream with our Reputable Partners</p>
         </div>
         

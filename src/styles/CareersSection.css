@@ -514,10 +514,16 @@
 }
 
 .form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   gap: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .form-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
 
 .form-group {
@@ -612,11 +618,6 @@
     margin: 0 1rem;
   }
 
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
 
   .form-header h2 {
     font-size: 2rem;

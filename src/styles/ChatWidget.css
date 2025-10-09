@@ -8,7 +8,7 @@
 
 .chat-popup {
   position: absolute;
-  bottom: 80px;  /* Position above button */
+  bottom: 110px;  /* Position above button */
   right: 0;      /* Align with button */
   width: 240px;
   background: #fff;
@@ -118,8 +118,8 @@
 }
 
 .chat-icon {
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   filter: drop-shadow(0 2px 6px rgba(65, 105, 225, 0.3)) brightness(1.05);
   border-radius: 50%;
 }

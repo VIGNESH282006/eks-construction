@@ -5,7 +5,7 @@ import '../styles/CostCalculator.css';
 const CostCalculator = () => {
   const [formData, setFormData] = useState({
     floors: 'Ground',
-    package: 'Basic Package @ 1999/sqft',
+    package: 'Basic Package @ 2099/sqft',
     groundFloorArea: '',
     firstFloorArea: '',
     secondFloorArea: '',
@@ -14,19 +14,22 @@ const CostCalculator = () => {
     waterSump: '',
     septicTank: '',
     wallLength: '',
-    wallHeight: '',
     name: '',
-    phone: ''
+    phone: '',
+    location: '',
+    totalArea: ''
   });
 
   const [errors, setErrors] = useState({ name: '', phone: '' });
   const [totalCost, setTotalCost] = useState(0);
   const [submitted, setSubmitted] = useState(false);
 
-  // Derived validity
-  const isFormValid = formData.name.trim() !== '' && /^\d{10}$/.test(formData.phone);
+  const isFormValid =
+    formData.name.trim() !== '' &&
+    /^\d{10}$/.test(formData.phone) &&
+    formData.location.trim() !== '' &&
+    formData.totalArea.trim() !== '';
 
-  // Get number of floors to show
   const getFloorsToShow = () => {
     switch (formData.floors) {
       case 'Ground': return ['ground'];
@@ -40,10 +43,14 @@ const CostCalculator = () => {
 
   const calculateCost = (data) => {
     let cost = 0;
-    const ratePerSqft = data.package.includes('1999') ? 1999 
-      : data.package.includes('2199') ? 2199 : 2499;
+    const ratePerSqft = data.package.includes('2099')
+      ? 2099
+      : data.package.includes('2399')
+        ? 2399
+        : 2599;
+    const rccSumpRate = 35;
+    const septicRate = 20;
 
-    // Calculate cost for all floor areas
     const floorAreas = [
       data.groundFloorArea,
       data.firstFloorArea,
@@ -59,24 +66,20 @@ const CostCalculator = () => {
     });
 
     if (data.waterSump) {
-      cost += parseInt(data.waterSump, 10) * 24;
+      cost += parseInt(data.waterSump, 10) * rccSumpRate;
     }
-
     if (data.septicTank) {
-      cost += parseInt(data.septicTank, 10) * 24;
+      cost += parseInt(data.septicTank, 10) * septicRate;
     }
-
-    if (data.wallLength && data.wallHeight) {
-      cost += parseInt(data.wallLength, 10) * parseInt(data.wallHeight, 10) * 425;
+    // Compound wall: cost = length(ft) * 5 (height) * 425
+    if (data.wallLength) {
+      cost += parseInt(data.wallLength, 10) * 5 * 425;
     }
-
     return cost;
   };
 
   const handleChange = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
-
-    // Inline validation
     if (field === 'name') {
       setErrors((prev) => ({
         ...prev,
@@ -86,7 +89,16 @@ const CostCalculator = () => {
     if (field === 'phone') {
       setErrors((prev) => ({
         ...prev,
-        phone: /^\d{10}$/.test(value) ? '' : 'Enter a valid 10-digit phone number'
+        phone: /^\d{10}$/.test(value)
+          ? ''
+          : 'Enter a valid 10-digit phone number'
+      }));
+    }
+    if (field === 'location' || field === 'totalArea') {
+      // simple non-empty check
+      setErrors((prev) => ({
+        ...prev,
+        [field]: value.trim() ? '' : `Please enter your ${field === 'location' ? 'location' : 'total area'}`
       }));
     }
   };
@@ -94,13 +106,8 @@ const CostCalculator = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.phone) {
-      alert('Please enter your name and phone number.');
-      return;
-    }
-
     if (!isFormValid) {
-      alert('Please correct the errors before submitting.');
+      alert('Please fill in all required fields correctly.');
       return;
     }
 
@@ -129,6 +136,13 @@ const CostCalculator = () => {
       fourth: 'fourthFloorArea'
     };
     return fieldNames[floor];
+  };
+
+  // Package rates for display
+  const getPackageRate = () => {
+    if (formData.package.includes('Basic')) return 2099;
+    if (formData.package.includes('Standard')) return 2399;
+    return 2599;
   };
 
   return (
@@ -163,7 +177,6 @@ const CostCalculator = () => {
               />
               {errors.name && <span className="error">{errors.name}</span>}
             </div>
-
             <div className="control-group">
               <label>Phone Number</label>
               <input
@@ -178,6 +191,31 @@ const CostCalculator = () => {
               {errors.phone && <span className="error">{errors.phone}</span>}
             </div>
 
+              <div className="control-group">
+                <label>Location</label>
+                <input
+                  type="text"
+                  placeholder="Enter your location"
+                  value={formData.location}
+                  onChange={(e) => handleChange('location', e.target.value)}
+                  required
+                />
+                {errors.location && <span className="error">{errors.location}</span>}
+              </div>
+
+              <div className="control-group">
+                <label>Total Area (sq ft)</label>
+                <input
+                  type="number"
+                  className="text-input"
+                  placeholder="Enter total area in sqft"
+                  value={formData.totalArea}
+                  onChange={(e) => handleChange('totalArea', e.target.value)}
+                  required
+                />
+                {errors.totalArea && <span className="error">{errors.totalArea}</span>}
+              </div>
+
             <div className="control-group">
               <label>No. of Floors</label>
               <select
@@ -191,21 +229,20 @@ const CostCalculator = () => {
                 <option value="Ground + 4">Ground + 4</option>
               </select>
             </div>
-
             <div className="control-group">
               <label>Package</label>
               <select
                 value={formData.package}
                 onChange={(e) => handleChange('package', e.target.value)}
               >
-                <option value="Basic Package @ 1999/sqft">
-                  Basic Package @ ₹1999/sqft
+                <option value="Basic Package @ 2099/sqft">
+                  Basic Package @ ₹2099/sqft
                 </option>
-                <option value="Standard Package @ 2199/sqft">
-                  Standard Package @ ₹2199/sqft
+                <option value="Standard Package @ 2399/sqft">
+                  Standard Package @ ₹2399/sqft
                 </option>
-                <option value="Premium Package @ 2499/sqft">
-                  Premium Package @ ₹2499/sqft
+                <option value="Premium Package @ 2599/sqft">
+                  Premium Package @ ₹2599/sqft
                 </option>
               </select>
             </div>
@@ -234,18 +271,13 @@ const CostCalculator = () => {
                 </div>
                 <div>sqft</div>
                 <div>
-                  Rs.
-                  {formData.package.includes('1999') ? '1999'
-                    : formData.package.includes('2199') ? '2199' : '2499'}
+                  Rs.{getPackageRate()}
                 </div>
                 <div>
-                  Rs.{' '}
-                  {formData[getFloorFieldName(floor)]
+                  Rs.{formData[getFloorFieldName(floor)]
                     ? (
-                        parseInt(formData[getFloorFieldName(floor)], 10) *
-                        (formData.package.includes('1999') ? 1999
-                          : formData.package.includes('2199') ? 2199 : 2499)
-                      ).toLocaleString()
+                      parseInt(formData[getFloorFieldName(floor)], 10) * getPackageRate()
+                    ).toLocaleString()
                     : 0}
                 </div>
               </div>
@@ -254,7 +286,7 @@ const CostCalculator = () => {
             {/* Water Sump */}
             <div className="table-row">
               <div>
-                Size of RCC Water Sump (A 4 member family will require 9000 liter capacity)
+                Size of RCC Water Sump (A 4 member family will require 10000 liter capacity)
               </div>
               <div>
                 <input
@@ -265,18 +297,18 @@ const CostCalculator = () => {
                 />
               </div>
               <div>ltr</div>
-              <div>Rs.24</div>
+              <div>Rs.35</div>
               <div>
                 Rs.{' '}
                 {formData.waterSump
-                  ? (parseInt(formData.waterSump, 10) * 24).toLocaleString()
+                  ? (parseInt(formData.waterSump, 10) * 35).toLocaleString()
                   : 0}
               </div>
             </div>
 
             {/* Septic Tank */}
             <div className="table-row">
-              <div>Size of Septic Tank</div>
+              <div>Size of Septic Tank (A 4 member family will require 10000 liter capacity)</div>
               <div>
                 <input
                   type="number"
@@ -286,42 +318,33 @@ const CostCalculator = () => {
                 />
               </div>
               <div>ltr</div>
-              <div>Rs.24</div>
+              <div>Rs.20</div>
               <div>
                 Rs.{' '}
                 {formData.septicTank
-                  ? (parseInt(formData.septicTank, 10) * 24).toLocaleString()
+                  ? (parseInt(formData.septicTank, 10) * 20).toLocaleString()
                   : 0}
               </div>
             </div>
 
             {/* Compound Wall */}
             <div className="table-row">
-              <div>Plain Compound Wall</div>
-              <div className="wall-inputs">
+              <div>Compound Wall (5 ft)</div>
+              <div>
                 <input
                   type="number"
                   placeholder="Length"
                   value={formData.wallLength}
                   onChange={(e) => handleChange('wallLength', e.target.value)}
                 />
-                <input
-                  type="number"
-                  placeholder="Height"
-                  value={formData.wallHeight}
-                  onChange={(e) => handleChange('wallHeight', e.target.value)}
-                />
               </div>
-              <div>sqft</div>
-              <div>Rs.425</div>
+              <div>ft</div>
+              <div>Rs.1850(1X5)</div>
               <div>
-                Rs.{' '}
-                {formData.wallLength && formData.wallHeight
+                Rs.{formData.wallLength
                   ? (
-                      parseInt(formData.wallLength, 10) *
-                      parseInt(formData.wallHeight, 10) *
-                      425
-                    ).toLocaleString()
+                    parseInt(formData.wallLength, 10) * 5 * 370
+                  ).toLocaleString()
                   : 0}
               </div>
             </div>

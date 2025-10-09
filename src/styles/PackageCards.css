@@ -30,7 +30,7 @@
 }
 
 .package-card.red {
-  border-color: #FF4444;
+  border-color: #ff0101;
 }
 
 .package-card.popular {
@@ -60,7 +60,7 @@
 }
 
 .package-card.red .package-header {
-  background: linear-gradient(135deg, #fbb3b3, #ffffff);
+  background: linear-gradient(135deg, #ff0000, #ffffff);
 }
 
 .package-header h3 {
@@ -95,7 +95,7 @@
 }
 
 .package-card.red .currency {
-  color: #FF4444;
+  color: #ff0000;
 }
 
 .package-features {
@@ -125,7 +125,7 @@
 }
 
 .package-card.red .feature-header:hover {
-  color: #FF4444;
+  color: #ff0000;
 }
 
 .toggle-icon {
@@ -159,7 +159,7 @@
 }
 
 .package-card.red .get-specification-btn {
-  background: #FF4444;
+  background: #ff0202;
 }
 
 .get-specification-btn:hover {

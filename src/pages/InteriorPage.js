@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';   // Import useNavigate
 import InteriorSection from '../components/InteriorSection';
 import InteriorServices from '../components/InteriorServices';
 import InteriorProcess from '../components/InteriorProcess';
-import InteriorGallery from '../components/InteriorGallery';
 import '../styles/InteriorPage.css';
 
 const InteriorPage = () => {
@@ -51,8 +50,6 @@ const InteriorPage = () => {
       {/* Interior Process */}
       <InteriorProcess />
 
-      {/* Interior Gallery */}
-      <InteriorGallery />
 
     </motion.div>
   );

@@ -28,8 +28,9 @@
   font-size: 1rem;
 }
 
-.calculator-form .control-group input[type="text"],
-.calculator-form .control-group input[type="tel"] {
+.control-group input,
+.control-group select {
+  width: 100%;
   padding: 1rem;
   border: 2px solid #e0e0e0;
   border-radius: 10px;
@@ -39,13 +40,12 @@
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.calculator-form .control-group input[type="text"]:focus,
-.calculator-form .control-group input[type="tel"]:focus {
+.control-group input:focus,
+.control-group select:focus {
   outline: none;
   border-color: #4169E1;
   box-shadow: 0 0 0 3px rgba(65, 105, 225, 0.1);
 }
-
 /* Align two columns on desktop, full-width on mobile */
 @media (min-width: 968px) {
   .form-controls {
