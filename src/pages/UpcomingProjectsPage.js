@@ -89,31 +89,7 @@ const UpcomingProjectsPage = () => {
       transition={{ duration: 0.5 }}
       className="projects-page"
     >
-      {/* Page Hero */}
-      <motion.section 
-        className="projects-hero upcoming"
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.8 }}
-      >
-        <div className="projects-hero-container">
-          <div className="hero-graphics">
-            <div className="floating-icon">🏗️</div>
-            <div className="floating-icon">🎯</div>
-            <div className="floating-icon">🚀</div>
-            <div className="floating-icon">💡</div>
-          </div>
-          <h1>Upcoming Projects</h1>
-          <p>Future innovations - Exciting projects launching soon</p>
-          <div className="hero-description">
-            <p>Discover our upcoming construction projects that will set new standards in design, 
-            technology, and sustainability. These projects represent our vision for the future 
-            of construction and our commitment to innovation.</p>
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Projects Section */}
+     {/* Projects Section */}
       <ProjectsSection projects={upcomingProjects} type="upcoming" />
 
     </motion.div>

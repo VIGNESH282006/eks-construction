@@ -78,29 +78,6 @@ const OngoingProjectsPage = () => {
       transition={{ duration: 0.5 }}
       className="projects-page"
     >
-      {/* Page Hero */}
-      <motion.section 
-        className="projects-hero ongoing"
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.8 }}
-      >
-        <div className="projects-hero-container">
-          <div className="hero-graphics">
-            <div className="floating-icon">🚧</div>
-            <div className="floating-icon">🔨</div>
-            <div className="floating-icon">⚙️</div>
-            <div className="floating-icon">🏗️</div>
-          </div>
-          <h1>Ongoing Projects</h1>
-          <p>Currently under construction - Building dreams in progress</p>
-          <div className="hero-description">
-            <p>Take a look at our current construction projects that are in various stages of completion. 
-            These projects showcase our ongoing commitment to delivering quality construction 
-            with timely completion and excellent craftsmanship.</p>
-          </div>
-        </div>
-      </motion.section>
 
       {/* Projects Section */}
       <ProjectsSection projects={ongoingProjects} type="ongoing" />

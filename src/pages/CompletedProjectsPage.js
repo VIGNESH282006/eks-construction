@@ -98,29 +98,7 @@ const CompletedProjectsPage = () => {
       transition={{ duration: 0.5 }}
       className="projects-page"
     >
-      {/* Page Hero */}
-      <motion.section 
-        className="projects-hero completed"
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.8 }}
-      >
-        <div className="projects-hero-container">
-          <div className="hero-graphics">
-            <div className="floating-icon">✅</div>
-            <div className="floating-icon">🏆</div>
-            <div className="floating-icon">🏠</div>
-            <div className="floating-icon">⭐</div>
-          </div>
-          <h1>Completed Projects</h1>
-          <p>Showcasing our successfully delivered construction projects</p>
-          <div className="hero-description">
-            <p>Explore our portfolio of completed projects that showcase our commitment to quality, 
-            innovation, and customer satisfaction. Each project reflects our dedication to 
-            excellence in construction and design.</p>
-          </div>
-        </div>
-      </motion.section>
+      
 
       {/* Projects Section */}
       <ProjectsSection projects={completedProjects} type="completed" />
