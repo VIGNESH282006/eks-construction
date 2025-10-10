@@ -1,5 +1,5 @@
 // src/components/InteriorSection.jsx
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import '../styles/InteriorSection.css';
 
@@ -11,7 +11,8 @@ import lightning1 from '../assets/images/lightning-icon.png';
 import lightning2 from '../assets/images/lightning-icon2.png';
 import handshake1 from '../assets/images/handshake-icon.png';
 import handshake2 from '../assets/images/handshake-icon2.png';
-import designVisual from '../assets/images/Philosophy.png';
+import designPhilosophyVideo from '../assets/videos/design-philosophy-video.mp4'; // Add your video file
+
 
 const whyChooseUs = [
   {
@@ -69,6 +70,41 @@ const cardVariants = {
 
 const InteriorSection = () => {
   const statRefs = useRef([]);
+
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+const videoRef = useRef(null);
+
+// Handle video loading
+const handleVideoLoad = () => {
+  setIsVideoLoaded(true);
+};
+
+// Auto-play video when it comes into view
+useEffect(() => {
+  const videoElement = videoRef.current;
+  if (!videoElement) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          videoElement.play().catch((error) => {
+            console.log('Auto-play was prevented:', error);
+          });
+        } else {
+          videoElement.pause();
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  observer.observe(videoElement);
+
+  return () => {
+    observer.unobserve(videoElement);
+  };
+}, [isVideoLoaded]);
 
   useEffect(() => {
     const counters = statRefs.current;
@@ -255,12 +291,46 @@ const InteriorSection = () => {
               </ul>
             </div>
             <div className="philosophy-visual">
-              <img
-                src={designVisual}
-                alt="Design Philosophy Visual"
-                className="philosophy-image"
-              />
-            </div>
+  <div className="video-wrapper">
+    {!isVideoLoaded && (
+      <div className="video-loading">
+        <div className="loading-spinner"></div>
+        <p>Loading video...</p>
+      </div>
+    )}
+    <video
+      ref={videoRef}
+      className="philosophy-video"
+      onLoadedData={handleVideoLoad}
+      muted
+      loop
+      playsInline
+      preload="metadata"
+    >
+      <source src={designPhilosophyVideo} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    
+    {/* Video Controls Overlay */}
+    <div className="video-controls">
+      <button 
+        className="play-pause-btn"
+        onClick={() => {
+          const video = videoRef.current;
+          if (video.paused) {
+            video.play();
+          } else {
+            video.pause();
+          }
+        }}
+      >
+        <span className="play-icon">▶</span>
+        <span className="pause-icon">⏸</span>
+      </button>
+    </div>
+  </div>
+</div>
+
           </div>
         </motion.div>
       </div>

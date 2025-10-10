@@ -671,3 +671,185 @@
     margin-bottom: 1.25rem;
   }
 }
+
+/* Video Wrapper Styles */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 350px; /* Set fixed height for consistent aspect ratio */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  background: #f8f9fa;
+}
+
+
+.philosophy-video {
+  width: 100%;
+  height: 100%;
+  min-height: 300px; /* Set minimum height */
+  display: block;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+  object-fit: cover; /* This removes black borders and fills container */
+  object-position: center; /* Centers the video content */
+}
+
+
+.philosophy-video:hover {
+  transform: scale(1.02);
+}
+
+/* Loading State */
+.video-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #666;
+  z-index: 2;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e5e7eb;
+  border-top: 4px solid #4169E1;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Video Controls */
+.video-controls {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 3;
+}
+
+.video-wrapper:hover .video-controls {
+  opacity: 1;
+}
+
+.play-pause-btn {
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.play-pause-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
+}
+
+.play-pause-btn .pause-icon {
+  display: none;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .video-wrapper {
+    max-width: 100%;
+    border-radius: 1px;
+  }
+  
+  .philosophy-video {
+    border-radius: 15px;
+  }
+  
+  .play-pause-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-wrapper {
+    border-radius: 12px;
+  }
+  
+  .philosophy-video {
+    border-radius: 12px;
+  }
+  
+  .play-pause-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Accessibility */
+.play-pause-btn:focus {
+  outline: 3px solid #4169E1;
+  outline-offset: 2px;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .philosophy-video:hover {
+    transform: none;
+  }
+  
+  .play-pause-btn:hover {
+    transform: none;
+  }
+}
+@media (max-width: 768px) {
+  .video-wrapper {
+    max-width: 100%;
+    height: 280px; /* Smaller height on mobile */
+    border-radius: 15px;
+  }
+  
+  .philosophy-video {
+    min-height: 280px;
+    border-radius: 15px;
+  }
+  
+  .play-pause-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-wrapper {
+    height: 240px; /* Even smaller on small phones */
+    border-radius: 12px;
+  }
+  
+  .philosophy-video {
+    min-height: 240px;
+    border-radius: 12px;
+  }
+  
+  .play-pause-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 0.9rem;
+  }
+}
