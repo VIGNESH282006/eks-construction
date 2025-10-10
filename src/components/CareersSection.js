@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import '../styles/CareersSection.css';
 import ValueItem from '../components/ValueItem';
+import FileUpload from '../components/FileUpload';
 
 import img1 from '../assets/images/why1.jpg';
 import img2 from '../assets/images/why1-alt.jpg';
@@ -16,9 +17,10 @@ const CareersSection = () => {
     lastName: '',
     email: '',
     phone: '',
-    qualification: '',
-    institution: '',
-    message: ''
+    experience: '',
+    desiredPosition: '',
+    message: '',
+    resume: null
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
@@ -95,16 +97,23 @@ const CareersSection = () => {
     }));
   };
 
+  const handleFileSelect = (file) => {
+    setFormData(prev => ({
+      ...prev,
+      resume: file
+    }));
+  };
+
   const validateForm = () => {
-    const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'qualification', 'institution', 'message'];
-    return requiredFields.every(field => formData[field].trim() !== '');
+    const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'experience', 'desiredPosition', 'message'];
+    return requiredFields.every(field => formData[field].trim() !== '') && formData.resume !== null;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!validateForm()) {
-      setSubmitStatus('Please fill in all required fields.');
+      setSubmitStatus('Please fill in all required fields and upload your resume.');
       return;
     }
 
@@ -118,8 +127,9 @@ const CareersSection = () => {
         Name: ${formData.firstName} ${formData.lastName}
         Email: ${formData.email}
         Phone: ${formData.phone}
-        Educational Qualification: ${formData.qualification}
-        Educational Institution: ${formData.institution}
+        Experience: ${formData.experience}
+        Desired Position: ${formData.desiredPosition}
+        Resume: ${formData.resume ? formData.resume.name : 'Not attached'}
         
         Message to Hiring Team:
         ${formData.message}
@@ -134,9 +144,10 @@ const CareersSection = () => {
         lastName: '',
         email: '',
         phone: '',
-        qualification: '',
-        institution: '',
-        message: ''
+        experience: '',
+        desiredPosition: '',
+        message: '',
+        resume: null
       });
     } catch (error) {
       setSubmitStatus('Error submitting application. Please try again.');
@@ -265,7 +276,6 @@ const CareersSection = () => {
                   required
                   style={{ width: "300px", height: "60px", fontSize: "16px" }}
                 />
-
               </div>
               <div className="form-group">
                 <label htmlFor="lastName">Last Name *</label>
@@ -313,12 +323,12 @@ const CareersSection = () => {
 
             <div className="form-row">
               <div className="form-group">
-                <label htmlFor="qualification">Experience *</label>
+                <label htmlFor="experience">Experience *</label>
                 <input
                   type="text"
-                  id="qualification"
-                  name="qualification"
-                  value={formData.qualification}
+                  id="experience"
+                  name="experience"
+                  value={formData.experience}
                   onChange={handleInputChange}
                   placeholder="e.g., +5 years experience in Civil"
                   required
@@ -326,18 +336,23 @@ const CareersSection = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="institution">Your Resume *</label>
+                <label htmlFor="desiredPosition">Desired Position *</label>
                 <input
-                  type="file"
-                  id="institution"
-                  name="institution"
-                  value={formData.institution}
+                  type="text"
+                  id="desiredPosition"
+                  name="desiredPosition"
+                  value={formData.desiredPosition}
                   onChange={handleInputChange}
-                  placeholder="e.g., Upload your Resume"
+                  placeholder="e.g., Civil Engineer, Project Manager"
                   required
                   style={{ width: "300px", height: "60px", fontSize: "16px" }}
                 />
               </div>
+            </div>
+
+            <div className="form-group full-width">
+              <label htmlFor="resume">Your Resume *</label>
+              <FileUpload onFileSelect={handleFileSelect} />
             </div>
 
             <div className="form-group full-width">
@@ -350,7 +365,7 @@ const CareersSection = () => {
                 rows="5"
                 placeholder="Tell us why you'd like to work with eks Construction and what position interests you..."
                 required
-                style={{ width: "100%", height: "60px", fontSize: "16px" }}
+                style={{ width: "100%", height: "120px", fontSize: "16px" }}
               ></textarea>
             </div>
 
