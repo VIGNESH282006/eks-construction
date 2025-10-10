@@ -1,5 +1,7 @@
+// src/components/ProjectsSection.jsx (Updated)
 import React from 'react';
 import { motion } from 'framer-motion';
+import ImageSlider from './ImageSlider';
 import '../styles/ProjectsSection.css';
 
 const ProjectsSection = ({ projects, type }) => {
@@ -72,7 +74,10 @@ const ProjectsSection = ({ projects, type }) => {
               }}
             >
               <div className="project-image">
-                <img src={project.image} alt={project.title} />
+                <ImageSlider 
+                  images={project.images || [project.image]} 
+                  alt={project.title}
+                />
                 <div className="project-overlay">
                   <span className={`project-type ${project.color}`}>{project.type}</span>
                 </div>
@@ -179,8 +184,6 @@ const ProjectsSection = ({ projects, type }) => {
                   )}
                 </div>
 
-
-
                 <div className="project-features">
                   <h4>Key Features:</h4>
                   <div className="features-tags">
@@ -191,8 +194,6 @@ const ProjectsSection = ({ projects, type }) => {
                     ))}
                   </div>
                 </div>
-
-
               </div>
             </motion.div>
           ))}
