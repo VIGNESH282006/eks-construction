@@ -403,9 +403,18 @@
     margin-top: 2rem;
   }
 
-  .philosophy-content {
+    .philosophy-content {
     grid-template-columns: 1fr;
     gap: 2rem;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .philosophy-visual {
+    order: -1;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    margin-left: 0;
   }
 
   .philosophy-text h3 {
@@ -650,5 +659,15 @@
   .why-choose-card:hover {
     transform: none;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (max-width: 480px) {
+  .philosophy-content {
+    gap: 1.5rem;
+  }
+
+  .philosophy-visual {
+    margin-bottom: 1.25rem;
   }
 }

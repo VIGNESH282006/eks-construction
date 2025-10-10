@@ -9,19 +9,18 @@
 /* Popup - smaller and more compact */
 .chat-popup {
   position: absolute;
-  bottom: 160px;  /* Reduced from 110px */
+  bottom: 160px;
   right: 0;
   width: 200px;
-  height: 210px;  /* Reduced from 240px */
+  height: 210px;
   background: #fff;
-  border-radius: 12px;  /* Slightly smaller radius */
+  border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-  font-size: 14px;  /* Reduced from 15px */
+  font-size: 14px;
   opacity: 0;
   transform: scale(0.95) translateY(10px);
   animation: slideUp 0.25s ease-out forwards;
   text-align: center;
-  
 }
 
 @keyframes slideUp {
@@ -34,11 +33,11 @@
 }
 
 .chat-popup-header {
-  padding: 12px 14px 10px 14px;  /* Reduced padding */
+  padding: 12px 14px 10px 14px;
   background: linear-gradient(90deg, #4169e1 85%, #2E4BC6 100%);
   color: #fff;
   font-weight: 600;
-  font-size: 16px;  /* Reduced from 16px */
+  font-size: 16px;
   border-radius: 12px 12px 0 0;
   letter-spacing: 0.01em;
   display: flex;
@@ -50,10 +49,10 @@
   background: none;
   border: none;
   color: #fff;
-  font-size: 20px;  /* Reduced from 20px */
+  font-size: 20px;
   cursor: pointer;
   padding: 0;
-  width: 24px;  /* Reduced from 24px */
+  width: 24px;
   height: 20px;
   display: flex;
   align-items: center;
@@ -62,36 +61,42 @@
   transition: background 0.2s ease;
 }
 
-.close-popup-btn:hover { background: rgba(255, 255, 255, 0.2); }
+.close-popup-btn:hover { 
+  background: rgba(255, 255, 255, 0.2); 
+}
 
 .chat-options {
   list-style: none;
-  padding: 10px 16px 12px 16px;  /* Reduced padding */
+  padding: 10px 16px 12px 16px;
   margin: 0;
 }
 
-.chat-options li + li { margin-top: 8px; }  /* Reduced spacing */
+.chat-options li + li { 
+  margin-top: 8px; 
+}
 
 .chat-options a {
   color: #4169e1;
   text-decoration: none;
-  font-weight: 500;  /* Reduced from 600 */
-  padding: 6px 0;    /* Reduced padding */
+  font-weight: 500;
+  padding: 6px 0;
   display: block;
   border-radius: 6px;
-  font-size: 13px;   /* Reduced from 15px */
+  font-size: 13px;
   transition: background 0.15s;
 }
 
-.chat-options a:hover { background: rgba(65, 105, 225, 0.1); }
+.chat-options a:hover { 
+  background: rgba(65, 105, 225, 0.1); 
+}
 
-/* Button - much smaller */
+/* Button - Desktop size */
 .chat-button {
-  width: 250px;       /* Reduced from 70px */
+  width: 250px;
   height: 250px;
   border-radius: 50%;
   background: linear-gradient(135deg, #0f0f0f00 70%, #13131300 100%);
-  border: none;  /* Softer shadow */
+  border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -106,14 +111,13 @@
 /* Active state */
 .chat-button.active,
 .chat-button:hover {
-  transform: translateY(-2px);  /* Subtle lift effect */
-
+  transform: translateY(-2px);
 }
 
-/* Crossfade stack - smaller icons */
+/* Crossfade stack */
 .chat-icon-stack {
   position: relative;
-  width: 200px;       /* Reduced from 56px */
+  width: 200px;
   height: 200px;
   display: block;
 }
@@ -130,39 +134,134 @@
 }
 
 /* Closed image visible by default */
-.chat-icon--closed { opacity: 1; transform: scale(1); }
+.chat-icon--closed { 
+  opacity: 1; 
+  transform: scale(1); 
+}
+
 /* Open image hidden by default */
-.chat-icon--open   { opacity: 0; transform: scale(0.95); }
+.chat-icon--open { 
+  opacity: 0; 
+  transform: scale(0.95); 
+}
 
 /* When popup opens, reveal the open image */
-.chat-button.active .chat-icon--closed { opacity: 0; transform: scale(1.05); }
-.chat-button.active .chat-icon--open   { opacity: 1; transform: scale(1); }
+.chat-button.active .chat-icon--closed { 
+  opacity: 0; 
+  transform: scale(1.05); 
+}
+
+.chat-button.active .chat-icon--open { 
+  opacity: 1; 
+  transform: scale(1); 
+}
 
 /* Optional: desktop hover preview */
-.chat-widget.hovering .chat-icon--closed { opacity: 0; transform: scale(1.05); }
-.chat-widget.hovering .chat-icon--open   { opacity: 1; transform: scale(1); }
+.chat-widget.hovering .chat-icon--closed { 
+  opacity: 0; 
+  transform: scale(1.05); 
+}
 
-/* Mobile responsive */
+.chat-widget.hovering .chat-icon--open { 
+  opacity: 1; 
+  transform: scale(1); 
+}
+
+/* ============================================
+   TABLET VIEW (768px - 1024px)
+   ============================================ */
+@media (max-width: 1024px) {
+  .chat-widget { 
+    bottom: 18px; 
+    right: 18px; 
+  }
+  
+  .chat-button { 
+    width: 220px; 
+    height: 220px;
+    margin: 0px -45px -35px 0px;
+  }
+  
+  .chat-icon-stack { 
+    width: 175px; 
+    height: 175px; 
+  }
+  
+  .chat-popup { 
+    width: 195px;
+    height: 205px; 
+    bottom: 145px;
+  }
+}
+
+/* ============================================
+   MOBILE VIEW (max-width: 768px)
+   ============================================ */
 @media (max-width: 768px) {
   .chat-widget { 
     bottom: 16px; 
     right: 16px; 
   }
   
+  /* Keep desktop-like size on mobile */
   .chat-button { 
-    width: 50px; 
-    height: 50px; 
+    width: 200px; 
+    height: 200px;
+    margin: 0px -40px -30px 0px;
   }
   
   .chat-icon-stack { 
-    width: 28px; 
-    height: 28px; 
+    width: 160px; 
+    height: 160px; 
   }
   
   .chat-popup { 
-    width: 180px; 
-    bottom: 65px; 
+    width: 190px;
+    height: 200px; 
+    bottom: 130px; 
     font-size: 13px;
+  }
+  
+  .chat-popup-header {
+    font-size: 14px;
+    padding: 11px 13px 9px 13px;
+  }
+  
+  .chat-options {
+    padding: 9px 14px 11px 14px;
+  }
+  
+  .chat-options a {
+    font-size: 12px;
+    padding: 5px 0;
+  }
+}
+
+/* ============================================
+   SMALL MOBILE VIEW (max-width: 480px)
+   ============================================ */
+@media (max-width: 480px) {
+  .chat-widget { 
+    bottom: 14px; 
+    right: 14px; 
+  }
+  
+  .chat-button { 
+    width: 180px; 
+    height: 180px;
+    margin: 0px -35px -25px 0px;
+  }
+  
+  .chat-icon-stack { 
+    width: 145px; 
+    height: 145px; 
+  }
+  
+  .chat-popup { 
+    width: 180px;
+    height: 195px; 
+    bottom: 120px;
+    font-size: 12px;
   }
   
   .chat-popup-header {
@@ -175,25 +274,95 @@
   }
   
   .chat-options a {
-    font-size: 12px;
+    font-size: 11px;
     padding: 5px 0;
+  }
+  
+  .close-popup-btn {
+    font-size: 18px;
+    width: 22px;
+    height: 18px;
   }
 }
 
-/* Extra small screens */
-@media (max-width: 480px) {
+/* ============================================
+   EXTRA SMALL SCREENS (max-width: 375px)
+   ============================================ */
+@media (max-width: 375px) {
+  .chat-widget { 
+    bottom: 12px; 
+    right: 12px; 
+  }
+  
   .chat-button { 
-    width: 48px; 
-    height: 48px; 
+    width: 160px; 
+    height: 160px;
+    margin: 0px -30px -20px 0px;
   }
   
   .chat-icon-stack { 
-    width: 26px; 
-    height: 26px; 
+    width: 130px; 
+    height: 130px; 
   }
   
   .chat-popup { 
-    width: 170px; 
-    bottom: 60px; 
+    width: 170px;
+    height: 190px; 
+    bottom: 110px;
   }
+  
+  .chat-popup-header {
+    font-size: 12px;
+    padding: 9px 11px 7px 11px;
+  }
+  
+  .chat-options a {
+    font-size: 10.5px;
+  }
+}
+
+/* ============================================
+   LANDSCAPE MODE FOR MOBILE
+   ============================================ */
+@media (max-height: 600px) and (orientation: landscape) {
+  .chat-widget { 
+    bottom: 10px; 
+    right: 10px; 
+  }
+  
+  .chat-button { 
+    width: 140px; 
+    height: 140px;
+    margin: 0px -25px -15px 0px;
+  }
+  
+  .chat-icon-stack { 
+    width: 115px; 
+    height: 115px; 
+  }
+  
+  .chat-popup { 
+    width: 170px;
+    height: 180px; 
+    bottom: 95px;
+  }
+}
+
+/* Ensure widget is always visible and doesn't interfere with scrolling */
+.chat-widget {
+  pointer-events: all;
+}
+
+.chat-button {
+  pointer-events: all;
+  touch-action: manipulation;
+}
+
+/* Prevent text selection on button */
+.chat-button {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
