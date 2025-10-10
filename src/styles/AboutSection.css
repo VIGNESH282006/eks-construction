@@ -397,6 +397,11 @@
     max-width: 400px;
   }
 
+.highlight1 {
+    margin-left: 0;
+    text-align: center;
+}
+
   .success-box {
     min-height: 100px;
     padding: 1.2rem 1rem;
