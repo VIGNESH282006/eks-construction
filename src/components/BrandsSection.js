@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../styles/BrandsSection.css';
 
 // Import brand images - you'll need to replace these with your actual brand images
@@ -68,14 +68,27 @@ const BrandsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const sliderRef = useRef(null);
   
-  // Auto-scroll functionality
+  // Check if mobile
   useEffect(() => {
-    if (!isPaused && !isAnimating) {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Auto-scroll functionality for desktop
+  useEffect(() => {
+    if (!isMobile && !isPaused && !isAnimating) {
       const autoScrollTimer = setInterval(() => {
         setIsAnimating(true);
         setCurrentIndex((prevIndex) => {
-          // Move to next set of 5 brands, loop back to start when reaching end
           const nextIndex = (prevIndex + 4) % (brands.length - 4);
           return nextIndex;
         });
@@ -83,17 +96,48 @@ const BrandsSection = () => {
         setTimeout(() => {
           setIsAnimating(false);
         }, 800);
-      }, 3000); // Change every 3 seconds
+      }, 3000);
 
       return () => clearInterval(autoScrollTimer);
     }
-  }, [isPaused, isAnimating]);
+  }, [isPaused, isAnimating, isMobile]);
+
+  // Auto-scroll for mobile (horizontal scroll)
+  useEffect(() => {
+    if (isMobile && sliderRef.current && !isPaused) {
+      const scrollWidth = sliderRef.current.scrollWidth;
+      const clientWidth = sliderRef.current.clientWidth;
+      let scrollPosition = 0;
+      
+      const autoScroll = setInterval(() => {
+        scrollPosition += 1;
+        
+        if (scrollPosition >= scrollWidth - clientWidth) {
+          scrollPosition = 0;
+        }
+        
+        sliderRef.current.scrollTo({
+          left: scrollPosition,
+          behavior: 'smooth'
+        });
+      }, 30);
+
+      return () => clearInterval(autoScroll);
+    }
+  }, [isMobile, isPaused]);
 
   const handleMouseEnter = () => setIsPaused(true);
   const handleMouseLeave = () => setIsPaused(false);
 
-  // Get current 5 brands to display
+  const handleTouchStart = () => setIsPaused(true);
+  const handleTouchEnd = () => {
+    setTimeout(() => setIsPaused(false), 2000);
+  };
+
+  // Get current 5 brands to display (desktop)
   const getCurrentBrands = () => {
+    if (isMobile) return brands;
+    
     const visibleBrands = [];
     for (let i = 0; i < 5; i++) {
       const index = (currentIndex + i) % brands.length;
@@ -114,8 +158,13 @@ const BrandsSection = () => {
           className="brands-carousel"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
-          <div className={`brands-slider ${isAnimating ? 'sliding' : ''}`}>
+          <div 
+            ref={sliderRef}
+            className={`brands-slider ${isAnimating ? 'sliding' : ''} ${isMobile ? 'mobile-scroll' : ''}`}
+          >
             {getCurrentBrands().map((brand, index) => (
               <div key={`${brand.name}-${currentIndex}-${index}`} className="brand-item">
                 <div className="brand-logo-container">
@@ -133,8 +182,8 @@ const BrandsSection = () => {
           <div className="wave-decoration"></div>
         
           
-          {/* Auto-scroll progress bar */}
-          {!isPaused && !isAnimating && (
+          {/* Auto-scroll progress bar - only show on desktop */}
+          {!isMobile && !isPaused && !isAnimating && (
             <div className="auto-scroll-progress">
               <div className="progress-bar"></div>
             </div>

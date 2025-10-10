@@ -5,9 +5,10 @@
   position: relative;
   margin-bottom: -100px;
 }
+
 /* Consistent height for all service cards and image headers */
 .service-card1 {
-  position: relative; /* for absolutely positioned header overlay */
+  position: relative;
   background: white;
   border-radius: 20px;
   overflow: hidden;
@@ -18,6 +19,7 @@
   display: flex;
   flex-direction: column;
 }
+
 .service-card-image1 {
   width: 100%;
   height: 180px;
@@ -26,16 +28,18 @@
   position: relative;
   z-index: 1;
 }
+
 /* Remove emojis */
 .service-icon1 {
   display: none;
 }
+
 /* Service Header */
 .service-header1 {
   position: absolute;
   bottom: 480px;
   left: 0;
-  width: 100%;/* semi-transparent blue overlay */
+  width: 100%;
   padding: 1rem 0;
   text-align: left;
   border-radius: 0 0 20px 20px;
@@ -56,6 +60,7 @@
   text-align: center;
   margin-top: 10px;
 }
+
 /* Fill the rest of the card with content */
 .service-content1 {
   flex: 1 1 auto;
@@ -64,8 +69,6 @@
   flex-direction: column;
   justify-content: space-between;
 }
-
-/* All other CSS remains as is */
 
 .services-content-section1::before {
   content: '';
@@ -104,31 +107,15 @@
   font-style: italic;
 }
 
-/* Services Grid */
-/* Services Grid - Enhanced for exactly 3 items per row */
+/* Services Grid - Desktop (3 columns) */
 .services-grid1 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   width: 100%;
-  max-width: 1200px; /* Ensure grid doesn't get too wide */
-  margin: 0 auto; /* Center the grid */
+  max-width: 1200px;
+  margin: 0 auto;
 }
-
-/* Service Card - Ensure consistent sizing */
-.service-card1 {
-  position: relative;
-  background: white;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  width: 100%;
-  min-height: 540px;
-  display: flex;
-  flex-direction: column;
-}
-
 
 .service-card1::before {
   content: '';
@@ -149,14 +136,12 @@
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
-
 .service-icon1 {
   font-size: 3rem;
   margin-bottom: 1rem;
   display: block;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
-
 
 /* Service Content */
 .service-content1 {
@@ -190,7 +175,6 @@
   font-size: 0.95rem;
   min-width: 200px;
 }
-
 
 .feature-check1 {
   color: white;
@@ -276,40 +260,18 @@
   box-shadow: 0 8px 25px rgba(255, 68, 68, 0.3);
 }
 
-/* Responsive Design */
-@media (max-width: 968px) {
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
+/* Force exactly 3 columns on desktop, no overrides */
+.services-content-section1 .services-grid1 {
+  display: grid !important;
+  grid-template-columns: repeat(1, 1fr) !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
 }
 
-@media (max-width: 600px) {
-  .services-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .services-content-section {
-    padding: 3rem 0;
-  }
-  
-  .services-intro h2 {
-    font-size: 2rem;
-  }
-  
-  .service-card {
-    margin: 0 auto;
-    max-width: 400px;
-  }
-  
-  .service-content {
-    padding: 1.5rem;
-  }
-  
-  .service-header {
-    padding: 1.5rem;
-  }
+.services-content-section1 .service-card1 {
+  width: 100% !important;
+  min-height: 0 !important;
 }
 
 /* Animation for feature items */
@@ -338,19 +300,252 @@
   50% { transform: translateY(-5px); }
 }
 
+/* ========================================= */
+/* RESPONSIVE DESIGN - MEDIA QUERIES */
+/* ========================================= */
 
-/* Force exactly 3 columns on desktop, no overrides */
-.services-content-section1 .services-grid1 {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 4rem !important;
-  width: 100% !important;
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  justify-items: stretch !important;
+/* Large Tablets and Small Laptops (≤1024px) */
+@media (max-width: 1024px) {
+  .services-content-container1 {
+    padding: 0 1.5rem;
+  }
+  
+  .services-grid1 {
+    gap: 1.5rem !important;
+  }
 }
 
-.services-content-section1 .service-card1 {
-  width: 100% !important;
-  min-height: 0 !important;
+/* Tablets (≤968px) - 2 columns */
+@media (max-width: 968px) {
+  .services-grid1 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2rem !important;
+  }
+  
+  .services-intro1 h2 {
+    font-size: 2.2rem;
+  }
+  
+  .services-intro1 p {
+    font-size: 1.1rem;
+  }
+  
+  .service-card1 {
+    min-height: 520px;
+  }
+}
+
+/* Mobile Landscape and Small Tablets (≤768px) - 1 column with responsive container */
+@media (max-width: 768px) {
+  .services-content-section1 {
+    padding: 4rem 0;
+    margin-bottom: -50px;
+  }
+  
+  .services-content-container1 {
+    padding: 0 1.5rem;
+    max-width: 600px; /* Responsive container constraint */
+  }
+  
+  .services-intro1 {
+    margin-bottom: 3rem;
+  }
+  
+  .services-intro1 h2 {
+    font-size: 2rem;
+  }
+  
+  .services-intro1 p {
+    font-size: 1rem;
+  }
+  
+  /* RESPONSIVE CONTAINER - SINGLE COLUMN */
+  .services-grid1 {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    max-width: 450px; /* Prevent stretching */
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .service-card1 {
+    min-height: auto;
+    max-width: 100%; /* Contained within grid */
+    margin: 0 auto;
+  }
+  
+  .service-header1 {
+    bottom: 460px;
+    font-size: 1.2rem;
+  }
+  
+  .service-header1 h3 {
+    font-size: 1.2rem;
+  }
+  
+  .service-content1 {
+    padding: 1.5rem;
+  }
+  
+  .service-features1 li {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .get-quote-btn1 {
+    padding: 0.9rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* iPhone 14 Pro Max and similar large phones (≤430px) */
+@media (max-width: 430px) {
+  .services-content-section1 {
+    padding: 3rem 0;
+  }
+  
+  .services-content-container1 {
+    padding: 0 1rem;
+    max-width: 380px; /* Optimized for iPhone 14 Pro Max */
+  }
+  
+  .services-intro1 h2 {
+    font-size: 1.8rem;
+  }
+  
+  .services-intro1 p {
+    font-size: 0.95rem;
+  }
+  
+  /* RESPONSIVE CONTAINER FOR LARGE PHONES */
+  .services-grid1 {
+    gap: 1.8rem !important;
+    max-width: 350px; /* Perfect size for iPhone 14 Pro Max */
+    padding: 0;
+  }
+  
+  .service-card1 {
+    border-radius: 18px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+    min-height: 500px; /* Consistent height */
+  }
+  
+  .service-card-image1 {
+    height: 160px;
+    border-radius: 18px 18px 18px 18px;
+  }
+  
+  .service-header1 {
+    bottom: 420px;
+    padding: 0.8rem 0;
+  }
+  
+  .service-header1 h3 {
+    font-size: 1.1rem;
+    margin-top: 8px;
+  }
+  
+  .service-content1 {
+    padding: 1.3rem;
+  }
+  
+  .service-description1 {
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+  }
+  
+  .service-features1 {
+    margin-bottom: 1.5rem;
+  }
+  
+  .service-features1 li {
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .feature-check1 {
+    width: 16px;
+    height: 16px;
+    font-size: 0.7rem;
+  }
+  
+  .pricing-label1 {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+  }
+  
+  .get-quote-btn1 {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.85rem;
+    border-radius: 40px;
+  }
+}
+
+/* Standard Mobile Phones (≤375px) - iPhone SE, etc. */
+@media (max-width: 375px) {
+  .services-content-container1 {
+    padding: 0 0.8rem;
+    max-width: 320px;
+  }
+  
+  .services-content-section1::before {
+    width: 100px;
+    height: 3px;
+  }
+  
+  .services-intro1 h2 {
+    font-size: 1.6rem;
+  }
+  
+  .services-grid1 {
+    max-width: 300px;
+    gap: 1.5rem !important;
+  }
+  
+  .service-card1 {
+    min-height: 480px;
+    border-radius: 15px;
+  }
+  
+  .service-card-image1 {
+    height: 150px;
+    border-radius: 15px 15px 15px 15px;
+  }
+  
+  .service-header1 {
+    bottom: 400px;
+  }
+  
+  .service-content1 {
+    padding: 1.1rem;
+  }
+  
+  .service-description1 {
+    font-size: 0.85rem;
+  }
+  
+  .service-features1 li {
+    font-size: 0.85rem;
+  }
+}
+
+/* Very Small Phones (≤320px) */
+@media (max-width: 320px) {
+  .services-content-container1 {
+    padding: 0 0.5rem;
+    max-width: 280px;
+  }
+  
+  .services-grid1 {
+    max-width: 260px;
+  }
+  
+  .service-card1 {
+    min-height: 460px;
+  }
+  
+  .service-content1 {
+    padding: 1rem;
+  }
 }
