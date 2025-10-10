@@ -122,7 +122,7 @@ const CompletedProjectsPage = () => {
     },
     {
       id: 9,
-      title: 'Lavish Family Retreat',
+      title: 'Boutique Family Home',
       location: 'Urbantree site',
       type: 'Residential',
       area: '1500 sq.ft',
