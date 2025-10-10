@@ -1,11 +1,11 @@
 .contact-form-section {
-  background: linear-gradient(135deg, #4169E1, #6495ED);
+  background: linear-gradient(135deg, #ffffff, #d2e1ff);
   padding: 4rem 0;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 .contact-form-container { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
-.contact-form-header { text-align: center; margin-bottom: 3rem; }
-.contact-form-header h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+.contact-form-header { text-align: center; font-weight: 700; margin-bottom: 3rem; }
+.contact-form-header h2 { font-size: 3rem; margin-bottom: 1rem; }
 .contact-form-header p { font-size: 1.2rem; opacity: 0.9; }
 .contact-form { background: rgba(0, 8, 255, 0.273); padding: 3rem; border-radius: 20px; backdrop-filter: blur(10px); }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }

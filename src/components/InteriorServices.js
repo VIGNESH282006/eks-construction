@@ -10,6 +10,7 @@ import ceilingHeader from '../assets/images/ceiling-icon.jpg';
 import tvHeader from '../assets/images/tv-icon.jpg';
 import officeHeader from '../assets/images/office-icon.jpg';
 import automationHeader from '../assets/images/automation-icon.jpg';
+import handshakeHeader from '../assets/images/hand.png';
 
 const InteriorServices = () => {
   const services = [
@@ -76,7 +77,15 @@ const InteriorServices = () => {
         'Smart home solutions that integrate technology seamlessly with your interior design.',
       features: ['Smart Lighting', 'Climate Control', 'Security Systems', 'Voice Controls'],
       color: 'red'
-    }
+    },
+    {
+      headerImage: handshakeHeader,
+      title: 'Sustainability Focus',
+      description:
+        'Incorporating eco-friendly materials and energy-efficient solutions in all our interior designs.',
+      features: ['Eco-friendly Materials', 'Energy Efficiency', 'Sustainable Practices', 'Green Certifications'],
+      color: 'blue'
+    }
   ];
 
   const containerVariants = {
@@ -130,13 +139,6 @@ const InteriorServices = () => {
                     </span>
                   ))}
                 </div>
-                <motion.button
-                  className={`service-btn ${svc.color}`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Learn More
-                </motion.button>
               </div>
             </motion.div>
           ))}

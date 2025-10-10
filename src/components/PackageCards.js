@@ -391,9 +391,7 @@ const PackageCards = () => {
                 ))}
               </div>
 
-              <button className="get-specification-btn">
-                GET DETAILED SPECIFICATION
-              </button>
+              
             </motion.div>
           ))}
         </motion.div>
