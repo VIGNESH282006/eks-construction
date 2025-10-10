@@ -1,12 +1,29 @@
 /* Services Content Section */
 .services-content-section1 {
-  padding: 8rem 0;
+  padding: 4rem 0;
   background: #f8f9fa;
   position: relative;
   margin-bottom: -100px;
 }
 
-/* Consistent height for all service cards and image headers */
+/* Card Grid Container */
+.services-content-container1 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Card Grid (Three Columns) */
+.services-grid1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Individual Service Card */
 .service-card1 {
   position: relative;
   background: white;
@@ -20,6 +37,7 @@
   flex-direction: column;
 }
 
+/* Card Images */
 .service-card-image1 {
   width: 100%;
   height: 180px;
@@ -29,12 +47,7 @@
   z-index: 1;
 }
 
-/* Remove emojis */
-.service-icon1 {
-  display: none;
-}
-
-/* Service Header */
+/* Service Header Overlay */
 .service-header1 {
   position: absolute;
   bottom: 480px;
@@ -50,7 +63,6 @@
   box-sizing: border-box;
 }
 
-/* Service Header with bg image */
 .service-header1 h3 {
   font-size: 1.4rem;
   font-weight: bold;
@@ -61,91 +73,13 @@
   margin-top: 10px;
 }
 
-/* Fill the rest of the card with content */
+/* Card Content */
 .service-content1 {
   flex: 1 1 auto;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-.services-content-section1::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 150px;
-  height: 4px;
-  background: linear-gradient(90deg, #4169E1, #FF4444, #4169E1);
-  border-radius: 2px;
-}
-
-.services-content-container1 {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-/* Services Intro */
-.services-intro1 {
-  text-align: center;
-  margin-bottom: 4rem;
-}
-
-.services-intro1 h2 {
-  color: #333;
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.services-intro1 p {
-  color: #666;
-  font-size: 1.2rem;
-  font-style: italic;
-}
-
-/* Services Grid - Desktop (3 columns) */
-.services-grid1 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.service-card1::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #4169E1, #6495ED);
-  z-index: 1;
-}
-
-.service-card1.red::before {
-  background: linear-gradient(90deg, #FF4444, #FF6666);
-}
-
-.service-card1:hover {
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-}
-
-.service-icon1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  display: block;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-}
-
-/* Service Content */
-.service-content1 {
-  padding: 2rem;
 }
 
 .service-description1 {
@@ -155,7 +89,6 @@
   font-size: 0.95rem;
 }
 
-/* Service Features */
 .service-features1 {
   list-style: none;
   padding: 0;
@@ -191,14 +124,14 @@
   flex-shrink: 0;
 }
 
-/* Service Pricing */
+
 .service-pricing1 {
   text-align: center;
   margin-bottom: 2rem;
 }
 
 .pricing-label1 {
-  background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+  background: linear-gradient(135deg,#E3F2FD,#BBDEFB);
   color: #4169E1;
   padding: 0.75rem 1.5rem;
   border-radius: 25px;
@@ -208,13 +141,26 @@
   border: 2px solid #4169E1;
 }
 
-.service-card1.red .pricing-label1 {
-  background: linear-gradient(135deg, #FFEBEE, #FFCDD2);
-  color: #FF4444;
-  border-color: #FF4444;
+.what-heading {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 0.1rem; /* smaller bottom margin */
+  line-height: 1.2;
 }
 
-/* Get Quote Button */
+.what-header-para {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: #666;
+  text-align: center;
+  margin-top: 0;          /* remove top margin */
+  margin-bottom: 1.5rem;  /* optional smaller bottom margin */
+  font-weight: 500;
+}
+
+
 .get-quote-btn1 {
   width: 100%;
   background: linear-gradient(135deg, #4169E1, #6495ED);
@@ -232,23 +178,17 @@
   overflow: hidden;
 }
 
+/* Card Color Modifiers */
+.service-card1.red::before {
+  background: linear-gradient(90deg, #FF4444, #FF6666);
+}
+
 .get-quote-btn1.red {
   background: linear-gradient(135deg, #FF4444, #FF6666);
 }
 
-.get-quote-btn1::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
-}
-
-.get-quote-btn1:hover::before {
-  left: 100%;
+.service-card1:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
 .get-quote-btn1:hover {
@@ -260,56 +200,13 @@
   box-shadow: 0 8px 25px rgba(255, 68, 68, 0.3);
 }
 
-/* Force exactly 3 columns on desktop, no overrides */
-.services-content-section1 .services-grid1 {
-  display: grid !important;
-  grid-template-columns: repeat(1, 1fr) !important;
-  width: 100% !important;
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-}
-
-.services-content-section1 .service-card1 {
-  width: 100% !important;
-  min-height: 0 !important;
-}
-
-/* Animation for feature items */
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.service-features1 li {
-  animation: slideInLeft 0.4s ease-out forwards;
-}
-
-/* Hover animations */
-.service-card1:hover .service-icon1 {
-  animation: bounce 0.6s ease-in-out;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-
-/* ========================================= */
-/* RESPONSIVE DESIGN - MEDIA QUERIES */
-/* ========================================= */
+/* Responsive Breakpoints */
 
 /* Large Tablets and Small Laptops (≤1024px) */
 @media (max-width: 1024px) {
   .services-content-container1 {
     padding: 0 1.5rem;
   }
-  
   .services-grid1 {
     gap: 1.5rem !important;
   }
@@ -321,212 +218,74 @@
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 2rem !important;
   }
-  
-  .services-intro1 h2 {
-    font-size: 2.2rem;
-  }
-  
-  .services-intro1 p {
-    font-size: 1.1rem;
-  }
-  
   .service-card1 {
     min-height: 520px;
   }
 }
 
-/* Mobile Landscape and Small Tablets (≤768px) - 1 column with responsive container */
+/* Mobile Landscape and Small Tablets (≤768px) - 1 column */
 @media (max-width: 768px) {
   .services-content-section1 {
     padding: 4rem 0;
     margin-bottom: -50px;
   }
-  
   .services-content-container1 {
     padding: 0 1.5rem;
-    max-width: 600px; /* Responsive container constraint */
+    max-width: 600px;
   }
-  
-  .services-intro1 {
-    margin-bottom: 3rem;
-  }
-  
-  .services-intro1 h2 {
-    font-size: 2rem;
-  }
-  
-  .services-intro1 p {
-    font-size: 1rem;
-  }
-  
-  /* RESPONSIVE CONTAINER - SINGLE COLUMN */
   .services-grid1 {
     grid-template-columns: 1fr !important;
     gap: 2rem !important;
-    max-width: 450px; /* Prevent stretching */
+    max-width: 450px;
     margin: 0 auto;
     width: 100%;
   }
-  
   .service-card1 {
     min-height: auto;
-    max-width: 100%; /* Contained within grid */
+    max-width: 100%;
     margin: 0 auto;
-  }
-  
-  .service-header1 {
-    bottom: 460px;
-    font-size: 1.2rem;
-  }
-  
-  .service-header1 h3 {
-    font-size: 1.2rem;
-  }
-  
-  .service-content1 {
-    padding: 1.5rem;
-  }
-  
-  .service-features1 li {
-    min-width: auto;
-    width: 100%;
-  }
-  
-  .get-quote-btn1 {
-    padding: 0.9rem 1.5rem;
-    font-size: 0.9rem;
   }
 }
 
-/* iPhone 14 Pro Max and similar large phones (≤430px) */
+/* Small Phones (≤430px) */
 @media (max-width: 430px) {
-  .services-content-section1 {
-    padding: 3rem 0;
-  }
-  
   .services-content-container1 {
     padding: 0 1rem;
-    max-width: 380px; /* Optimized for iPhone 14 Pro Max */
+    max-width: 380px;
   }
-  
-  .services-intro1 h2 {
-    font-size: 1.8rem;
-  }
-  
-  .services-intro1 p {
-    font-size: 0.95rem;
-  }
-  
-  /* RESPONSIVE CONTAINER FOR LARGE PHONES */
   .services-grid1 {
     gap: 1.8rem !important;
-    max-width: 350px; /* Perfect size for iPhone 14 Pro Max */
+    max-width: 350px;
     padding: 0;
   }
-  
   .service-card1 {
     border-radius: 18px;
     box-shadow: 0 6px 25px rgba(0,0,0,0.12);
-    min-height: 500px; /* Consistent height */
+    min-height: 500px;
   }
-  
   .service-card-image1 {
     height: 160px;
     border-radius: 18px 18px 18px 18px;
   }
-  
-  .service-header1 {
-    bottom: 420px;
-    padding: 0.8rem 0;
-  }
-  
-  .service-header1 h3 {
-    font-size: 1.1rem;
-    margin-top: 8px;
-  }
-  
-  .service-content1 {
-    padding: 1.3rem;
-  }
-  
-  .service-description1 {
-    font-size: 0.9rem;
-    margin-bottom: 1.2rem;
-    line-height: 1.5;
-  }
-  
-  .service-features1 {
-    margin-bottom: 1.5rem;
-  }
-  
-  .service-features1 li {
-    font-size: 0.9rem;
-    margin-bottom: 0.6rem;
-  }
-  
-  .feature-check1 {
-    width: 16px;
-    height: 16px;
-    font-size: 0.7rem;
-  }
-  
-  .pricing-label1 {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.85rem;
-  }
-  
-  .get-quote-btn1 {
-    padding: 0.8rem 1.2rem;
-    font-size: 0.85rem;
-    border-radius: 40px;
-  }
 }
 
-/* Standard Mobile Phones (≤375px) - iPhone SE, etc. */
+/* Very Small Phones (≤375px) */
 @media (max-width: 375px) {
   .services-content-container1 {
     padding: 0 0.8rem;
     max-width: 320px;
   }
-  
-  .services-content-section1::before {
-    width: 100px;
-    height: 3px;
-  }
-  
-  .services-intro1 h2 {
-    font-size: 1.6rem;
-  }
-  
   .services-grid1 {
     max-width: 300px;
     gap: 1.5rem !important;
   }
-  
   .service-card1 {
     min-height: 480px;
     border-radius: 15px;
   }
-  
   .service-card-image1 {
     height: 150px;
     border-radius: 15px 15px 15px 15px;
-  }
-  
-  .service-header1 {
-    bottom: 400px;
-  }
-  
-  .service-content1 {
-    padding: 1.1rem;
-  }
-  
-  .service-description1 {
-    font-size: 0.85rem;
-  }
-  
-  .service-features1 li {
-    font-size: 0.85rem;
   }
 }
 
@@ -536,16 +295,21 @@
     padding: 0 0.5rem;
     max-width: 280px;
   }
-  
   .services-grid1 {
     max-width: 260px;
   }
-  
   .service-card1 {
     min-height: 460px;
   }
-  
-  .service-content1 {
-    padding: 1rem;
-  }
 }
+
+/* Remove any previous overrides for .services-grid1! */
+/* You must DELETE the following from your old CSS:
+.services-content-section1 .services-grid1 {
+  display: grid !important;
+  grid-template-columns: repeat(1, 1fr) !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+*/

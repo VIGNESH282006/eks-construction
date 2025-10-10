@@ -129,6 +129,8 @@ const ServicesPage = () => {
     <main>
       {/* Main Services Grid */}
       <section className="services-content-section1">
+            <h2 className='what-heading'>What We Offer</h2>
+            <p className='what-header-para'>Professional construction services tailored to your needs</p>
         <div className="services-content-container1">
           <motion.div
             className="services-intro1"
@@ -136,8 +138,6 @@ const ServicesPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h2>What We Offer</h2>
-            <p>Professional construction services tailored to your needs</p>
           </motion.div>
           <motion.div
             className="services-grid1"
