@@ -315,10 +315,75 @@
 /* Our Success Grid - positioned in left column */
 .our-success-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  margin: 4rem 0 1rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+  perspective: 1000px; /* for 3D hover effect */
 }
+
+.success-card {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem 1.5rem 1.5rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.03);
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  overflow: hidden;
+}
+
+/* Diagonal top “tab” */
+.success-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -30%;
+  width: 160%;
+  height: 20px;
+  background: #4169E1; /* default blue */
+  transform: rotate(-3deg);
+  transform-origin: left bottom;
+}
+
+/* Red variant */
+.red-top::before {
+  background: #FF4444;
+}
+
+/* Text content */
+.success-card h4 {
+  margin: 0 0 0.8rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #222;
+  transform: translateZ(20px);
+}
+
+.success-card p {
+  margin: 0;
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  transform: translateZ(20px);
+}
+
+/* Hover effect */
+.success-card:hover {
+  transform: rotateX(5deg) skewY(-2deg) translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.06);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .our-success-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .success-card {
+    padding: 1.5rem 1rem 1rem;
+  }
+}
+
 
 
 .highlight1 {

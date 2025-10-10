@@ -53,23 +53,24 @@ const AboutSection = () => {
           {/* Our Success Section - Now positioned under Our Story */}
           <h2><span className="highlight1">Reason Behind Our Success</span></h2>
           <div className="our-success-grid">
-            <div className="success-box blue-top">
-              <h4>120+ Standard Quality Checks</h4>
-              <p>Every project is meticulously crafted and passes through rigorous multi-stage inspections,ensuring exceptional structural integrity and a flawless finish.</p>
-            </div>
-            <div className="success-box red-top">
-              <h4>Construction on Your Budget</h4>
-              <p>We design customized solutions perfectly aligned with your financial goals,ensuring complete transparency, honest pricing, and absolutely no hidden costs.</p>
-            </div>
-            <div className="success-box blue-top">
-              <h4>No Hidden Charges</h4>
-              <p>We offer detailed cost breakdowns and transparent policies,ensuring you have a clear understanding of every expense and decision throughout the process.</p>
-            </div>
-            <div className="success-box red-top">
-              <h4>Stress Free Construction</h4>
-              <p>Flawless execution, committed support, and timely proactive updates,guarantee a smooth, stress-free experience for your project from start to finish.</p>
-            </div>
-          </div>
+  <div className="success-card blue-top">
+    <h4>120+ Standard Quality Checks</h4>
+    <p>Every project is meticulously crafted and passes rigorous multi-stage inspections, ensuring exceptional structural integrity and a flawless finish.</p>
+  </div>
+  <div className="success-card red-top">
+    <h4>Construction on Your Budget</h4>
+    <p>We design customized solutions perfectly aligned with your financial goals, ensuring complete transparency, honest pricing, and absolutely no hidden costs.</p>
+  </div>
+  <div className="success-card blue-top">
+    <h4>No Hidden Charges</h4>
+    <p>We offer detailed cost breakdowns and transparent policies, ensuring you have a clear understanding of every expense and decision throughout the process.</p>
+  </div>
+  <div className="success-card red-top">
+    <h4>Stress Free Construction</h4>
+    <p>Flawless execution, committed support, and timely proactive updates guarantee a smooth, stress-free experience for your project from start to finish.</p>
+  </div>
+</div>
+
         </div>
       </section>
 
