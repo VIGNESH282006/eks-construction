@@ -1,9 +1,48 @@
+/* Contact Form Section */
 .contact-form-section {
-  background: linear-gradient(135deg, #ffffff, #d2e1ff);
-  padding: 4rem 0;
-  color: rgb(0, 0, 0);
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 0;
+  overflow: hidden;
 }
-.contact-form-container { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+
+/* Background Image */
+.contact-form-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../assets/images/contact-bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0.5; /* Adjust opacity as needed (0.1 to 0.3) */
+  z-index: -1;
+}
+
+
+
+.contact-form-container {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .contact-form-section {
+    background-attachment: scroll; /* Better performance on mobile */
+  }
+}
+
 .contact-form-header { text-align: center; font-weight: 700; margin-bottom: 3rem; }
 .contact-form-header h2 { font-size: 3rem; margin-bottom: 1rem; }
 .contact-form-header p { font-size: 1.2rem; opacity: 0.9; }
