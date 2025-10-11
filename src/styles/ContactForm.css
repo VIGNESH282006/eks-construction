@@ -22,7 +22,7 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  opacity: 0.5; /* Adjust opacity as needed (0.1 to 0.3) */
+  opacity: 0.15; /* Adjust opacity as needed (0.1 to 0.3) */
   z-index: -1;
 }
 
