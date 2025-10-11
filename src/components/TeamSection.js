@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';  // Import Link from react-router-dom
 import '../styles/TeamSection.css';
 
 const TeamSection = () => {
@@ -72,26 +73,21 @@ const TeamSection = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
+      transition: { staggerChildren: 0.2 }
     }
   };
 
   const cardVariants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       y: 50,
       scale: 0.9
     },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
+      transition: { duration: 0.6, ease: 'easeOut' }
     }
   };
 
@@ -100,7 +96,7 @@ const TeamSection = () => {
       {/* Team Members */}
       <section className="team-members-section">
         <div className="team-container">
-          <motion.div 
+          <motion.div
             className="team-intro"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -110,22 +106,13 @@ const TeamSection = () => {
             <p>Meet the experts dedicated to bringing your construction dreams to life</p>
           </motion.div>
 
-          <motion.div
-            className="team-grid"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            {teamMembers.map((member, index) => (
+          <motion.div className="team-grid" variants={containerVariants} initial="hidden" animate="visible">
+            {teamMembers.map(member => (
               <motion.div
                 key={member.id}
                 className={`team-member ${member.color}`}
                 variants={cardVariants}
-                whileHover={{ 
-                  y: -10, 
-                  scale: 1.02,
-                  transition: { duration: 0.3 }
-                }}
+                whileHover={{ y: -10, scale: 1.02, transition: { duration: 0.3 } }}
               >
                 <div className="member-image">
                   <img src={member.image} alt={member.name} />
@@ -181,20 +168,10 @@ const TeamSection = () => {
           >
             Our Achievements
           </motion.h2>
-          
-          <motion.div 
-            className="stats-grid"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
+
+          <motion.div className="stats-grid" variants={containerVariants} initial="hidden" animate="visible">
             {teamStats.map((stat, index) => (
-              <motion.div
-                key={index}
-                className="stat-card"
-                variants={cardVariants}
-                whileHover={{ scale: 1.05 }}
-              >
+              <motion.div key={index} className="stat-card" variants={cardVariants} whileHover={{ scale: 1.05 }}>
                 <div className="stat-number">{stat.number}</div>
                 <div className="stat-label">{stat.label}</div>
               </motion.div>
@@ -215,20 +192,15 @@ const TeamSection = () => {
             <h2>Join Our Team</h2>
             <p>We are always looking for talented professionals who share our passion for excellence</p>
             <div className="cta-buttons">
-              <motion.button 
-                className="cta-btn primary"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                View Open Positions
-              </motion.button>
-              <motion.button 
-                className="cta-btn secondary"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Contact HR
-              </motion.button>
+              <Link to="/careers">
+                <motion.button
+                  className="cta-btn primary"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  View Open Positions
+                </motion.button>
+              </Link>
             </div>
           </motion.div>
         </div>

@@ -46,7 +46,7 @@
   backdrop-filter: blur(1px);
 }
 .what-header{
-  position: absolute;
+  position: static;
   top: 2rem;
   left: 50%;
   transform: translateX(-50%);
@@ -55,7 +55,8 @@
   font-weight: bold;
   z-index: 10;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  margin:-25px 0px 0px 0px;
+  margin:-25px 0px 20px 0px;
+  margin-left: 550px;
 }
 /* Content System */
 .hero-content {
@@ -311,6 +312,9 @@
     max-width: 300px;
     margin-left: auto;
     margin-right: auto;
+  }
+  .what-header{
+    margin-left: -550px;
   }
   
   .nav-tab {

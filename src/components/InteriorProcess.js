@@ -135,7 +135,7 @@ const InteriorProcess = () => {
 
   const { scrollYProgress } = useScroll({ 
     target: containerRef, 
-    offset: ['start end', 'end start'] 
+    offset: ['start center', 'end center'] 
   });
 
   const timelinePath = 'M 50 0 Q 30 200 50 400 Q 70 600 50 800 Q 30 1000 50 1200';

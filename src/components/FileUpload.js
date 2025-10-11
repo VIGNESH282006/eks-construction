@@ -44,7 +44,7 @@ const FileUpload = ({ onFileSelect, accept = ".pdf,.doc,.docx" }) => {
 
   return (
     <div className={`file-upload-container ${dragActive ? 'drag-active' : ''}`}>
-      <form
+      <div
         className="file-upload-form"
         onDragEnter={handleDrag}
         onSubmit={(e) => e.preventDefault()}
@@ -107,7 +107,7 @@ const FileUpload = ({ onFileSelect, accept = ".pdf,.doc,.docx" }) => {
             Choose File
           </button>
         </label>
-      </form>
+      </div>
     </div>
   );
 };

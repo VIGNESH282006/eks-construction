@@ -112,6 +112,7 @@ const heroServices = [
   }
 ];
 
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
@@ -183,13 +184,6 @@ const ServicesPage = () => {
                         : service.pricing}
                     </span>
                   </div>
-                  <motion.button
-                    className={`get-quote-btn1 ${service.color}`}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    GET QUOTE
-                  </motion.button>
                 </div>
               </motion.div>
             ))}

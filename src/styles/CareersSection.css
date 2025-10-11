@@ -1,12 +1,9 @@
-/* Careers Container */
 .careers-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
-
-/* Section Headers */
 .section-header {
   text-align: center;
   margin-bottom: 4rem;
@@ -25,7 +22,6 @@
   font-style: italic;
 }
 
-/* Company Values Section */
 .company-values {
   padding: 5rem 0;
   background: #f8f9fa;
@@ -101,7 +97,6 @@
   line-height: 1.6;
 }
 
-/* Job Openings Section */
 .job-openings {
   padding: 5rem 0;
   background: white;
@@ -242,7 +237,6 @@
   box-shadow: 0 8px 25px rgba(255, 68, 68, 0.3);
 }
 
-/* Job Categories Section */
 .job-categories {
   padding: 5rem 0;
   background: #f8f9fa;
@@ -250,7 +244,7 @@
 
 .categories-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmin(300px, 1fr));
   gap: 8rem;
 }
 
@@ -331,7 +325,6 @@
   line-height: 1.5;
 }
 
-/* Careers CTA Section */
 .careers-cta {
   padding: 5rem 0;
   background: linear-gradient(135deg, #4169E1, #ff0000b2);
@@ -395,7 +388,7 @@
   background: white;
   color: #4169E1;
   border: 2px solid white;
-   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
 }
 
 .cta-btn.secondary:hover {
@@ -404,61 +397,6 @@
   box-shadow: 0 6px 25px rgba(255, 255, 255, 0.4);
 }
 
-/* Responsive Design */
-@media (max-width: 968px) {
-  .values-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .jobs-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .categories-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .cta-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-@media (max-width: 768px) {
-  .section-header h2 {
-    font-size: 2rem;
-  }
-
-  .values-content h2 {
-    font-size: 2rem;
-  }
-
-  .job-card {
-    padding: 1.5rem;
-  }
-
-  .category-card {
-    padding: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .job-meta {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .job-meta span {
-    text-align: center;
-  }
-
-  .locations {
-    justify-content: center;
-  }
-}
-
-/* Application Form Section */
 .application-form-section {
   padding: 5rem 0;
   background-image: url('../assets/images/career.jpg');
@@ -466,7 +404,6 @@
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
-  /* Optional: creates parallax effect */
   color: white;
   text-align: center;
   margin-top: 100px;
@@ -474,7 +411,6 @@
   z-index: 1;
 }
 
-/* Create overlay for background opacity without affecting content */
 .application-form-section::before {
   content: '';
   position: absolute;
@@ -483,7 +419,6 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.6);
-  /* Dark overlay for better text readability */
   z-index: -1;
 }
 
@@ -497,7 +432,6 @@
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
-
 }
 
 .form-header p {
@@ -508,46 +442,33 @@
 }
 
 .application-form {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   background: white;
   padding: 3rem;
   border-radius: 20px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-
 }
 
 .form-row {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
   margin-bottom: 1.5rem;
 }
 
-@media (max-width: 900px) {
-  .form-row {
-    flex-direction: column;
-    gap: 1rem;
-  }
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-group.full-width {
-  grid-column: 1 / -1;
-}
-
-.form-group label {
+.form-row label {
   color: #333;
   font-weight: 600;
-  margin-bottom: 0.5rem;
   font-size: 1rem;
+  min-width: 180px;
+  text-align: right;
+  white-space: nowrap;
 }
 
-.form-group input,
-.form-group textarea {
+.form-row input {
+  flex: 1;
   padding: 1rem;
   border: 2px solid #e1e5e9;
   border-radius: 10px;
@@ -556,16 +477,46 @@
   font-family: inherit;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
+.form-row input:focus {
   outline: none;
   border-color: #4169E1;
   box-shadow: 0 0 0 3px rgba(65, 105, 225, 0.1);
 }
 
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.form-group.full-width {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.form-group.full-width label {
+  color: #333;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
 .form-group textarea {
+  padding: 1rem;
+  border: 2px solid #e1e5e9;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  font-family: inherit;
   resize: vertical;
   min-height: 120px;
+}
+
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4169E1;
+  box-shadow: 0 0 0 3px rgba(65, 105, 225, 0.1);
 }
 
 .form-status {
@@ -615,13 +566,60 @@
   transform: none;
 }
 
-/* Responsive Design for Form */
+@media (max-width: 968px) {
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .jobs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .categories-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .form-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+}
+
+  .form-row label {
+    text-align: left;
+    min-width: auto;
+  }
+}
+
 @media (max-width: 768px) {
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  .values-content h2 {
+    font-size: 2rem;
+  }
+
+  .job-card {
+    padding: 1.5rem;
+  }
+
+  .category-card {
+    padding: 1.5rem;
+  }
+
   .application-form {
     padding: 2rem;
     margin: 0 1rem;
   }
-
 
   .form-header h2 {
     font-size: 2rem;
@@ -629,13 +627,21 @@
 }
 
 @media (max-width: 480px) {
-  .application-form {
-    padding: 1.5rem;
+  .job-meta {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
-  .form-group input,
-  .form-group textarea {
-    padding: 0.8rem;
+  .job-meta span {
+    text-align: center;
+  }
+
+  .locations {
+    justify-content: center;
+  }
+
+  .application-form {
+    padding: 1.5rem;
   }
 
   .submit-btn {

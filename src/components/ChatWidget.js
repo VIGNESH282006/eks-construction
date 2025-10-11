@@ -67,9 +67,6 @@ const ChatWidget = ({ whatsappNumber, emailAddress, phoneNumber }) => {
                   </a>
                 </li>
                 <li>
-                  <a href={`mailto:${emailAddress}`}>Email</a>
-                </li>
-                <li>
                   <a href={`tel:${phoneNumber}`}>Phone</a>
                 </li>
               </ul>
